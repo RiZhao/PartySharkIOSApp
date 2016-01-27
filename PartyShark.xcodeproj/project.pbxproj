@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FFA0C5F6D8ED6E94590F0AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E47DB16860D8EC79F86AB5DC /* libPods.a */; };
 		EBAFA1F31C4EECBB007E59F9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA1F21C4EECBB007E59F9 /* main.m */; };
 		EBAFA1F61C4EECBB007E59F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA1F51C4EECBB007E59F9 /* AppDelegate.m */; };
-		EBAFA1F91C4EECBB007E59F9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA1F81C4EECBB007E59F9 /* ViewController.m */; };
 		EBAFA1FC1C4EECBB007E59F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAFA1FA1C4EECBB007E59F9 /* Main.storyboard */; };
 		EBAFA1FE1C4EECBB007E59F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAFA1FD1C4EECBB007E59F9 /* Assets.xcassets */; };
 		EBAFA2011C4EECBB007E59F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAFA1FF1C4EECBB007E59F9 /* LaunchScreen.storyboard */; };
 		EBAFA20C1C4EECBB007E59F9 /* PartySharkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA20B1C4EECBB007E59F9 /* PartySharkTests.m */; };
 		EBAFA2171C4EECBB007E59F9 /* PartySharkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA2161C4EECBB007E59F9 /* PartySharkUITests.m */; };
+		EBAFA22C1C5305F5007E59F9 /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA22B1C5305F5007E59F9 /* NavigationManager.m */; };
+		EBAFA2331C530AC1007E59F9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA2321C530AC1007E59F9 /* SettingsViewController.m */; };
+		EBAFA2371C530F12007E59F9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA2361C530F12007E59F9 /* BaseViewController.m */; };
+		EBAFA23B1C53109F007E59F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA23A1C53109F007E59F9 /* MainViewController.m */; };
+		EBAFA23E1C531136007E59F9 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA23D1C531136007E59F9 /* MainMenuViewController.m */; };
+		EBAFA2421C532893007E59F9 /* ConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA2411C532893007E59F9 /* ConfigManager.m */; };
+		EBAFA2481C584AD8007E59F9 /* WalkThroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA2471C584AD8007E59F9 /* WalkThroughViewController.m */; };
+		EBAFA24B1C584BA8007E59F9 /* SystemStatics.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAFA24A1C584BA8007E59F9 /* SystemStatics.m */; };
+		EBAFA24D1C585D06007E59F9 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBAFA24C1C585D06007E59F9 /* config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25390650428D711C19ED73B3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3568ABD250035059969E3C90 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E47DB16860D8EC79F86AB5DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAFA1EE1C4EECBB007E59F9 /* PartyShark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyShark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAFA1F21C4EECBB007E59F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBAFA1F41C4EECBB007E59F9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBAFA1F51C4EECBB007E59F9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EBAFA1F71C4EECBB007E59F9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EBAFA1F81C4EECBB007E59F9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EBAFA1FB1C4EECBB007E59F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBAFA1FD1C4EECBB007E59F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBAFA2001C4EECBB007E59F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +61,24 @@
 		EBAFA2121C4EECBB007E59F9 /* PartySharkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartySharkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAFA2161C4EECBB007E59F9 /* PartySharkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartySharkUITests.m; sourceTree = "<group>"; };
 		EBAFA2181C4EECBB007E59F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBAFA22A1C5305F5007E59F9 /* NavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
+		EBAFA22B1C5305F5007E59F9 /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
+		EBAFA2311C530AC1007E59F9 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		EBAFA2321C530AC1007E59F9 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		EBAFA2351C530F12007E59F9 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		EBAFA2361C530F12007E59F9 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		EBAFA2391C53109F007E59F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EBAFA23A1C53109F007E59F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EBAFA23C1C531136007E59F9 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		EBAFA23D1C531136007E59F9 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		EBAFA2401C532893007E59F9 /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigManager.h; sourceTree = "<group>"; };
+		EBAFA2411C532893007E59F9 /* ConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigManager.m; sourceTree = "<group>"; };
+		EBAFA2441C532BA3007E59F9 /* NavigationStatics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationStatics.h; sourceTree = "<group>"; };
+		EBAFA2461C584AD8007E59F9 /* WalkThroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkThroughViewController.h; sourceTree = "<group>"; };
+		EBAFA2471C584AD8007E59F9 /* WalkThroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkThroughViewController.m; sourceTree = "<group>"; };
+		EBAFA2491C584B95007E59F9 /* SystemStatics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemStatics.h; sourceTree = "<group>"; };
+		EBAFA24A1C584BA8007E59F9 /* SystemStatics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemStatics.m; sourceTree = "<group>"; };
+		EBAFA24C1C585D06007E59F9 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FFA0C5F6D8ED6E94590F0AD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +107,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D54D55B00A4271424B30253 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25390650428D711C19ED73B3 /* Pods.debug.xcconfig */,
+				3568ABD250035059969E3C90 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E8870D84661B1FD9537C4681 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E47DB16860D8EC79F86AB5DC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBAFA1E51C4EECBB007E59F9 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +131,8 @@
 				EBAFA20A1C4EECBB007E59F9 /* PartySharkTests */,
 				EBAFA2151C4EECBB007E59F9 /* PartySharkUITests */,
 				EBAFA1EF1C4EECBB007E59F9 /* Products */,
+				1D54D55B00A4271424B30253 /* Pods */,
+				E8870D84661B1FD9537C4681 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +149,9 @@
 		EBAFA1F01C4EECBB007E59F9 /* PartyShark */ = {
 			isa = PBXGroup;
 			children = (
+				EBAFA2241C52BCD4007E59F9 /* Core */,
 				EBAFA1F41C4EECBB007E59F9 /* AppDelegate.h */,
 				EBAFA1F51C4EECBB007E59F9 /* AppDelegate.m */,
-				EBAFA1F71C4EECBB007E59F9 /* ViewController.h */,
-				EBAFA1F81C4EECBB007E59F9 /* ViewController.m */,
 				EBAFA1FA1C4EECBB007E59F9 /* Main.storyboard */,
 				EBAFA1FD1C4EECBB007E59F9 /* Assets.xcassets */,
 				EBAFA1FF1C4EECBB007E59F9 /* LaunchScreen.storyboard */,
@@ -140,6 +187,119 @@
 			path = PartySharkUITests;
 			sourceTree = "<group>";
 		};
+		EBAFA2241C52BCD4007E59F9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2271C52BCF2007E59F9 /* Presentation */,
+				EBAFA2261C52BCEC007E59F9 /* Logic */,
+				EBAFA2251C52BCDD007E59F9 /* Data */,
+				EBAFA2431C532B82007E59F9 /* Statics */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		EBAFA2251C52BCDD007E59F9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA23F1C532866007E59F9 /* Models */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		EBAFA2261C52BCEC007E59F9 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2291C52BDB0007E59F9 /* Navigation */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		EBAFA2271C52BCF2007E59F9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2451C584AB8007E59F9 /* Onboarding */,
+				EBAFA2381C530F1D007E59F9 /* Base */,
+				EBAFA2341C530E58007E59F9 /* Main */,
+				EBAFA22D1C530694007E59F9 /* Settings */,
+				EBAFA2281C52BD15007E59F9 /* Navigation */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		EBAFA2281C52BD15007E59F9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA23C1C531136007E59F9 /* MainMenuViewController.h */,
+				EBAFA23D1C531136007E59F9 /* MainMenuViewController.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		EBAFA2291C52BDB0007E59F9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA22A1C5305F5007E59F9 /* NavigationManager.h */,
+				EBAFA22B1C5305F5007E59F9 /* NavigationManager.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		EBAFA22D1C530694007E59F9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2311C530AC1007E59F9 /* SettingsViewController.h */,
+				EBAFA2321C530AC1007E59F9 /* SettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		EBAFA2341C530E58007E59F9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2391C53109F007E59F9 /* MainViewController.h */,
+				EBAFA23A1C53109F007E59F9 /* MainViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		EBAFA2381C530F1D007E59F9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2351C530F12007E59F9 /* BaseViewController.h */,
+				EBAFA2361C530F12007E59F9 /* BaseViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		EBAFA23F1C532866007E59F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2401C532893007E59F9 /* ConfigManager.h */,
+				EBAFA2411C532893007E59F9 /* ConfigManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		EBAFA2431C532B82007E59F9 /* Statics */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2441C532BA3007E59F9 /* NavigationStatics.h */,
+				EBAFA2491C584B95007E59F9 /* SystemStatics.h */,
+				EBAFA24A1C584BA8007E59F9 /* SystemStatics.m */,
+				EBAFA24C1C585D06007E59F9 /* config.plist */,
+			);
+			name = Statics;
+			sourceTree = "<group>";
+		};
+		EBAFA2451C584AB8007E59F9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFA2461C584AD8007E59F9 /* WalkThroughViewController.h */,
+				EBAFA2471C584AD8007E59F9 /* WalkThroughViewController.m */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +307,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBAFA21B1C4EECBB007E59F9 /* Build configuration list for PBXNativeTarget "PartyShark" */;
 			buildPhases = (
+				2FCA1B693F04DDD2E945FE90 /* Check Pods Manifest.lock */,
 				EBAFA1EA1C4EECBB007E59F9 /* Sources */,
 				EBAFA1EB1C4EECBB007E59F9 /* Frameworks */,
 				EBAFA1EC1C4EECBB007E59F9 /* Resources */,
+				0F20C178DF1D25C4805020BA /* Embed Pods Frameworks */,
+				79A8A32E675F650BCEC26894 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBAFA24D1C585D06007E59F9 /* config.plist in Resources */,
 				EBAFA2011C4EECBB007E59F9 /* LaunchScreen.storyboard in Resources */,
 				EBAFA1FE1C4EECBB007E59F9 /* Assets.xcassets in Resources */,
 				EBAFA1FC1C4EECBB007E59F9 /* Main.storyboard in Resources */,
@@ -265,14 +429,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F20C178DF1D25C4805020BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FCA1B693F04DDD2E945FE90 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		79A8A32E675F650BCEC26894 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EBAFA1EA1C4EECBB007E59F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBAFA1F91C4EECBB007E59F9 /* ViewController.m in Sources */,
 				EBAFA1F61C4EECBB007E59F9 /* AppDelegate.m in Sources */,
+				EBAFA23B1C53109F007E59F9 /* MainViewController.m in Sources */,
+				EBAFA2371C530F12007E59F9 /* BaseViewController.m in Sources */,
+				EBAFA2421C532893007E59F9 /* ConfigManager.m in Sources */,
+				EBAFA24B1C584BA8007E59F9 /* SystemStatics.m in Sources */,
+				EBAFA22C1C5305F5007E59F9 /* NavigationManager.m in Sources */,
 				EBAFA1F31C4EECBB007E59F9 /* main.m in Sources */,
+				EBAFA2481C584AD8007E59F9 /* WalkThroughViewController.m in Sources */,
+				EBAFA2331C530AC1007E59F9 /* SettingsViewController.m in Sources */,
+				EBAFA23E1C531136007E59F9 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +630,7 @@
 		};
 		EBAFA21C1C4EECBB007E59F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25390650428D711C19ED73B3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PartyShark/Info.plist;
@@ -422,6 +642,7 @@
 		};
 		EBAFA21D1C4EECBB007E59F9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3568ABD250035059969E3C90 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PartyShark/Info.plist;
@@ -498,6 +719,7 @@
 				EBAFA21D1C4EECBB007E59F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBAFA21E1C4EECBB007E59F9 /* Build configuration list for PBXNativeTarget "PartySharkTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +728,7 @@
 				EBAFA2201C4EECBB007E59F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBAFA2211C4EECBB007E59F9 /* Build configuration list for PBXNativeTarget "PartySharkUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +737,7 @@
 				EBAFA2231C4EECBB007E59F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
