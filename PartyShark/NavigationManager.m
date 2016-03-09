@@ -12,6 +12,7 @@
 
 #import "MainMenuViewController.h"
 #import "MainViewController.h"
+#import "SearchViewController.h"
 
 
 @interface NavigationManager ()
@@ -53,9 +54,34 @@
     [self goToMainSectionWithAnimation:YES];
 }
 
+- (void) goToSearch {
+    SearchViewController* searchVC = [[SearchViewController alloc]init];
+    [self setViewControllers:@[searchVC] animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) joinPartyAlert{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Joining Party" message:@"Please Input Party Code" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Join" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [self goToMainSection];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action){
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Enter text:";
+        textField.secureTextEntry = NO;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+    
 }
 
 

@@ -32,29 +32,69 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    // Setup left hand nav
+    
     self.window                    = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen]bounds]];
-    NavigationManager* navManager  = [NavigationManager singletonInstance];
+    self.navManager  = [NavigationManager singletonInstance];
     MainViewController* mainVC     = [[MainViewController alloc] init];
-    [navManager setViewControllers:@[mainVC]];
+    [self.navManager setViewControllers:@[mainVC]];
     
     MainMenuViewController* menuVC = [[MainMenuViewController alloc] init];
-    RESideMenu* sideMenuVC         = [[RESideMenu alloc] initWithContentViewController:navManager
+    self.sideMenuVC         = [[RESideMenu alloc] initWithContentViewController:self.navManager
                                                                 leftMenuViewController:menuVC
                                                                rightMenuViewController:nil];
     // Customize menu
-    sideMenuVC.panGestureEnabled        = NO;
-    sideMenuVC.scaleBackgroundImageView = NO;
-    sideMenuVC.scaleMenuView            = NO;
-    sideMenuVC.contentViewShadowEnabled = YES;
+    self.sideMenuVC.panGestureEnabled        = NO;
+    self.sideMenuVC.scaleBackgroundImageView = NO;
+    self.sideMenuVC.scaleMenuView            = NO;
+    self.sideMenuVC.contentViewShadowEnabled = YES;
     //sideMenuVC.backgroundImage          = [UIImage imageNamed:@"background"];
     
     
-    self.window.rootViewController = sideMenuVC;
+    
+    //Tutorial Screen setup
+    
+    ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithTitle:@"Picture 1"
+                                                            subTitle:@"1"
+                                                         pictureName:@"tutorial_background_00@2x.jpg"
+                                                            duration:3.0];
+    ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithTitle:@"Picture 2"
+                                                            subTitle:@"2"
+                                                         pictureName:@"tutorial_background_01@2x.jpg"
+                                                            duration:3.0];
+    ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithTitle:@"Picture 3"
+                                                            subTitle:@"3"
+                                                         pictureName:@"tutorial_background_02@2x.jpg"
+                                                            duration:3.0];
+    ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithTitle:@"Picture 4"
+                                                            subTitle:@"4"
+                                                         pictureName:@"tutorial_background_03@2x.jpg"
+                                                            duration:3.0];
+    ICETutorialPage *layer5 = [[ICETutorialPage alloc] initWithTitle:@"Picture 5"
+                                                            subTitle:@"5"
+                                                         pictureName:@"tutorial_background_04@2x.jpg"
+                                                            duration:3.0];
+    NSArray *tutorialLayers = @[layer1,layer2,layer3,layer4,layer5];
     
     
-
-    [navManager goToMainSection];
+    ICETutorialLabelStyle *titleStyle = [[ICETutorialLabelStyle alloc] init];
+    [titleStyle setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17.0f]];
+    [titleStyle setTextColor:[UIColor whiteColor]];
+    [titleStyle setLinesNumber:1];
+    [titleStyle setOffset:180];
+    [[ICETutorialStyle sharedInstance] setTitleStyle:titleStyle];
+    
+    // Set the subTitles style with few properties and let the others by default.
+    [[ICETutorialStyle sharedInstance] setSubTitleColor:[UIColor whiteColor]];
+    [[ICETutorialStyle sharedInstance] setSubTitleOffset:150];
+    
+    // Init tutorial.
+    self.viewController = [[ICETutorialController alloc] initWithPages:tutorialLayers
+                                                              delegate:self];
+    
+    // Run it.
+    //[self.viewController startScrolling];
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
 
     
     //customize navbarcontroller
@@ -71,6 +111,43 @@
     
     
     return true;
+}
+
+#pragma mark - ICETutorialController delegate
+- (void)tutorialController:(ICETutorialController *)tutorialController scrollingFromPageIndex:(NSUInteger)fromIndex toPageIndex:(NSUInteger)toIndex {
+    //NSLog(@"Scrolling from page %lu to page %lu.", (unsigned long)fromIndex, (unsigned long)toIndex);
+}
+
+- (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController {
+    //NSLog(@"Tutorial reached the last page.");
+}
+
+- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnLeftButton:(UIButton *)sender {
+
+}
+
+- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender {
+    // Setup left hand nav
+    
+    
+    //self.window.rootViewController = self.sideMenuVC;
+    //[self.navManager goToMainSection];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Joining Party" message:@"Please Input Party Code" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Join" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        self.window.rootViewController = self.sideMenuVC;
+        [self.navManager goToMainSection];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action){
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Enter text:";
+        textField.secureTextEntry = NO;
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+    }];
+    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -95,85 +172,9 @@
     [self saveContext];
 }
 
+
 #pragma mark - Core Data stack
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. 
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-- (NSManagedObjectModel *)managedObjectModel {
-    // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"projectMustang_ios" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it.
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    // Create the coordinator and store
-    
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"projectMustang_ios.sqlite"];
-    NSError *error = nil;
-    NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        // Report any error we got.
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
-        dict[NSLocalizedFailureReasonErrorKey] = failureReason;
-        dict[NSUnderlyingErrorKey] = error;
-        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
-        // Replace this with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _persistentStoreCoordinator;
-}
-
-
-- (NSManagedObjectContext *)managedObjectContext {
-    // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (!coordinator) {
-        return nil;
-    }
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    return _managedObjectContext;
-}
-
-#pragma mark - Core Data Saving support
-
-- (void)saveContext {
-    
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        NSError *error = nil;
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-    }
-}
 
 @end

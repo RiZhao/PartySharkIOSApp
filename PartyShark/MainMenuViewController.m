@@ -73,6 +73,9 @@ CGFloat const kLeftNavHeight = 340.0f;
         case kMainSection:
             [navManager goToMainSection];
             break;
+        case kSearchSection:
+            [navManager goToSearch];
+            break;
         case kSettingsSection:
             [navManager goToSettings];
             break;
@@ -85,7 +88,7 @@ CGFloat const kLeftNavHeight = 340.0f;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return 50;
 }
 
 #pragma mark - TableViewDataDelegate methods
@@ -93,6 +96,9 @@ CGFloat const kLeftNavHeight = 340.0f;
     
     return self.menuItems.count;
 }
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString* cellIdentifier = @"MenuItemCell";
@@ -111,6 +117,7 @@ CGFloat const kLeftNavHeight = 340.0f;
     
     return cell;
 }
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -18,5 +18,8 @@
 
 /*Menu Items*/
 - (void) goToMainSection;
+- (void) goToSearch;
 - (void) goToMainSectionWithAnimation:(BOOL)animated;
+
+- (void) joinPartyAlert;
 @end

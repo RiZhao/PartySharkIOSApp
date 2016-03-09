@@ -7,9 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "MGSwipeTableCell.h"
+#include "MGSwipeButton.h"
 #import "BaseViewController.h"
+#import "CurrentSongTableViewCell.h"    
+#import "playlistTableViewCell.h"
 
-@interface MainViewController : BaseViewController
+@interface MainViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) UITableView *currentSongView;
+@property (strong, nonatomic) UITableView *playlistView;
+
+@property (strong, nonatomic)   NSArray *indexArray;
+@property (nonatomic)           int             rowCount;
+
+@property(strong, nonatomic) NSArray *titles;
+
+@property(strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end

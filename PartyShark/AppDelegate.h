@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "WalkthroughViewController.h"
+#import "ICETutorialController.h"
+#import "NavigationManager.h"
+#import <RESideMenu/RESideMenu.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ICETutorialControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) UIWindow *onboardingWindow;
+@property (strong, nonatomic) ICETutorialController *viewController;
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (strong, nonatomic) NavigationManager *navManager;
+@property (strong, nonatomic) RESideMenu *sideMenuVC;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

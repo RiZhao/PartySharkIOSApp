@@ -10,5 +10,7 @@
 
 typedef NS_ENUM(NSUInteger, TCMenuSections){
     kMainSection,
-    kSettingsSection
+    kSearchSection,
+    kSettingsSection,
+    kLeavePartySection
 };
