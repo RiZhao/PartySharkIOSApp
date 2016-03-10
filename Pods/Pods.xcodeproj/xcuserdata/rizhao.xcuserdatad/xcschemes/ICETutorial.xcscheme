@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CF4A5D4BBB36DE42AB351A52'
+               BlueprintIdentifier = 'C1435046CE0F8E6EC8467C74'
                BlueprintName = 'ICETutorial'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libICETutorial.a'>

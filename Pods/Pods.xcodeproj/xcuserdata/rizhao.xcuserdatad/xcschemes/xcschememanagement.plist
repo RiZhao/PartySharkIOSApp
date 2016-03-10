@@ -34,20 +34,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>STHTTPRequest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06AD84A41AD97E9077B311CFB4482133</key>
+		<key>0D620B26713E52010F04073DAD840BDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AF12AFE4D469B8B7D415DA0F179DCF8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3389508B3485A67EC0639F7ADEEFC19D</key>
+		<key>0F76C007E501AC8A3D528DB562774E28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4BF5112A7CDDB83D37CAA5698008862</key>
+		<key>C22C3091EDD30682907B2016917DD641</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C453B6E6756702BCA63FC02A9A291766</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6D60EF784B38C11B4EAFCC69EFA7F08</key>
 		<dict>
 			<key>primary</key>
 			<true/>

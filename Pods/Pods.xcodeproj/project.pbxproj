@@ -7,208 +7,241 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0114AB81F5678990A711B0D732BE6816 /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3493A9CDAA1ECE1025974B3B1DAFB23F /* SCLAlertViewResponder.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		16DBA37DF56204AF3E2C3FF56D32585A /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D09186915A2E0BE298B000221FD9FC86 /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1844CE4572DE4872244CCFB508E98A43 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 28836A6C8400F6066318E04B8F6185F1 /* MGSwipeButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		186D554ADC432D94B980E45C556FCD80 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = D563DCBB96AF5525C7685026CB30D007 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		003207964A2A2BE6C16760B792DED013 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 10006315D5DF7F1C7544F417B6593FF4 /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		01F9C6DB539751B7618140676BEA1A73 /* SCLAlertView-Objective-C-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E74B445994F80619697C66568F9180A3 /* SCLAlertView-Objective-C-dummy.m */; };
+		02C23F1A3FA7988A625804D2F2DCB2DA /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C096D8F1CAF0839E12299BA44E42998 /* SCLAlertView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		03DF1FB486329FA8932A54ED2206F36A /* SCLAlertViewResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1217075A64BD4C4C20EB0AAE452D75A2 /* SCLAlertViewResponder.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0F7A7FC42F534557D3AD204C2319CCA9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D060B9A2ECD661490D30C20C6C49EF /* AudioToolbox.framework */; };
+		100BF4C94526882D120F683FB3D0F59B /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A9D5B3E5BB7CD1EE6C892A3BA5EB42 /* SCLButton.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		106F9E90FF4502580B5BD8AF12EAFD20 /* SCLAlertViewStyleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B99C035A90278DABB178C1D8E08E4074 /* SCLAlertViewStyleKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1844CE4572DE4872244CCFB508E98A43 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DE11EBB19469C1941FFCBF1DE77DB3EA /* MGSwipeButton.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1B12F9AA265A55C4C29144610D583874 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B09FC187256BFDA6E7704F5AF23560C /* Accelerate.framework */; };
+		1C70A8EAF04A5862A6C8E0EED635414D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
 		1C81BE8B865BB7306B158302F028551E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7AB3243D5F009FA44C2F643C4887DD /* UIKit.framework */; };
-		2C1F1268008253BF385DC1C834466CD4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B09FC187256BFDA6E7704F5AF23560C /* Accelerate.framework */; };
-		2DBAE9B1185F19E1D43378615BA6DE5A /* SCLAlertView-Objective-C-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB2749BA030A59B1ED78CBED8BB852F /* SCLAlertView-Objective-C-dummy.m */; };
-		2DCBE4DF7E3DAC8C7705D8FF48D0DF9F /* SCLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C7F5304A7FE82FA1E9AE43ECD7D99D /* SCLTextView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3889A94B6E253D16E1340E4F85D57A8F /* SCLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D0AC5368E1E620DB58649C15B648D7C /* SCLMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40169C8E1EA9EF9B70BACB9AB72416C6 /* SCLAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 12B9D3DFFB30E8122C4B33D240FD17BE /* SCLAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		476B9A9F678ACCD18EB39EEFC78FB21F /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFCA4F30D0A687375A9B84360FE03E /* SCLAlertViewStyleKit.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4C4A34CC17542EAE3EEB9C3F00A3B3B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6A8EEFCA14E11EDADE8A214B56AF0F /* CoreGraphics.framework */; };
-		4D946AA912F1033D53E1C717EF87F4B0 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E885D8F4C8F3D58725392608BADD9A /* RECommonFunctions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4FA40B41AA3BC12E0552C75A3D1A85ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
-		55224536216F9B37C2077C80A5F33929 /* SBSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BBA84E9BAF9876202281BA4D7601D1 /* SBSearchBar.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		561261356C772E11CD1885E9E3F5FDC5 /* SCLAlertViewResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CFB8D6DBB9571F85B07D8EAD3B11518 /* SCLAlertViewResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56D4C2F118E668246E84C599901276DD /* SCLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9D7CC85FEFCB0CE13A4BC4447AD7F9 /* SCLButton.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5BCAD1B6D8FEC2B9683E940DE3C44BD6 /* RESideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 899EC44F09C333026EE4E911ACF08D22 /* RESideMenu-dummy.m */; };
-		5DB810C536FB34DF0F78A30DD7C7946E /* SBSearchBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BC53B0EAE64525EAEC65AFC55F06E3 /* SBSearchBar-dummy.m */; };
-		6B7378EFC0008A72748DEE769D155A27 /* ICETutorialPage.h in Headers */ = {isa = PBXBuildFile; fileRef = BB0E6507293CDB9D85A271F544BF8ECB /* ICETutorialPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B7E506B492ACF5CE4D54A545DF56073 /* SCLButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A4A712403C24CF84454254CA42C3CB0 /* SCLButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C6F002C4ACEDC5BF1FCCEAE4E47A48D /* MGSwipeTableCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C335F980E200DC53794F953D075F659C /* MGSwipeTableCell-dummy.m */; };
-		6CAF705E2923410D7A5754DE5777EDBF /* ICETutorial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0743FB9BBE6E1A74AF3EEEA8512111D9 /* ICETutorial-dummy.m */; };
-		7048A9A0B284B0BFA1C5310B757B8B50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
-		7063AE58E63231A494ED73148274DEBF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F262859ACD202C3A90E6D9685B26D80 /* QuartzCore.framework */; };
-		723C22F8FF229E1E89F9EEF9EDE2CC95 /* SCLSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A658BEF28EE93F1D761607922FF2FA /* SCLSwitchView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1F429B0DA3FCD8AC7B96811E34B0DB52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
+		3B8D0449372D37B9C4A53C13D23A4ECB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
+		4256D40A2955A113E3EFBAD37B9BF853 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6A8EEFCA14E11EDADE8A214B56AF0F /* CoreGraphics.framework */; };
+		451A261EB74FCD35F15A8D68E3F0D73B /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF486946BFD7C3F5C2CE23C37010A6 /* SCLTimerDisplay.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4744CBCD12279DA8A2A19C2D71F0BC61 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
+		4A68D3E83E86D2FCBC576E6FC5A46E39 /* STHTTPRequest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 405711CAB41CEC232444103D1222BB06 /* STHTTPRequest-dummy.m */; };
+		533A6EFBA7F86CBC90E9E002947AED9B /* SCLSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFBF46FABAD9AECFD907CFB67C10E9 /* SCLSwitchView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5ACFDDCD309AA2CE0CC4182C4AC4FCF4 /* SCLTimerDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA99956E58D223B422EA7CDA67D3782 /* SCLTimerDisplay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		624B949E8F92E50552445D67D3A9DC29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F262859ACD202C3A90E6D9685B26D80 /* QuartzCore.framework */; };
+		6777955B9EF9DA0CFF07F4602005FCAD /* RESideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E63DB8B526E12387B28CE8DD843CCDD /* RESideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B7378EFC0008A72748DEE769D155A27 /* ICETutorialPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C0B875CB030768483C5ED46E4BC1D5E /* ICETutorialPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C6F002C4ACEDC5BF1FCCEAE4E47A48D /* MGSwipeTableCell-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 371C3219A25EF018C02E0257671150F4 /* MGSwipeTableCell-dummy.m */; };
+		6CAF705E2923410D7A5754DE5777EDBF /* ICETutorial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD77FB2AF48DE45EA2CF1FC01DE58A8 /* ICETutorial-dummy.m */; };
+		6D292577B48BE91650156694C2F6EAC5 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F35A799C1686A4AE69DB2AB3DA2735ED /* UIViewController+RESideMenu.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7004FC9DC4CFB70E12FEC5606E8F30D0 /* SBSearchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5DCBC7536D6FBD13C2F057566207E0 /* SBSearchBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7493C72CF44FFB321675790ADB9C2593 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
-		7C7B80B458DBC3159D639733F8F6CCC1 /* ICETutorialStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 415C9130C11FFE9E4B7878D353691501 /* ICETutorialStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86A0F81337FDD4C17CF8AEB46A838C99 /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = E9EFC4B264FB0C321F1EB1F5C6724B89 /* SCLTimerDisplay.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8CB83BE558443AF45EE91F2CE0AE2EA8 /* SCLTimerDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 320ADBD6AEFCE6A124D95DE7AF5BF52E /* SCLTimerDisplay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9893636ADC3D131A23A8DF13154BF356 /* SCLSwitchView.h in Headers */ = {isa = PBXBuildFile; fileRef = B10ABD5B033E3B3DBDA5F23009161D51 /* SCLSwitchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B0D7A48730BC521D58CC3A52A7BC8D6 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 662BF780BB1EC2E1C36248F4EE26B321 /* SCLAlertView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9C591574031C5736D5717DAE572FC359 /* MGSwipeButton.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1B538A6E75B719A301D54133AD38F0 /* MGSwipeButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A437B8FBAB42D065FFD7BC5E88B66695 /* UIViewController+RESideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 71A4F1328D3367638FD44D228F33E2E9 /* UIViewController+RESideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A59BDD936456DB1536705921E2A6433D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
+		7C7B80B458DBC3159D639733F8F6CCC1 /* ICETutorialStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FD263B5C57ADB89B04C2DC1DBA71DC /* ICETutorialStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E61EB5AE47899180A7B698E63DF9D66 /* RESideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76907A5983EBDC06ADE2E773C4D2355C /* RESideMenu-dummy.m */; };
+		7F4FDF498AE825BB3F239627CFE06C75 /* SCLAlertViewStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B325366E045D0DB3280D394568F1E20C /* SCLAlertViewStyleKit.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7FEE2E9AE25E231F50EA0E35F24316BA /* SBSearchBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F5CE6A386986C40DC810FEB9A74D0 /* SBSearchBar-dummy.m */; };
+		8D238C1DCD88E616867F57AFC068E3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
+		8DB65556BF74DCE727DD25C4533F1891 /* RECommonFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = CF19FE638BFFCB279746A5F59569D555 /* RECommonFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9215A34F6AA935ACBB2462F849AF7B25 /* SCLSwitchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA6EA18FF9134076D11FA403BB7A4E2 /* SCLSwitchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97290C7EBA19C4EE547BD61D3402104B /* SCLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E41BE5304082C47A4EF963A4CAF3187C /* SCLTextView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9C591574031C5736D5717DAE572FC359 /* MGSwipeButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 080D9B7E732A43781014F95C8753AE3B /* MGSwipeButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CFBE6CE8DD6157F16ADEB5EAAC669F6 /* SCLButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 85CC4A1C0881BF52F5A987A328B7A374 /* SCLButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DD32653EC485895FBDC9D3C2AD040EC /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F12981A06DB7032456C7C13049273C2E /* RECommonFunctions.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A326E85226A1F08E9E5B28B8E3457996 /* SCLAlertViewResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 282B642138539119773F0A69D58FD5DD /* SCLAlertViewResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A74B61E9D8752F79F8B678606CD4C047 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6A8EEFCA14E11EDADE8A214B56AF0F /* CoreGraphics.framework */; };
-		B4B8E9DE4078C8AF49AE967C67794528 /* ICETutorialController.h in Headers */ = {isa = PBXBuildFile; fileRef = 70FCB6CE7124B035209BB001BEA40995 /* ICETutorialController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B5D2FDD58CBE46DFFD577F02DFCF78A0 /* RECommonFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 686BEE63BF39E52B792C61A577DE31BC /* RECommonFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B94C3F39C6F879AB8695E3BA21D29DEF /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 492D6F3E75E3BACDA75923F126F0284B /* RESideMenu.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BB9E10AAF00198FA2D4DCC1DDB4EB323 /* SBSearchBar.h in Headers */ = {isa = PBXBuildFile; fileRef = ED712A01E1F9E6634CB9E79E78C8E35C /* SBSearchBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C96AE12106CBBB3FEA4D0751D73639C3 /* SCLAlertViewStyleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B7F7F8D192E7B33E69855040CB1DDB19 /* SCLAlertViewStyleKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD408CDB99C6427E760EBE0DE65FDB78 /* SBSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C1BD67F9C553FD56D3DEA837D84285 /* SBSearchBar.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AF1E064E3AE4D1475A2688DA5834752B /* SCLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 05AF2ABE4FCD8FC12A477F49FC589C6B /* SCLMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4B8E9DE4078C8AF49AE967C67794528 /* ICETutorialController.h in Headers */ = {isa = PBXBuildFile; fileRef = D631848B5992BF64739360E7AC5C2614 /* ICETutorialController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC5C1741A48BCE4D86409D43709BA533 /* UIViewController+RESideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF7BEA6805D2C7A87385C2580AE25FB /* UIViewController+RESideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD2B08529C902A7EC34291A34B544A07 /* SCLAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = EE6D836F30B3B214C6A189F1B3DCA39E /* SCLAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C32E33D91F8B34CF2DC547C7F1B83D5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
+		C46D6B4752EBAAAD992423DF6A7F52E8 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DCE37F5D425098726C53B708FD3DA95 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C9CEAE69E8B37765781A29DFC0D69978 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
-		CABDE73D64419BDC13738DB959606DAC /* ICETutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 766745CC4E71CA3AA1040F41453548DC /* ICETutorialPage.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CFE557E5D4945FFFC747CA9C6F07B74D /* MGSwipeTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AA4EAA0335B938A29A2395DAEA60863 /* MGSwipeTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D6A2D69923F815A523A0600F873CF48B /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB411128C17F578E4573EFA0ADB3BED /* UIViewController+RESideMenu.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DB4AB8E0C7B93A3A25492A703C423690 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		DD2BAECF681C4B1EC2F5189586CDD2E2 /* ICETutorialStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CC50239D395C94BCACBA24FEFF2A5D /* ICETutorialStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DEC581B15970DDEDD4449721DCD0D5CB /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA77A220DBB53E1B72DB572B9ACCFF /* MGSwipeTableCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DFB6624A2CFB7AE78FDE081EA0F05828 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */; };
-		E95BBFE71ACB5DE64F236D9D988F8590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7AB3243D5F009FA44C2F643C4887DD /* UIKit.framework */; };
-		E9826B1248FB937858B2F4C2BB364884 /* SCLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = B01E865F0241DB189AABF55F6C5C7E70 /* SCLTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EBEC17489DA91CEDD43065426367FE9D /* RESideMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CA5F7BA96A8D3AFD1ECA1C0F5A6B080 /* RESideMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F54BDD4EB70BE3DA89668291C2DB92D4 /* ICETutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7555C0365D4B1690E8C82FA69883F /* ICETutorialController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FF17DB48A4FC845F1D8DF3B6F343DB7E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D060B9A2ECD661490D30C20C6C49EF /* AudioToolbox.framework */; };
+		CABDE73D64419BDC13738DB959606DAC /* ICETutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A170310078FAFAB2A3C672B3A5C3D75 /* ICETutorialPage.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CB0171F3F54983B603AE62543807642F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7AB3243D5F009FA44C2F643C4887DD /* UIKit.framework */; };
+		CC4D3E4710C16F9FD358FC4F66336FFC /* STHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C39E779894B00DE3B7A262C789CDDCD1 /* STHTTPRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCB864D7098BEE38B9614644422E5B11 /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41662DE660F3091BEC91BE385E7CCCDC /* STHTTPRequest.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CFC6E1432E1A2D00485E47AC67139C4A /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0383AEDCA3D40AA4ADBE1FD04A0A6CA0 /* RESideMenu.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CFE557E5D4945FFFC747CA9C6F07B74D /* MGSwipeTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3923B20CA7E0CE67AA252E68659C4068 /* MGSwipeTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD2BAECF681C4B1EC2F5189586CDD2E2 /* ICETutorialStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7432D88A73A951364F0B9C31746F9A /* ICETutorialStyle.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DEC581B15970DDEDD4449721DCD0D5CB /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D54C5C362F8DB3ECAA37315059E7495A /* MGSwipeTableCell.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F54BDD4EB70BE3DA89668291C2DB92D4 /* ICETutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86568F648A11BD4342AE58309BA489AE /* ICETutorialController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FE2E72879D1377BE4A7ED9059EE308D9 /* SCLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FDCBD36FC67C4E587AFF8846568D916 /* SCLTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		100F173FF6E454437DE2578B0FCE6A9E /* PBXContainerItemProxy */ = {
+		1F01DEF803E614A329959CB13166832C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8C463CD491D989B457394A7AA95384BC;
-			remoteInfo = MGSwipeTableCell;
+			remoteGlobalIDString = C453B6E6756702BCA63FC02A9A291766;
+			remoteInfo = RESideMenu;
 		};
-		495434A4EBCFCAEF7B9444CA0541E113 /* PBXContainerItemProxy */ = {
+		2567D4FC09332DFCEA11429DAFEF4E10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 06AD84A41AD97E9077B311CFB4482133;
+			remoteGlobalIDString = C22C3091EDD30682907B2016917DD641;
 			remoteInfo = SBSearchBar;
 		};
-		CBFE89C7CF05C4C9AE5EA08CAB574ED9 /* PBXContainerItemProxy */ = {
+		5AB0369B47F934F3F14E9536739DC1A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3389508B3485A67EC0639F7ADEEFC19D;
+			remoteGlobalIDString = C6D60EF784B38C11B4EAFCC69EFA7F08;
+			remoteInfo = STHTTPRequest;
+		};
+		7195682A537F6AA0B78E2CBED2B89F98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F76C007E501AC8A3D528DB562774E28;
 			remoteInfo = "SCLAlertView-Objective-C";
 		};
-		CF37B28654B6DD966B0250811672928F /* PBXContainerItemProxy */ = {
+		7FAEB8119D9F51BADC909DEAFD08DD6F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3FC27EB5B4EFD2AA7BA120D2661686D1;
 			remoteInfo = ICETutorial;
 		};
-		F3D75A85318F3A5E5BF1B50FB44D99F3 /* PBXContainerItemProxy */ = {
+		A63B72B38BD362AD966C1D12CC8173BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C4BF5112A7CDDB83D37CAA5698008862;
-			remoteInfo = RESideMenu;
+			remoteGlobalIDString = 8C463CD491D989B457394A7AA95384BC;
+			remoteInfo = MGSwipeTableCell;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0084263455BFE5A54E5BC7475C791DF7 /* RESideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RESideMenu-prefix.pch"; sourceTree = "<group>"; };
-		06CC50239D395C94BCACBA24FEFF2A5D /* ICETutorialStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICETutorialStyle.m; path = ICETutorial/Libraries/ICETutorialStyle.m; sourceTree = "<group>"; };
-		0743FB9BBE6E1A74AF3EEEA8512111D9 /* ICETutorial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ICETutorial-dummy.m"; sourceTree = "<group>"; };
+		0383AEDCA3D40AA4ADBE1FD04A0A6CA0 /* RESideMenu.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = RESideMenu/RESideMenu.m; sourceTree = "<group>"; };
+		05AF2ABE4FCD8FC12A477F49FC589C6B /* SCLMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLMacros.h; path = SCLAlertView/SCLMacros.h; sourceTree = "<group>"; };
+		080D9B7E732A43781014F95C8753AE3B /* MGSwipeButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGSwipeButton.h; path = MGSwipeTableCell/MGSwipeButton.h; sourceTree = "<group>"; };
+		10006315D5DF7F1C7544F417B6593FF4 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "SCLAlertView/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		12B9D3DFFB30E8122C4B33D240FD17BE /* SCLAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertView.h; path = SCLAlertView/SCLAlertView.h; sourceTree = "<group>"; };
-		12BFCA4F30D0A687375A9B84360FE03E /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewStyleKit.m; path = SCLAlertView/SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
-		13D763C6E2DDB21A66171E8299476EAA /* ICETutorial.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ICETutorial.xcconfig; sourceTree = "<group>"; };
-		14A7555C0365D4B1690E8C82FA69883F /* ICETutorialController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICETutorialController.m; path = ICETutorial/Libraries/ICETutorialController.m; sourceTree = "<group>"; };
-		160FDBF563FFC1947B335A4045A91DD9 /* Default.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		17C7F5304A7FE82FA1E9AE43ECD7D99D /* SCLTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTextView.m; path = SCLAlertView/SCLTextView.m; sourceTree = "<group>"; };
-		203D1A31A78AEEFF3EBD9514E976AAFD /* SCLAlertView-Objective-C-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-Objective-C-prefix.pch"; sourceTree = "<group>"; };
+		1217075A64BD4C4C20EB0AAE452D75A2 /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewResponder.m; path = SCLAlertView/SCLAlertViewResponder.m; sourceTree = "<group>"; };
+		1B7432D88A73A951364F0B9C31746F9A /* ICETutorialStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICETutorialStyle.m; path = ICETutorial/Libraries/ICETutorialStyle.m; sourceTree = "<group>"; };
+		1FBEEA0E1D9C83E2BA5E46B81F379FFD /* RESideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RESideMenu-prefix.pch"; sourceTree = "<group>"; };
+		22A9D5B3E5BB7CD1EE6C892A3BA5EB42 /* SCLButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLButton.m; path = SCLAlertView/SCLButton.m; sourceTree = "<group>"; };
+		2407A9C292F4CB73E23AAA4AA681475F /* SBSearchBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SBSearchBar.xcconfig; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		28836A6C8400F6066318E04B8F6185F1 /* MGSwipeButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGSwipeButton.m; path = MGSwipeTableCell/MGSwipeButton.m; sourceTree = "<group>"; };
-		28BC53B0EAE64525EAEC65AFC55F06E3 /* SBSearchBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SBSearchBar-dummy.m"; sourceTree = "<group>"; };
-		2D4BE77972621B8D7282F5AD57936B5F /* libSBSearchBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSBSearchBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EB2749BA030A59B1ED78CBED8BB852F /* SCLAlertView-Objective-C-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-Objective-C-dummy.m"; sourceTree = "<group>"; };
-		320ADBD6AEFCE6A124D95DE7AF5BF52E /* SCLTimerDisplay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTimerDisplay.h; path = SCLAlertView/SCLTimerDisplay.h; sourceTree = "<group>"; };
-		3493A9CDAA1ECE1025974B3B1DAFB23F /* SCLAlertViewResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewResponder.m; path = SCLAlertView/SCLAlertViewResponder.m; sourceTree = "<group>"; };
-		3631A63C1FFA626469B65DC69D08AC6F /* libMGSwipeTableCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGSwipeTableCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		368376AF68446BFB7C828355AA8C2757 /* background-gradient.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "background-gradient.png"; path = "Resources/background-gradient.png"; sourceTree = "<group>"; };
+		282B642138539119773F0A69D58FD5DD /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewResponder.h; path = SCLAlertView/SCLAlertViewResponder.h; sourceTree = "<group>"; };
+		2FA8037729F9DCE0EA1DD67136A3D389 /* RESideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RESideMenu.xcconfig; sourceTree = "<group>"; };
+		31FD263B5C57ADB89B04C2DC1DBA71DC /* ICETutorialStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICETutorialStyle.h; path = ICETutorial/Libraries/ICETutorialStyle.h; sourceTree = "<group>"; };
+		371C3219A25EF018C02E0257671150F4 /* MGSwipeTableCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MGSwipeTableCell-dummy.m"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		415C9130C11FFE9E4B7878D353691501 /* ICETutorialStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICETutorialStyle.h; path = ICETutorial/Libraries/ICETutorialStyle.h; sourceTree = "<group>"; };
-		41C8818ECAB80A232E41199C133C45FC /* ICETutorial-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ICETutorial-prefix.pch"; sourceTree = "<group>"; };
-		492D6F3E75E3BACDA75923F126F0284B /* RESideMenu.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = RESideMenu/RESideMenu.m; sourceTree = "<group>"; };
-		4CA5F7BA96A8D3AFD1ECA1C0F5A6B080 /* RESideMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RESideMenu.h; path = RESideMenu/RESideMenu.h; sourceTree = "<group>"; };
+		3923B20CA7E0CE67AA252E68659C4068 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGSwipeTableCell.h; path = MGSwipeTableCell/MGSwipeTableCell.h; sourceTree = "<group>"; };
+		3BDF486946BFD7C3F5C2CE23C37010A6 /* SCLTimerDisplay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTimerDisplay.m; path = SCLAlertView/SCLTimerDisplay.m; sourceTree = "<group>"; };
+		3C0B875CB030768483C5ED46E4BC1D5E /* ICETutorialPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICETutorialPage.h; path = ICETutorial/Libraries/ICETutorialPage.h; sourceTree = "<group>"; };
+		3CFDB6E23C5CA6B7798DDABA91656AA9 /* libMGSwipeTableCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGSwipeTableCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D4A9BFFDFDAF7D6E819FB9D1CE12E44 /* Default.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
+		3DCE37F5D425098726C53B708FD3DA95 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "SCLAlertView/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		40530F7136C6C36789D6400D97C64695 /* Default@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		405711CAB41CEC232444103D1222BB06 /* STHTTPRequest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STHTTPRequest-dummy.m"; sourceTree = "<group>"; };
+		41662DE660F3091BEC91BE385E7CCCDC /* STHTTPRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
+		4C096D8F1CAF0839E12299BA44E42998 /* SCLAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertView.m; path = SCLAlertView/SCLAlertView.m; sourceTree = "<group>"; };
+		4DC44C7E5CFA070C71622041B105455A /* SBSearchBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SBSearchBar-prefix.pch"; sourceTree = "<group>"; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		5AEBE8B5C1B7D88C0D9B5D0A7046EBBF /* MGSwipeTableCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MGSwipeTableCell.xcconfig; sourceTree = "<group>"; };
-		5E92822DA183624DD887A67264396E7D /* MGSwipeTableCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MGSwipeTableCell-prefix.pch"; sourceTree = "<group>"; };
-		662BF780BB1EC2E1C36248F4EE26B321 /* SCLAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertView.m; path = SCLAlertView/SCLAlertView.m; sourceTree = "<group>"; };
-		686BEE63BF39E52B792C61A577DE31BC /* RECommonFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RECommonFunctions.h; path = RESideMenu/RECommonFunctions.h; sourceTree = "<group>"; };
+		4EDFBF46FABAD9AECFD907CFB67C10E9 /* SCLSwitchView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLSwitchView.m; path = SCLAlertView/SCLSwitchView.m; sourceTree = "<group>"; };
+		4FDCBD36FC67C4E587AFF8846568D916 /* SCLTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTextView.h; path = SCLAlertView/SCLTextView.h; sourceTree = "<group>"; };
+		562F16E439E5BAB381860A5693F937A2 /* MGSwipeTableCell.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MGSwipeTableCell.xcconfig; sourceTree = "<group>"; };
+		5E63DB8B526E12387B28CE8DD843CCDD /* RESideMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RESideMenu.h; path = RESideMenu/RESideMenu.h; sourceTree = "<group>"; };
+		64F67D69BF584557D49FA5A8E3FD4C01 /* libRESideMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRESideMenu.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		662FF4F0D6630C08F2D2AAC48963B12C /* background-gradient@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "background-gradient@2x.png"; path = "Resources/background-gradient@2x.png"; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		69DC43F9F37C936F10E7BB6413ABAD3C /* button-background.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "button-background.png"; path = "Resources/button-background.png"; sourceTree = "<group>"; };
-		6B54531D0C6D2ADF47A45A9FB2A4B540 /* SBSearchBar.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SBSearchBar.xib; path = SBSearchBar/Resources/SBSearchBar.xib; sourceTree = "<group>"; };
-		6C4B0A03BB24851870765640A46170FC /* SBSearchBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SBSearchBar.xcconfig; sourceTree = "<group>"; };
-		70FCB6CE7124B035209BB001BEA40995 /* ICETutorialController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICETutorialController.h; path = ICETutorial/Libraries/ICETutorialController.h; sourceTree = "<group>"; };
-		71A4F1328D3367638FD44D228F33E2E9 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "RESideMenu/UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
-		73AA77A220DBB53E1B72DB572B9ACCFF /* MGSwipeTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGSwipeTableCell.m; path = MGSwipeTableCell/MGSwipeTableCell.m; sourceTree = "<group>"; };
-		7415B390C1F8BEFB278D3A3D5BF1DDAE /* SCLAlertView-Objective-C.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SCLAlertView-Objective-C.xcconfig"; sourceTree = "<group>"; };
-		766745CC4E71CA3AA1040F41453548DC /* ICETutorialPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICETutorialPage.m; path = ICETutorial/Libraries/ICETutorialPage.m; sourceTree = "<group>"; };
-		7738914346AD51C1D5018BBDAF897A8F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		76907A5983EBDC06ADE2E773C4D2355C /* RESideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RESideMenu-dummy.m"; sourceTree = "<group>"; };
 		7A6A8EEFCA14E11EDADE8A214B56AF0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		7B09FC187256BFDA6E7704F5AF23560C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		7D8C759309A61607B919C39AE49E1FBB /* libSCLAlertView-Objective-C.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSCLAlertView-Objective-C.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BBAE5E092799B4AE97C226832D90313 /* button-background.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "button-background.png"; path = "Resources/button-background.png"; sourceTree = "<group>"; };
+		7C738331FFEE2F3F7A1EA22FD640C3BA /* Default-568h@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		7CC64695B24E8B744F948BB0B893C767 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F262859ACD202C3A90E6D9685B26D80 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		899EC44F09C333026EE4E911ACF08D22 /* RESideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RESideMenu-dummy.m"; sourceTree = "<group>"; };
-		8AB411128C17F578E4573EFA0ADB3BED /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "RESideMenu/UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
-		8B17D9DABC67CC94302ED7EF8716A0EB /* SBSearchBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SBSearchBar-prefix.pch"; sourceTree = "<group>"; };
-		8CFB8D6DBB9571F85B07D8EAD3B11518 /* SCLAlertViewResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewResponder.h; path = SCLAlertView/SCLAlertViewResponder.h; sourceTree = "<group>"; };
-		8D0AC5368E1E620DB58649C15B648D7C /* SCLMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLMacros.h; path = SCLAlertView/SCLMacros.h; sourceTree = "<group>"; };
+		85CC4A1C0881BF52F5A987A328B7A374 /* SCLButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLButton.h; path = SCLAlertView/SCLButton.h; sourceTree = "<group>"; };
+		85FAA5637A06D8646D628556E7F629E3 /* SBSearchBar.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SBSearchBar.xib; path = SBSearchBar/Resources/SBSearchBar.xib; sourceTree = "<group>"; };
+		86568F648A11BD4342AE58309BA489AE /* ICETutorialController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICETutorialController.m; path = ICETutorial/Libraries/ICETutorialController.m; sourceTree = "<group>"; };
 		8D7AB3243D5F009FA44C2F643C4887DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		91BBA84E9BAF9876202281BA4D7601D1 /* SBSearchBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBSearchBar.m; path = SBSearchBar/Source/SBSearchBar.m; sourceTree = "<group>"; };
-		945D267FBE1D953CD767B88946B674EE /* libICETutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libICETutorial.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FA6EA18FF9134076D11FA403BB7A4E2 /* SCLSwitchView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLSwitchView.h; path = SCLAlertView/SCLSwitchView.h; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		99B10728239A53A483B3B2B407F1B462 /* Default@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
-		9A4A712403C24CF84454254CA42C3CB0 /* SCLButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLButton.h; path = SCLAlertView/SCLButton.h; sourceTree = "<group>"; };
-		9AA4EAA0335B938A29A2395DAEA60863 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGSwipeTableCell.h; path = MGSwipeTableCell/MGSwipeTableCell.h; sourceTree = "<group>"; };
-		9BE5D1DE7153EC9C1B140541B06A0181 /* button-background@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "button-background@2x.png"; path = "Resources/button-background@2x.png"; sourceTree = "<group>"; };
+		9A170310078FAFAB2A3C672B3A5C3D75 /* ICETutorialPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICETutorialPage.m; path = ICETutorial/Libraries/ICETutorialPage.m; sourceTree = "<group>"; };
+		9A5DCBC7536D6FBD13C2F057566207E0 /* SBSearchBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBSearchBar.h; path = SBSearchBar/Source/SBSearchBar.h; sourceTree = "<group>"; };
+		9B76CE80D6360B6B864917FCBCC7F52C /* button-background@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "button-background@2x.png"; path = "Resources/button-background@2x.png"; sourceTree = "<group>"; };
+		9C03EE18A6C8E2F0CA62CD4F458D8C65 /* ICETutorial-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ICETutorial-prefix.pch"; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		A1BF715537D118B6B77A9FC78BC2F703 /* ICETutorial.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ICETutorial.xcconfig; sourceTree = "<group>"; };
+		A33F5CE6A386986C40DC810FEB9A74D0 /* SBSearchBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SBSearchBar-dummy.m"; sourceTree = "<group>"; };
+		A45B21177C25AAC365A3E72F19D2DC35 /* SCLAlertView-Objective-C.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SCLAlertView-Objective-C.xcconfig"; sourceTree = "<group>"; };
+		A48782B97D21B72261897A98A64A2C6A /* MGSwipeTableCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MGSwipeTableCell-prefix.pch"; sourceTree = "<group>"; };
 		A4D060B9A2ECD661490D30C20C6C49EF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		A5E9FB52C33DB148674CF04F64918668 /* Default-568h@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
-		B01E865F0241DB189AABF55F6C5C7E70 /* SCLTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTextView.h; path = SCLAlertView/SCLTextView.h; sourceTree = "<group>"; };
-		B10ABD5B033E3B3DBDA5F23009161D51 /* SCLSwitchView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLSwitchView.h; path = SCLAlertView/SCLSwitchView.h; sourceTree = "<group>"; };
-		B7F7F8D192E7B33E69855040CB1DDB19 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewStyleKit.h; path = SCLAlertView/SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
+		A7D736775F0D9EBECD8458BDBCCE1CDB /* libSCLAlertView-Objective-C.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSCLAlertView-Objective-C.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8573594942DCEC31E2CE7C05E11987 /* libSTHTTPRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSTHTTPRequest.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B325366E045D0DB3280D394568F1E20C /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewStyleKit.m; path = SCLAlertView/SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		B99C035A90278DABB178C1D8E08E4074 /* SCLAlertViewStyleKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertViewStyleKit.h; path = SCLAlertView/SCLAlertViewStyleKit.h; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BB0E6507293CDB9D85A271F544BF8ECB /* ICETutorialPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICETutorialPage.h; path = ICETutorial/Libraries/ICETutorialPage.h; sourceTree = "<group>"; };
-		BD214E3255156FCF4494EBA8E3B4DA13 /* libRESideMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRESideMenu.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C335F980E200DC53794F953D075F659C /* MGSwipeTableCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MGSwipeTableCell-dummy.m"; sourceTree = "<group>"; };
+		BAA99956E58D223B422EA7CDA67D3782 /* SCLTimerDisplay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTimerDisplay.h; path = SCLAlertView/SCLTimerDisplay.h; sourceTree = "<group>"; };
+		BD0CD0351373438D26ECD569D890B9BA /* background-gradient.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "background-gradient.png"; path = "Resources/background-gradient.png"; sourceTree = "<group>"; };
+		BED05AA5426F4D128D23F5FF175207B4 /* libSBSearchBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSBSearchBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF7BEA6805D2C7A87385C2580AE25FB /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "RESideMenu/UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		C39E779894B00DE3B7A262C789CDDCD1 /* STHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
+		CC9FAC525871C9E4EBCB23196BF9CDE4 /* STHTTPRequest-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STHTTPRequest-prefix.pch"; sourceTree = "<group>"; };
 		CD8DCAB490A8D0791D9DA0D0CA67B002 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CF1CF9938435E2FA22C50EFB19CFECC7 /* RESideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RESideMenu.xcconfig; sourceTree = "<group>"; };
-		CF2578BAFAFBBF7FBCD8FC95C91611D8 /* background-gradient@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "background-gradient@2x.png"; path = "Resources/background-gradient@2x.png"; sourceTree = "<group>"; };
-		D09186915A2E0BE298B000221FD9FC86 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "SCLAlertView/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		D563DCBB96AF5525C7685026CB30D007 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "SCLAlertView/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		DD1B538A6E75B719A301D54133AD38F0 /* MGSwipeButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGSwipeButton.h; path = MGSwipeTableCell/MGSwipeButton.h; sourceTree = "<group>"; };
-		E5E885D8F4C8F3D58725392608BADD9A /* RECommonFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RECommonFunctions.m; path = RESideMenu/RECommonFunctions.m; sourceTree = "<group>"; };
-		E9EFC4B264FB0C321F1EB1F5C6724B89 /* SCLTimerDisplay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTimerDisplay.m; path = SCLAlertView/SCLTimerDisplay.m; sourceTree = "<group>"; };
-		ED712A01E1F9E6634CB9E79E78C8E35C /* SBSearchBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SBSearchBar.h; path = SBSearchBar/Source/SBSearchBar.h; sourceTree = "<group>"; };
-		EE9D7CC85FEFCB0CE13A4BC4447AD7F9 /* SCLButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLButton.m; path = SCLAlertView/SCLButton.m; sourceTree = "<group>"; };
-		F4A658BEF28EE93F1D761607922FF2FA /* SCLSwitchView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLSwitchView.m; path = SCLAlertView/SCLSwitchView.m; sourceTree = "<group>"; };
+		CF19FE638BFFCB279746A5F59569D555 /* RECommonFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RECommonFunctions.h; path = RESideMenu/RECommonFunctions.h; sourceTree = "<group>"; };
+		D3C1BD67F9C553FD56D3DEA837D84285 /* SBSearchBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SBSearchBar.m; path = SBSearchBar/Source/SBSearchBar.m; sourceTree = "<group>"; };
+		D54C5C362F8DB3ECAA37315059E7495A /* MGSwipeTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGSwipeTableCell.m; path = MGSwipeTableCell/MGSwipeTableCell.m; sourceTree = "<group>"; };
+		D631848B5992BF64739360E7AC5C2614 /* ICETutorialController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICETutorialController.h; path = ICETutorial/Libraries/ICETutorialController.h; sourceTree = "<group>"; };
+		DE11EBB19469C1941FFCBF1DE77DB3EA /* MGSwipeButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGSwipeButton.m; path = MGSwipeTableCell/MGSwipeButton.m; sourceTree = "<group>"; };
+		E41BE5304082C47A4EF963A4CAF3187C /* SCLTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTextView.m; path = SCLAlertView/SCLTextView.m; sourceTree = "<group>"; };
+		E74B445994F80619697C66568F9180A3 /* SCLAlertView-Objective-C-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-Objective-C-dummy.m"; sourceTree = "<group>"; };
+		EB5F9BC3ADB1CFB71231BB1FC1D1CC2D /* STHTTPRequest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STHTTPRequest.xcconfig; sourceTree = "<group>"; };
+		EDD0E179F797FBDEA437481B93D20879 /* libICETutorial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libICETutorial.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE6D836F30B3B214C6A189F1B3DCA39E /* SCLAlertView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLAlertView.h; path = SCLAlertView/SCLAlertView.h; sourceTree = "<group>"; };
+		EFD77FB2AF48DE45EA2CF1FC01DE58A8 /* ICETutorial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ICETutorial-dummy.m"; sourceTree = "<group>"; };
+		F12981A06DB7032456C7C13049273C2E /* RECommonFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RECommonFunctions.m; path = RESideMenu/RECommonFunctions.m; sourceTree = "<group>"; };
+		F35A799C1686A4AE69DB2AB3DA2735ED /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "RESideMenu/UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		FCE2618599A94D09F777356F199285B7 /* SCLAlertView-Objective-C-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCLAlertView-Objective-C-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		239BEA45E714AA4A6807A8C69FCA3FAA /* Frameworks */ = {
+		1169351055238CE1728DAB438BEE9E17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB6624A2CFB7AE78FDE081EA0F05828 /* Foundation.framework in Frameworks */,
+				1B12F9AA265A55C4C29144610D583874 /* Accelerate.framework in Frameworks */,
+				0F7A7FC42F534557D3AD204C2319CCA9 /* AudioToolbox.framework in Frameworks */,
+				4256D40A2955A113E3EFBAD37B9BF853 /* CoreGraphics.framework in Frameworks */,
+				3B8D0449372D37B9C4A53C13D23A4ECB /* Foundation.framework in Frameworks */,
+				CB0171F3F54983B603AE62543807642F /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		68954F316786F58C50BA5C61BCAB7EE2 /* Frameworks */ = {
+		6B7C8BD43037D5A7DF95DD41CE956185 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A59BDD936456DB1536705921E2A6433D /* Foundation.framework in Frameworks */,
-				7063AE58E63231A494ED73148274DEBF /* QuartzCore.framework in Frameworks */,
+				1C70A8EAF04A5862A6C8E0EED635414D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8889A64CD88BB55E9795BFF532486716 /* Frameworks */ = {
+		74641C94C5FE6EF3CC1721FE9CF93F22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C1F1268008253BF385DC1C834466CD4 /* Accelerate.framework in Frameworks */,
-				FF17DB48A4FC845F1D8DF3B6F343DB7E /* AudioToolbox.framework in Frameworks */,
-				4C4A34CC17542EAE3EEB9C3F00A3B3B5 /* CoreGraphics.framework in Frameworks */,
-				4FA40B41AA3BC12E0552C75A3D1A85ED /* Foundation.framework in Frameworks */,
-				E95BBFE71ACB5DE64F236D9D988F8590 /* UIKit.framework in Frameworks */,
+				8D238C1DCD88E616867F57AFC068E3FC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E93584B93F086E7F03945548A7FD5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F429B0DA3FCD8AC7B96811E34B0DB52 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A02AA843BC7FAEBA7DB40BA14BE08B90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32E33D91F8B34CF2DC547C7F1B83D5A /* Foundation.framework in Frameworks */,
+				624B949E8F92E50552445D67D3A9DC29 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,14 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7493C72CF44FFB321675790ADB9C2593 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A96FA24CB30AABC77D6102C97C67E5E9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7048A9A0B284B0BFA1C5310B757B8B50 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,26 +274,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		06EFBD835BFECCB4A71EB1E6561AF039 /* Support Files */ = {
+		03B7E1438178A93F4C00D2EE555E3253 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5AEBE8B5C1B7D88C0D9B5D0A7046EBBF /* MGSwipeTableCell.xcconfig */,
-				C335F980E200DC53794F953D075F659C /* MGSwipeTableCell-dummy.m */,
-				5E92822DA183624DD887A67264396E7D /* MGSwipeTableCell-prefix.pch */,
+				A1BF715537D118B6B77A9FC78BC2F703 /* ICETutorial.xcconfig */,
+				EFD77FB2AF48DE45EA2CF1FC01DE58A8 /* ICETutorial-dummy.m */,
+				9C03EE18A6C8E2F0CA62CD4F458D8C65 /* ICETutorial-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/MGSwipeTableCell";
+			path = "../Target Support Files/ICETutorial";
 			sourceTree = "<group>";
 		};
-		08AC605DE7FFB61BF258C30F65DBFC68 /* Support Files */ = {
+		0EB8693012995F957D25669D7B965C48 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7415B390C1F8BEFB278D3A3D5BF1DDAE /* SCLAlertView-Objective-C.xcconfig */,
-				2EB2749BA030A59B1ED78CBED8BB852F /* SCLAlertView-Objective-C-dummy.m */,
-				203D1A31A78AEEFF3EBD9514E976AAFD /* SCLAlertView-Objective-C-prefix.pch */,
+				BD0CD0351373438D26ECD569D890B9BA /* background-gradient.png */,
+				662FF4F0D6630C08F2D2AAC48963B12C /* background-gradient@2x.png */,
+				7BBAE5E092799B4AE97C226832D90313 /* button-background.png */,
+				9B76CE80D6360B6B864917FCBCC7F52C /* button-background@2x.png */,
+				3D4A9BFFDFDAF7D6E819FB9D1CE12E44 /* Default.png */,
+				7C738331FFEE2F3F7A1EA22FD640C3BA /* Default-568h@2x.png */,
+				40530F7136C6C36789D6400D97C64695 /* Default@2x.png */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SCLAlertView-Objective-C";
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */ = {
@@ -279,82 +307,112 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1E2983DDC0694A86C4BAC9CFF79DC776 /* MGSwipeTableCell */ = {
+		1357EC28FE9AE325E369549E2B00DF84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD1B538A6E75B719A301D54133AD38F0 /* MGSwipeButton.h */,
-				28836A6C8400F6066318E04B8F6185F1 /* MGSwipeButton.m */,
-				9AA4EAA0335B938A29A2395DAEA60863 /* MGSwipeTableCell.h */,
-				73AA77A220DBB53E1B72DB572B9ACCFF /* MGSwipeTableCell.m */,
-				06EFBD835BFECCB4A71EB1E6561AF039 /* Support Files */,
+				EDD0E179F797FBDEA437481B93D20879 /* libICETutorial.a */,
+				3CFDB6E23C5CA6B7798DDABA91656AA9 /* libMGSwipeTableCell.a */,
+				7CC64695B24E8B744F948BB0B893C767 /* libPods.a */,
+				64F67D69BF584557D49FA5A8E3FD4C01 /* libRESideMenu.a */,
+				BED05AA5426F4D128D23F5FF175207B4 /* libSBSearchBar.a */,
+				A7D736775F0D9EBECD8458BDBCCE1CDB /* libSCLAlertView-Objective-C.a */,
+				AE8573594942DCEC31E2CE7C05E11987 /* libSTHTTPRequest.a */,
 			);
-			path = MGSwipeTableCell;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		251CDD40823CB799355D561B099ECA1E /* SBSearchBar */ = {
+		176B2455C7D4FCF913B4DFF3D2C07C54 /* RESideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				ED712A01E1F9E6634CB9E79E78C8E35C /* SBSearchBar.h */,
-				91BBA84E9BAF9876202281BA4D7601D1 /* SBSearchBar.m */,
-				2EC3836D4D18D6ED2FE1AFC79B0E7CA4 /* Resources */,
-				9983F2AA2FA93187406FD1FCC497B28F /* Support Files */,
+				CF19FE638BFFCB279746A5F59569D555 /* RECommonFunctions.h */,
+				F12981A06DB7032456C7C13049273C2E /* RECommonFunctions.m */,
+				5E63DB8B526E12387B28CE8DD843CCDD /* RESideMenu.h */,
+				0383AEDCA3D40AA4ADBE1FD04A0A6CA0 /* RESideMenu.m */,
+				BEF7BEA6805D2C7A87385C2580AE25FB /* UIViewController+RESideMenu.h */,
+				F35A799C1686A4AE69DB2AB3DA2735ED /* UIViewController+RESideMenu.m */,
+				7A9BC59564B7BB33D8915435DC901A98 /* Support Files */,
 			);
-			path = SBSearchBar;
+			path = RESideMenu;
 			sourceTree = "<group>";
 		};
-		2EC3836D4D18D6ED2FE1AFC79B0E7CA4 /* Resources */ = {
+		37160989D4512ECC8E07B4E107567FCD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6B54531D0C6D2ADF47A45A9FB2A4B540 /* SBSearchBar.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		300351BAB589911CDEF706C5881C7FC1 /* SCLAlertView-Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-				12B9D3DFFB30E8122C4B33D240FD17BE /* SCLAlertView.h */,
-				662BF780BB1EC2E1C36248F4EE26B321 /* SCLAlertView.m */,
-				8CFB8D6DBB9571F85B07D8EAD3B11518 /* SCLAlertViewResponder.h */,
-				3493A9CDAA1ECE1025974B3B1DAFB23F /* SCLAlertViewResponder.m */,
-				B7F7F8D192E7B33E69855040CB1DDB19 /* SCLAlertViewStyleKit.h */,
-				12BFCA4F30D0A687375A9B84360FE03E /* SCLAlertViewStyleKit.m */,
-				9A4A712403C24CF84454254CA42C3CB0 /* SCLButton.h */,
-				EE9D7CC85FEFCB0CE13A4BC4447AD7F9 /* SCLButton.m */,
-				8D0AC5368E1E620DB58649C15B648D7C /* SCLMacros.h */,
-				B10ABD5B033E3B3DBDA5F23009161D51 /* SCLSwitchView.h */,
-				F4A658BEF28EE93F1D761607922FF2FA /* SCLSwitchView.m */,
-				B01E865F0241DB189AABF55F6C5C7E70 /* SCLTextView.h */,
-				17C7F5304A7FE82FA1E9AE43ECD7D99D /* SCLTextView.m */,
-				320ADBD6AEFCE6A124D95DE7AF5BF52E /* SCLTimerDisplay.h */,
-				E9EFC4B264FB0C321F1EB1F5C6724B89 /* SCLTimerDisplay.m */,
-				D563DCBB96AF5525C7685026CB30D007 /* UIImage+ImageEffects.h */,
-				D09186915A2E0BE298B000221FD9FC86 /* UIImage+ImageEffects.m */,
-				08AC605DE7FFB61BF258C30F65DBFC68 /* Support Files */,
-			);
-			path = "SCLAlertView-Objective-C";
-			sourceTree = "<group>";
-		};
-		40E595670A655C675BE1BC3A960BBF74 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				13D763C6E2DDB21A66171E8299476EAA /* ICETutorial.xcconfig */,
-				0743FB9BBE6E1A74AF3EEEA8512111D9 /* ICETutorial-dummy.m */,
-				41C8818ECAB80A232E41199C133C45FC /* ICETutorial-prefix.pch */,
+				EB5F9BC3ADB1CFB71231BB1FC1D1CC2D /* STHTTPRequest.xcconfig */,
+				405711CAB41CEC232444103D1222BB06 /* STHTTPRequest-dummy.m */,
+				CC9FAC525871C9E4EBCB23196BF9CDE4 /* STHTTPRequest-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/ICETutorial";
+			path = "../Target Support Files/STHTTPRequest";
 			sourceTree = "<group>";
 		};
-		68C0AD5C42FB6BAEEEAC52A544290820 /* Support Files */ = {
+		3CFA321BE54E9E0AFE2E6BEE407C99AE /* STHTTPRequest */ = {
 			isa = PBXGroup;
 			children = (
-				CF1CF9938435E2FA22C50EFB19CFECC7 /* RESideMenu.xcconfig */,
-				899EC44F09C333026EE4E911ACF08D22 /* RESideMenu-dummy.m */,
-				0084263455BFE5A54E5BC7475C791DF7 /* RESideMenu-prefix.pch */,
+				C39E779894B00DE3B7A262C789CDDCD1 /* STHTTPRequest.h */,
+				41662DE660F3091BEC91BE385E7CCCDC /* STHTTPRequest.m */,
+				37160989D4512ECC8E07B4E107567FCD /* Support Files */,
+			);
+			path = STHTTPRequest;
+			sourceTree = "<group>";
+		};
+		3F68148AC385D75D22D7159D81C7E6E0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				562F16E439E5BAB381860A5693F937A2 /* MGSwipeTableCell.xcconfig */,
+				371C3219A25EF018C02E0257671150F4 /* MGSwipeTableCell-dummy.m */,
+				A48782B97D21B72261897A98A64A2C6A /* MGSwipeTableCell-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MGSwipeTableCell";
+			sourceTree = "<group>";
+		};
+		5D8C20CE1E1135A9A59A61E3F11C05CE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A45B21177C25AAC365A3E72F19D2DC35 /* SCLAlertView-Objective-C.xcconfig */,
+				E74B445994F80619697C66568F9180A3 /* SCLAlertView-Objective-C-dummy.m */,
+				FCE2618599A94D09F777356F199285B7 /* SCLAlertView-Objective-C-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SCLAlertView-Objective-C";
+			sourceTree = "<group>";
+		};
+		65140A9A55EE2924A89D548BDFE96715 /* ICETutorial */ = {
+			isa = PBXGroup;
+			children = (
+				D631848B5992BF64739360E7AC5C2614 /* ICETutorialController.h */,
+				86568F648A11BD4342AE58309BA489AE /* ICETutorialController.m */,
+				3C0B875CB030768483C5ED46E4BC1D5E /* ICETutorialPage.h */,
+				9A170310078FAFAB2A3C672B3A5C3D75 /* ICETutorialPage.m */,
+				31FD263B5C57ADB89B04C2DC1DBA71DC /* ICETutorialStyle.h */,
+				1B7432D88A73A951364F0B9C31746F9A /* ICETutorialStyle.m */,
+				0EB8693012995F957D25669D7B965C48 /* Resources */,
+				03B7E1438178A93F4C00D2EE555E3253 /* Support Files */,
+			);
+			path = ICETutorial;
+			sourceTree = "<group>";
+		};
+		7A9BC59564B7BB33D8915435DC901A98 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FA8037729F9DCE0EA1DD67136A3D389 /* RESideMenu.xcconfig */,
+				76907A5983EBDC06ADE2E773C4D2355C /* RESideMenu-dummy.m */,
+				1FBEEA0E1D9C83E2BA5E46B81F379FFD /* RESideMenu-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RESideMenu";
+			sourceTree = "<group>";
+		};
+		7C56EF0FE94BF472A2CFF8B74FB1413D /* SBSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				9A5DCBC7536D6FBD13C2F057566207E0 /* SBSearchBar.h */,
+				D3C1BD67F9C553FD56D3DEA837D84285 /* SBSearchBar.m */,
+				A73B126E434B6BE7613DB14D87B3B009 /* Resources */,
+				8B145DF1C120E2D5AC97752B196F2108 /* Support Files */,
+			);
+			path = SBSearchBar;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -362,35 +420,58 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */,
-				E9B2FE9E94FD5C2526748ECC0CAC7CB9 /* Pods */,
-				A3123F1B103F14A0DC0F96B66A748A6C /* Products */,
+				A1451107CA9096B736C5BF88A174572A /* Pods */,
+				1357EC28FE9AE325E369549E2B00DF84 /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		857FB208F221ABC7B5C5C15638AF4D43 /* RESideMenu */ = {
+		88C7B19EA9F8322AA037E214F69D24EB /* MGSwipeTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				686BEE63BF39E52B792C61A577DE31BC /* RECommonFunctions.h */,
-				E5E885D8F4C8F3D58725392608BADD9A /* RECommonFunctions.m */,
-				4CA5F7BA96A8D3AFD1ECA1C0F5A6B080 /* RESideMenu.h */,
-				492D6F3E75E3BACDA75923F126F0284B /* RESideMenu.m */,
-				71A4F1328D3367638FD44D228F33E2E9 /* UIViewController+RESideMenu.h */,
-				8AB411128C17F578E4573EFA0ADB3BED /* UIViewController+RESideMenu.m */,
-				68C0AD5C42FB6BAEEEAC52A544290820 /* Support Files */,
+				080D9B7E732A43781014F95C8753AE3B /* MGSwipeButton.h */,
+				DE11EBB19469C1941FFCBF1DE77DB3EA /* MGSwipeButton.m */,
+				3923B20CA7E0CE67AA252E68659C4068 /* MGSwipeTableCell.h */,
+				D54C5C362F8DB3ECAA37315059E7495A /* MGSwipeTableCell.m */,
+				3F68148AC385D75D22D7159D81C7E6E0 /* Support Files */,
 			);
-			path = RESideMenu;
+			path = MGSwipeTableCell;
 			sourceTree = "<group>";
 		};
-		9983F2AA2FA93187406FD1FCC497B28F /* Support Files */ = {
+		8B145DF1C120E2D5AC97752B196F2108 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6C4B0A03BB24851870765640A46170FC /* SBSearchBar.xcconfig */,
-				28BC53B0EAE64525EAEC65AFC55F06E3 /* SBSearchBar-dummy.m */,
-				8B17D9DABC67CC94302ED7EF8716A0EB /* SBSearchBar-prefix.pch */,
+				2407A9C292F4CB73E23AAA4AA681475F /* SBSearchBar.xcconfig */,
+				A33F5CE6A386986C40DC810FEB9A74D0 /* SBSearchBar-dummy.m */,
+				4DC44C7E5CFA070C71622041B105455A /* SBSearchBar-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SBSearchBar";
+			sourceTree = "<group>";
+		};
+		9B997000E6049539147A1F7E9FFBD247 /* SCLAlertView-Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				EE6D836F30B3B214C6A189F1B3DCA39E /* SCLAlertView.h */,
+				4C096D8F1CAF0839E12299BA44E42998 /* SCLAlertView.m */,
+				282B642138539119773F0A69D58FD5DD /* SCLAlertViewResponder.h */,
+				1217075A64BD4C4C20EB0AAE452D75A2 /* SCLAlertViewResponder.m */,
+				B99C035A90278DABB178C1D8E08E4074 /* SCLAlertViewStyleKit.h */,
+				B325366E045D0DB3280D394568F1E20C /* SCLAlertViewStyleKit.m */,
+				85CC4A1C0881BF52F5A987A328B7A374 /* SCLButton.h */,
+				22A9D5B3E5BB7CD1EE6C892A3BA5EB42 /* SCLButton.m */,
+				05AF2ABE4FCD8FC12A477F49FC589C6B /* SCLMacros.h */,
+				8FA6EA18FF9134076D11FA403BB7A4E2 /* SCLSwitchView.h */,
+				4EDFBF46FABAD9AECFD907CFB67C10E9 /* SCLSwitchView.m */,
+				4FDCBD36FC67C4E587AFF8846568D916 /* SCLTextView.h */,
+				E41BE5304082C47A4EF963A4CAF3187C /* SCLTextView.m */,
+				BAA99956E58D223B422EA7CDA67D3782 /* SCLTimerDisplay.h */,
+				3BDF486946BFD7C3F5C2CE23C37010A6 /* SCLTimerDisplay.m */,
+				3DCE37F5D425098726C53B708FD3DA95 /* UIImage+ImageEffects.h */,
+				10006315D5DF7F1C7544F417B6593FF4 /* UIImage+ImageEffects.m */,
+				5D8C20CE1E1135A9A59A61E3F11C05CE /* Support Files */,
+			);
+			path = "SCLAlertView-Objective-C";
 			sourceTree = "<group>";
 		};
 		9BC8DCA7F9DB9D799C3A3068B55FAD34 /* iOS */ = {
@@ -406,17 +487,25 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		A3123F1B103F14A0DC0F96B66A748A6C /* Products */ = {
+		A1451107CA9096B736C5BF88A174572A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				945D267FBE1D953CD767B88946B674EE /* libICETutorial.a */,
-				3631A63C1FFA626469B65DC69D08AC6F /* libMGSwipeTableCell.a */,
-				7738914346AD51C1D5018BBDAF897A8F /* libPods.a */,
-				BD214E3255156FCF4494EBA8E3B4DA13 /* libRESideMenu.a */,
-				2D4BE77972621B8D7282F5AD57936B5F /* libSBSearchBar.a */,
-				7D8C759309A61607B919C39AE49E1FBB /* libSCLAlertView-Objective-C.a */,
+				65140A9A55EE2924A89D548BDFE96715 /* ICETutorial */,
+				88C7B19EA9F8322AA037E214F69D24EB /* MGSwipeTableCell */,
+				176B2455C7D4FCF913B4DFF3D2C07C54 /* RESideMenu */,
+				7C56EF0FE94BF472A2CFF8B74FB1413D /* SBSearchBar */,
+				9B997000E6049539147A1F7E9FFBD247 /* SCLAlertView-Objective-C */,
+				3CFA321BE54E9E0AFE2E6BEE407C99AE /* STHTTPRequest */,
 			);
-			name = Products;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A73B126E434B6BE7613DB14D87B3B009 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85FAA5637A06D8646D628556E7F629E3 /* SBSearchBar.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -434,57 +523,40 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		CF5E448B083077B552335FDEB77D77E0 /* ICETutorial */ = {
-			isa = PBXGroup;
-			children = (
-				70FCB6CE7124B035209BB001BEA40995 /* ICETutorialController.h */,
-				14A7555C0365D4B1690E8C82FA69883F /* ICETutorialController.m */,
-				BB0E6507293CDB9D85A271F544BF8ECB /* ICETutorialPage.h */,
-				766745CC4E71CA3AA1040F41453548DC /* ICETutorialPage.m */,
-				415C9130C11FFE9E4B7878D353691501 /* ICETutorialStyle.h */,
-				06CC50239D395C94BCACBA24FEFF2A5D /* ICETutorialStyle.m */,
-				E1491093BFCEF555D447F7061B748177 /* Resources */,
-				40E595670A655C675BE1BC3A960BBF74 /* Support Files */,
-			);
-			path = ICETutorial;
-			sourceTree = "<group>";
-		};
-		E1491093BFCEF555D447F7061B748177 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				368376AF68446BFB7C828355AA8C2757 /* background-gradient.png */,
-				CF2578BAFAFBBF7FBCD8FC95C91611D8 /* background-gradient@2x.png */,
-				69DC43F9F37C936F10E7BB6413ABAD3C /* button-background.png */,
-				9BE5D1DE7153EC9C1B140541B06A0181 /* button-background@2x.png */,
-				160FDBF563FFC1947B335A4045A91DD9 /* Default.png */,
-				A5E9FB52C33DB148674CF04F64918668 /* Default-568h@2x.png */,
-				99B10728239A53A483B3B2B407F1B462 /* Default@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		E9B2FE9E94FD5C2526748ECC0CAC7CB9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CF5E448B083077B552335FDEB77D77E0 /* ICETutorial */,
-				1E2983DDC0694A86C4BAC9CFF79DC776 /* MGSwipeTableCell */,
-				857FB208F221ABC7B5C5C15638AF4D43 /* RESideMenu */,
-				251CDD40823CB799355D561B099ECA1E /* SBSearchBar */,
-				300351BAB589911CDEF706C5881C7FC1 /* SCLAlertView-Objective-C */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3AFD1535F64546C7B3ED59FAA29FAEF7 /* Headers */ = {
+		1A808BFF00AE0519553499F49480818D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D2FDD58CBE46DFFD577F02DFCF78A0 /* RECommonFunctions.h in Headers */,
-				EBEC17489DA91CEDD43065426367FE9D /* RESideMenu.h in Headers */,
-				A437B8FBAB42D065FFD7BC5E88B66695 /* UIViewController+RESideMenu.h in Headers */,
+				BD2B08529C902A7EC34291A34B544A07 /* SCLAlertView.h in Headers */,
+				A326E85226A1F08E9E5B28B8E3457996 /* SCLAlertViewResponder.h in Headers */,
+				106F9E90FF4502580B5BD8AF12EAFD20 /* SCLAlertViewStyleKit.h in Headers */,
+				9CFBE6CE8DD6157F16ADEB5EAAC669F6 /* SCLButton.h in Headers */,
+				AF1E064E3AE4D1475A2688DA5834752B /* SCLMacros.h in Headers */,
+				9215A34F6AA935ACBB2462F849AF7B25 /* SCLSwitchView.h in Headers */,
+				FE2E72879D1377BE4A7ED9059EE308D9 /* SCLTextView.h in Headers */,
+				5ACFDDCD309AA2CE0CC4182C4AC4FCF4 /* SCLTimerDisplay.h in Headers */,
+				C46D6B4752EBAAAD992423DF6A7F52E8 /* UIImage+ImageEffects.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B6F76CCEC0EBE921AA22BDA414005CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DB65556BF74DCE727DD25C4533F1891 /* RECommonFunctions.h in Headers */,
+				6777955B9EF9DA0CFF07F4602005FCAD /* RESideMenu.h in Headers */,
+				BC5C1741A48BCE4D86409D43709BA533 /* UIViewController+RESideMenu.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E707BAD80B9CA76FFB2598C0333106A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7004FC9DC4CFB70E12FEC5606E8F30D0 /* SBSearchBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +566,14 @@
 			files = (
 				9C591574031C5736D5717DAE572FC359 /* MGSwipeButton.h in Headers */,
 				CFE557E5D4945FFFC747CA9C6F07B74D /* MGSwipeTableCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E8E3A35D54E84BC80FB333E5B813E69 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4D3E4710C16F9FD358FC4F66336FFC /* STHTTPRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,78 +587,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76A22457BB64017F7AD0B3046135B667 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB9E10AAF00198FA2D4DCC1DDB4EB323 /* SBSearchBar.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D8AC2EE1AAB7BD6DF9915474C933721B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				40169C8E1EA9EF9B70BACB9AB72416C6 /* SCLAlertView.h in Headers */,
-				561261356C772E11CD1885E9E3F5FDC5 /* SCLAlertViewResponder.h in Headers */,
-				C96AE12106CBBB3FEA4D0751D73639C3 /* SCLAlertViewStyleKit.h in Headers */,
-				6B7E506B492ACF5CE4D54A545DF56073 /* SCLButton.h in Headers */,
-				3889A94B6E253D16E1340E4F85D57A8F /* SCLMacros.h in Headers */,
-				9893636ADC3D131A23A8DF13154BF356 /* SCLSwitchView.h in Headers */,
-				E9826B1248FB937858B2F4C2BB364884 /* SCLTextView.h in Headers */,
-				8CB83BE558443AF45EE91F2CE0AE2EA8 /* SCLTimerDisplay.h in Headers */,
-				186D554ADC432D94B980E45C556FCD80 /* UIImage+ImageEffects.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		06AD84A41AD97E9077B311CFB4482133 /* SBSearchBar */ = {
+		0D620B26713E52010F04073DAD840BDC /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A13B8622D6912F391EC4167309DE417E /* Build configuration list for PBXNativeTarget "SBSearchBar" */;
+			buildConfigurationList = 6363B16B0C825F45101B55962421A194 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				4AEF560CF29ED7C153098669011C0854 /* Sources */,
-				A96FA24CB30AABC77D6102C97C67E5E9 /* Frameworks */,
-				76A22457BB64017F7AD0B3046135B667 /* Headers */,
+				0CA4B5092BDAF79981866175B7E4C6FF /* Sources */,
+				74641C94C5FE6EF3CC1721FE9CF93F22 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = SBSearchBar;
-			productName = SBSearchBar;
-			productReference = 2D4BE77972621B8D7282F5AD57936B5F /* libSBSearchBar.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		2AF12AFE4D469B8B7D415DA0F179DCF8 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B6CEC8F927F6609BBB08D99C8BED9503 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				D305D1B15ED4F82D43185783E1897874 /* Sources */,
-				239BEA45E714AA4A6807A8C69FCA3FAA /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				200E9D5B8302F0223B3626F9926F02DE /* PBXTargetDependency */,
-				E13EAD5D750AE658DA27C033DD9436B9 /* PBXTargetDependency */,
-				79CDB5CD91F9D2BACED99A329F87DEE7 /* PBXTargetDependency */,
-				D168E1CA61FBF1365B5C89C80DF92442 /* PBXTargetDependency */,
-				229919E02BC16244E75362AF94D87C3B /* PBXTargetDependency */,
+				A1D0EB9390C3B206A1B8182FAC2D269F /* PBXTargetDependency */,
+				4915D725A84357887D77F2D6CB46404D /* PBXTargetDependency */,
+				80DF77C3E37C92F2B14460239ADB7386 /* PBXTargetDependency */,
+				30155524B247781FCD63D5569699B448 /* PBXTargetDependency */,
+				0A85CA7A3317357B5F9DF3D8EE0CE573 /* PBXTargetDependency */,
+				89208D7B0530FAFCEE2CC44655536257 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 7738914346AD51C1D5018BBDAF897A8F /* libPods.a */;
+			productReference = 7CC64695B24E8B744F948BB0B893C767 /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		3389508B3485A67EC0639F7ADEEFC19D /* SCLAlertView-Objective-C */ = {
+		0F76C007E501AC8A3D528DB562774E28 /* SCLAlertView-Objective-C */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8A5864FB889B181FD373ED7707AD5C9 /* Build configuration list for PBXNativeTarget "SCLAlertView-Objective-C" */;
+			buildConfigurationList = 8CF36168C609C50479B4470194FEC820 /* Build configuration list for PBXNativeTarget "SCLAlertView-Objective-C" */;
 			buildPhases = (
-				F590E26678267CF6BDE883AF3A7B0CC8 /* Sources */,
-				8889A64CD88BB55E9795BFF532486716 /* Frameworks */,
-				D8AC2EE1AAB7BD6DF9915474C933721B /* Headers */,
+				6DC4212CB90205B18C30F4F759B990B3 /* Sources */,
+				1169351055238CE1728DAB438BEE9E17 /* Frameworks */,
+				1A808BFF00AE0519553499F49480818D /* Headers */,
 			);
 			buildRules = (
 			);
@@ -586,7 +626,7 @@
 			);
 			name = "SCLAlertView-Objective-C";
 			productName = "SCLAlertView-Objective-C";
-			productReference = 7D8C759309A61607B919C39AE49E1FBB /* libSCLAlertView-Objective-C.a */;
+			productReference = A7D736775F0D9EBECD8458BDBCCE1CDB /* libSCLAlertView-Objective-C.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		3FC27EB5B4EFD2AA7BA120D2661686D1 /* ICETutorial */ = {
@@ -603,7 +643,7 @@
 			);
 			name = ICETutorial;
 			productName = ICETutorial;
-			productReference = 945D267FBE1D953CD767B88946B674EE /* libICETutorial.a */;
+			productReference = EDD0E179F797FBDEA437481B93D20879 /* libICETutorial.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		8C463CD491D989B457394A7AA95384BC /* MGSwipeTableCell */ = {
@@ -620,16 +660,33 @@
 			);
 			name = MGSwipeTableCell;
 			productName = MGSwipeTableCell;
-			productReference = 3631A63C1FFA626469B65DC69D08AC6F /* libMGSwipeTableCell.a */;
+			productReference = 3CFDB6E23C5CA6B7798DDABA91656AA9 /* libMGSwipeTableCell.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		C4BF5112A7CDDB83D37CAA5698008862 /* RESideMenu */ = {
+		C22C3091EDD30682907B2016917DD641 /* SBSearchBar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C38F2EBACA857A212165F56A26B381E /* Build configuration list for PBXNativeTarget "RESideMenu" */;
+			buildConfigurationList = 9A0221AD815D9D754C5C45A554A6F29A /* Build configuration list for PBXNativeTarget "SBSearchBar" */;
 			buildPhases = (
-				445E1F6B152A22CFFD7DC37005D2743F /* Sources */,
-				68954F316786F58C50BA5C61BCAB7EE2 /* Frameworks */,
-				3AFD1535F64546C7B3ED59FAA29FAEF7 /* Headers */,
+				E03ADE4A96D7324E0671A72BC66B56C6 /* Sources */,
+				84E93584B93F086E7F03945548A7FD5F /* Frameworks */,
+				2E707BAD80B9CA76FFB2598C0333106A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SBSearchBar;
+			productName = SBSearchBar;
+			productReference = BED05AA5426F4D128D23F5FF175207B4 /* libSBSearchBar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C453B6E6756702BCA63FC02A9A291766 /* RESideMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89BF41F2E28954DB5EDE0CCA43323FE2 /* Build configuration list for PBXNativeTarget "RESideMenu" */;
+			buildPhases = (
+				CF3495DEAA07AFED1DBEA40E7CA8A8D1 /* Sources */,
+				A02AA843BC7FAEBA7DB40BA14BE08B90 /* Frameworks */,
+				1B6F76CCEC0EBE921AA22BDA414005CB /* Headers */,
 			);
 			buildRules = (
 			);
@@ -637,7 +694,24 @@
 			);
 			name = RESideMenu;
 			productName = RESideMenu;
-			productReference = BD214E3255156FCF4494EBA8E3B4DA13 /* libRESideMenu.a */;
+			productReference = 64F67D69BF584557D49FA5A8E3FD4C01 /* libRESideMenu.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C6D60EF784B38C11B4EAFCC69EFA7F08 /* STHTTPRequest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F132F5FE33B7DEAEF87DCC98E6E27F9F /* Build configuration list for PBXNativeTarget "STHTTPRequest" */;
+			buildPhases = (
+				457B69856842CF7200A511E836B9D8EE /* Sources */,
+				6B7C8BD43037D5A7DF95DD41CE956185 /* Frameworks */,
+				4E8E3A35D54E84BC80FB333E5B813E69 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = STHTTPRequest;
+			productName = STHTTPRequest;
+			productReference = AE8573594942DCEC31E2CE7C05E11987 /* libSTHTTPRequest.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -657,38 +731,52 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A3123F1B103F14A0DC0F96B66A748A6C /* Products */;
+			productRefGroup = 1357EC28FE9AE325E369549E2B00DF84 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3FC27EB5B4EFD2AA7BA120D2661686D1 /* ICETutorial */,
 				8C463CD491D989B457394A7AA95384BC /* MGSwipeTableCell */,
-				2AF12AFE4D469B8B7D415DA0F179DCF8 /* Pods */,
-				C4BF5112A7CDDB83D37CAA5698008862 /* RESideMenu */,
-				06AD84A41AD97E9077B311CFB4482133 /* SBSearchBar */,
-				3389508B3485A67EC0639F7ADEEFC19D /* SCLAlertView-Objective-C */,
+				0D620B26713E52010F04073DAD840BDC /* Pods */,
+				C453B6E6756702BCA63FC02A9A291766 /* RESideMenu */,
+				C22C3091EDD30682907B2016917DD641 /* SBSearchBar */,
+				0F76C007E501AC8A3D528DB562774E28 /* SCLAlertView-Objective-C */,
+				C6D60EF784B38C11B4EAFCC69EFA7F08 /* STHTTPRequest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		445E1F6B152A22CFFD7DC37005D2743F /* Sources */ = {
+		0CA4B5092BDAF79981866175B7E4C6FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D946AA912F1033D53E1C717EF87F4B0 /* RECommonFunctions.m in Sources */,
-				5BCAD1B6D8FEC2B9683E940DE3C44BD6 /* RESideMenu-dummy.m in Sources */,
-				B94C3F39C6F879AB8695E3BA21D29DEF /* RESideMenu.m in Sources */,
-				D6A2D69923F815A523A0600F873CF48B /* UIViewController+RESideMenu.m in Sources */,
+				4744CBCD12279DA8A2A19C2D71F0BC61 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AEF560CF29ED7C153098669011C0854 /* Sources */ = {
+		457B69856842CF7200A511E836B9D8EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB810C536FB34DF0F78A30DD7C7946E /* SBSearchBar-dummy.m in Sources */,
-				55224536216F9B37C2077C80A5F33929 /* SBSearchBar.m in Sources */,
+				4A68D3E83E86D2FCBC576E6FC5A46E39 /* STHTTPRequest-dummy.m in Sources */,
+				CCB864D7098BEE38B9614644422E5B11 /* STHTTPRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DC4212CB90205B18C30F4F759B990B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F9C6DB539751B7618140676BEA1A73 /* SCLAlertView-Objective-C-dummy.m in Sources */,
+				02C23F1A3FA7988A625804D2F2DCB2DA /* SCLAlertView.m in Sources */,
+				03DF1FB486329FA8932A54ED2206F36A /* SCLAlertViewResponder.m in Sources */,
+				7F4FDF498AE825BB3F239627CFE06C75 /* SCLAlertViewStyleKit.m in Sources */,
+				100BF4C94526882D120F683FB3D0F59B /* SCLButton.m in Sources */,
+				533A6EFBA7F86CBC90E9E002947AED9B /* SCLSwitchView.m in Sources */,
+				97290C7EBA19C4EE547BD61D3402104B /* SCLTextView.m in Sources */,
+				451A261EB74FCD35F15A8D68E3F0D73B /* SCLTimerDisplay.m in Sources */,
+				003207964A2A2BE6C16760B792DED013 /* UIImage+ImageEffects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,11 +790,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D305D1B15ED4F82D43185783E1897874 /* Sources */ = {
+		CF3495DEAA07AFED1DBEA40E7CA8A8D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB4AB8E0C7B93A3A25492A703C423690 /* Pods-dummy.m in Sources */,
+				9DD32653EC485895FBDC9D3C2AD040EC /* RECommonFunctions.m in Sources */,
+				7E61EB5AE47899180A7B698E63DF9D66 /* RESideMenu-dummy.m in Sources */,
+				CFC6E1432E1A2D00485E47AC67139C4A /* RESideMenu.m in Sources */,
+				6D292577B48BE91650156694C2F6EAC5 /* UIViewController+RESideMenu.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E03ADE4A96D7324E0671A72BC66B56C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FEE2E9AE25E231F50EA0E35F24316BA /* SBSearchBar-dummy.m in Sources */,
+				AD408CDB99C6427E760EBE0DE65FDB78 /* SBSearchBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,54 +821,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F590E26678267CF6BDE883AF3A7B0CC8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DBAE9B1185F19E1D43378615BA6DE5A /* SCLAlertView-Objective-C-dummy.m in Sources */,
-				9B0D7A48730BC521D58CC3A52A7BC8D6 /* SCLAlertView.m in Sources */,
-				0114AB81F5678990A711B0D732BE6816 /* SCLAlertViewResponder.m in Sources */,
-				476B9A9F678ACCD18EB39EEFC78FB21F /* SCLAlertViewStyleKit.m in Sources */,
-				56D4C2F118E668246E84C599901276DD /* SCLButton.m in Sources */,
-				723C22F8FF229E1E89F9EEF9EDE2CC95 /* SCLSwitchView.m in Sources */,
-				2DCBE4DF7E3DAC8C7705D8FF48D0DF9F /* SCLTextView.m in Sources */,
-				86A0F81337FDD4C17CF8AEB46A838C99 /* SCLTimerDisplay.m in Sources */,
-				16DBA37DF56204AF3E2C3FF56D32585A /* UIImage+ImageEffects.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		200E9D5B8302F0223B3626F9926F02DE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ICETutorial;
-			target = 3FC27EB5B4EFD2AA7BA120D2661686D1 /* ICETutorial */;
-			targetProxy = CF37B28654B6DD966B0250811672928F /* PBXContainerItemProxy */;
-		};
-		229919E02BC16244E75362AF94D87C3B /* PBXTargetDependency */ = {
+		0A85CA7A3317357B5F9DF3D8EE0CE573 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SCLAlertView-Objective-C";
-			target = 3389508B3485A67EC0639F7ADEEFC19D /* SCLAlertView-Objective-C */;
-			targetProxy = CBFE89C7CF05C4C9AE5EA08CAB574ED9 /* PBXContainerItemProxy */;
+			target = 0F76C007E501AC8A3D528DB562774E28 /* SCLAlertView-Objective-C */;
+			targetProxy = 7195682A537F6AA0B78E2CBED2B89F98 /* PBXContainerItemProxy */;
 		};
-		79CDB5CD91F9D2BACED99A329F87DEE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RESideMenu;
-			target = C4BF5112A7CDDB83D37CAA5698008862 /* RESideMenu */;
-			targetProxy = F3D75A85318F3A5E5BF1B50FB44D99F3 /* PBXContainerItemProxy */;
-		};
-		D168E1CA61FBF1365B5C89C80DF92442 /* PBXTargetDependency */ = {
+		30155524B247781FCD63D5569699B448 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SBSearchBar;
-			target = 06AD84A41AD97E9077B311CFB4482133 /* SBSearchBar */;
-			targetProxy = 495434A4EBCFCAEF7B9444CA0541E113 /* PBXContainerItemProxy */;
+			target = C22C3091EDD30682907B2016917DD641 /* SBSearchBar */;
+			targetProxy = 2567D4FC09332DFCEA11429DAFEF4E10 /* PBXContainerItemProxy */;
 		};
-		E13EAD5D750AE658DA27C033DD9436B9 /* PBXTargetDependency */ = {
+		4915D725A84357887D77F2D6CB46404D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MGSwipeTableCell;
 			target = 8C463CD491D989B457394A7AA95384BC /* MGSwipeTableCell */;
-			targetProxy = 100F173FF6E454437DE2578B0FCE6A9E /* PBXContainerItemProxy */;
+			targetProxy = A63B72B38BD362AD966C1D12CC8173BF /* PBXContainerItemProxy */;
+		};
+		80DF77C3E37C92F2B14460239ADB7386 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RESideMenu;
+			target = C453B6E6756702BCA63FC02A9A291766 /* RESideMenu */;
+			targetProxy = 1F01DEF803E614A329959CB13166832C /* PBXContainerItemProxy */;
+		};
+		89208D7B0530FAFCEE2CC44655536257 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = STHTTPRequest;
+			target = C6D60EF784B38C11B4EAFCC69EFA7F08 /* STHTTPRequest */;
+			targetProxy = 5AB0369B47F934F3F14E9536739DC1A3 /* PBXContainerItemProxy */;
+		};
+		A1D0EB9390C3B206A1B8182FAC2D269F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ICETutorial;
+			target = 3FC27EB5B4EFD2AA7BA120D2661686D1 /* ICETutorial */;
+			targetProxy = 7FAEB8119D9F51BADC909DEAFD08DD6F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -807,7 +897,97 @@
 			};
 			name = Release;
 		};
-		1BE61CB93BC142F3F6D13F282673AE00 /* Release */ = {
+		13C9516528EAAA5AF504828AD253298B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FA8037729F9DCE0EA1DD67136A3D389 /* RESideMenu.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RESideMenu/RESideMenu-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3E671807CEEEECDED1A3B4BAF9C5F46F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45B21177C25AAC365A3E72F19D2DC35 /* SCLAlertView-Objective-C.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView-Objective-C/SCLAlertView-Objective-C-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		450CF3099C0EED9D644D19DB6E86ED6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FA8037729F9DCE0EA1DD67136A3D389 /* RESideMenu.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RESideMenu/RESideMenu-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		554CF47BE7B17FB5C74027D0BC9E1CB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 562F16E439E5BAB381860A5693F937A2 /* MGSwipeTableCell.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MGSwipeTableCell/MGSwipeTableCell-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5B08A9B79CD651D1A3C020C24AAE36CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2407A9C292F4CB73E23AAA4AA681475F /* SBSearchBar.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SBSearchBar/SBSearchBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6427C8392312FDE498F329C149A21E8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
 			buildSettings = {
@@ -824,99 +1004,9 @@
 			};
 			name = Release;
 		};
-		45371BE5B8E89717552D2289992DB44E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7415B390C1F8BEFB278D3A3D5BF1DDAE /* SCLAlertView-Objective-C.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView-Objective-C/SCLAlertView-Objective-C-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		554CF47BE7B17FB5C74027D0BC9E1CB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AEBE8B5C1B7D88C0D9B5D0A7046EBBF /* MGSwipeTableCell.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MGSwipeTableCell/MGSwipeTableCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		576CE8EDDAECACE9FCE0993C8BBC0052 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7415B390C1F8BEFB278D3A3D5BF1DDAE /* SCLAlertView-Objective-C.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView-Objective-C/SCLAlertView-Objective-C-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		61E80983F4AC8520CBA0ED967767CA40 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF1CF9938435E2FA22C50EFB19CFECC7 /* RESideMenu.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RESideMenu/RESideMenu-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		649BA7D0C0DDCA4EBE881345A1A9C1EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4B0A03BB24851870765640A46170FC /* SBSearchBar.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SBSearchBar/SBSearchBar-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		6E5ECF1BA4AD3E428E65869E4EC58D54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13D763C6E2DDB21A66171E8299476EAA /* ICETutorial.xcconfig */;
+			baseConfigurationReference = A1BF715537D118B6B77A9FC78BC2F703 /* ICETutorial.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ICETutorial/ICETutorial-prefix.pch";
@@ -932,9 +1022,45 @@
 			};
 			name = Debug;
 		};
+		7A6E9A04CE68A6DF8493FAC04A51197A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB5F9BC3ADB1CFB71231BB1FC1D1CC2D /* STHTTPRequest.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STHTTPRequest/STHTTPRequest-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		87024F7DC01B977FB2554A11C647B637 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2407A9C292F4CB73E23AAA4AA681475F /* SBSearchBar.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SBSearchBar/SBSearchBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		B10DECBE9129F813A4D7C649B340EB11 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AEBE8B5C1B7D88C0D9B5D0A7046EBBF /* MGSwipeTableCell.xcconfig */;
+			baseConfigurationReference = 562F16E439E5BAB381860A5693F937A2 /* MGSwipeTableCell.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MGSwipeTableCell/MGSwipeTableCell-prefix.pch";
@@ -991,7 +1117,7 @@
 		};
 		B8860D58883644EACE4D14BF3170D98A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13D763C6E2DDB21A66171E8299476EAA /* ICETutorial.xcconfig */;
+			baseConfigurationReference = A1BF715537D118B6B77A9FC78BC2F703 /* ICETutorial.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/ICETutorial/ICETutorial-prefix.pch";
@@ -1007,7 +1133,25 @@
 			};
 			name = Release;
 		};
-		D6FE775C45FE73E151F47BCE07F191E9 /* Debug */ = {
+		D8DC09A1BE626A3AADE284FA4CF562BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45B21177C25AAC365A3E72F19D2DC35 /* SCLAlertView-Objective-C.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SCLAlertView-Objective-C/SCLAlertView-Objective-C-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DD686C01D2E9A03E8688BA654DFB702C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
 			buildSettings = {
@@ -1024,14 +1168,14 @@
 			};
 			name = Debug;
 		};
-		DB164D89809631657EBDBDF67E6B7FFA /* Debug */ = {
+		FAD6A17A884F195174292FB7E1959FFF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF1CF9938435E2FA22C50EFB19CFECC7 /* RESideMenu.xcconfig */;
+			baseConfigurationReference = EB5F9BC3ADB1CFB71231BB1FC1D1CC2D /* STHTTPRequest.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/RESideMenu/RESideMenu-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/STHTTPRequest/STHTTPRequest-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1040,25 +1184,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
-		};
-		FDFABCDFBD186F2ECA1CCA2C75BB1AF9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4B0A03BB24851870765640A46170FC /* SBSearchBar.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SBSearchBar/SBSearchBar-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1072,11 +1198,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C38F2EBACA857A212165F56A26B381E /* Build configuration list for PBXNativeTarget "RESideMenu" */ = {
+		6363B16B0C825F45101B55962421A194 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DB164D89809631657EBDBDF67E6B7FFA /* Debug */,
-				61E80983F4AC8520CBA0ED967767CA40 /* Release */,
+				DD686C01D2E9A03E8688BA654DFB702C /* Debug */,
+				6427C8392312FDE498F329C149A21E8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1090,6 +1216,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		89BF41F2E28954DB5EDE0CCA43323FE2 /* Build configuration list for PBXNativeTarget "RESideMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				450CF3099C0EED9D644D19DB6E86ED6E /* Debug */,
+				13C9516528EAAA5AF504828AD253298B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CF36168C609C50479B4470194FEC820 /* Build configuration list for PBXNativeTarget "SCLAlertView-Objective-C" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E671807CEEEECDED1A3B4BAF9C5F46F /* Debug */,
+				D8DC09A1BE626A3AADE284FA4CF562BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A0221AD815D9D754C5C45A554A6F29A /* Build configuration list for PBXNativeTarget "SBSearchBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87024F7DC01B977FB2554A11C647B637 /* Debug */,
+				5B08A9B79CD651D1A3C020C24AAE36CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9DC1C68B49D4782D0318C8B0C1D3FED1 /* Build configuration list for PBXNativeTarget "ICETutorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1099,29 +1252,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A13B8622D6912F391EC4167309DE417E /* Build configuration list for PBXNativeTarget "SBSearchBar" */ = {
+		F132F5FE33B7DEAEF87DCC98E6E27F9F /* Build configuration list for PBXNativeTarget "STHTTPRequest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDFABCDFBD186F2ECA1CCA2C75BB1AF9 /* Debug */,
-				649BA7D0C0DDCA4EBE881345A1A9C1EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B6CEC8F927F6609BBB08D99C8BED9503 /* Build configuration list for PBXNativeTarget "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D6FE775C45FE73E151F47BCE07F191E9 /* Debug */,
-				1BE61CB93BC142F3F6D13F282673AE00 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B8A5864FB889B181FD373ED7707AD5C9 /* Build configuration list for PBXNativeTarget "SCLAlertView-Objective-C" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				576CE8EDDAECACE9FCE0993C8BBC0052 /* Debug */,
-				45371BE5B8E89717552D2289992DB44E /* Release */,
+				7A6E9A04CE68A6DF8493FAC04A51197A /* Debug */,
+				FAD6A17A884F195174292FB7E1959FFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
