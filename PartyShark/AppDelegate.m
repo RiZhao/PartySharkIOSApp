@@ -92,15 +92,22 @@
     
 
     [alert addButton:@"Create Party" validationBlock:^BOOL{
-
-        return [self tryCreateParty];
+        
+        return YES;
+    
     } actionBlock:^{
         //[[[UIAlertView alloc] initWithTitle:@"Great Job!" message:@"Thanks for playing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        self.window.rootViewController = self.sideMenuVC;
-        //change to goToSettings
-        [self.navManager goToMainSection];
+        [self tryCreateParty:^(BOOL success, NSError *error){
+            if(!success){
+                NSLog(@"%@", error);
+            }else{
+                
+                self.window.rootViewController = self.sideMenuVC;
+                //change to goToSettings
+                [self.navManager goToMainSection];
+            }
+        }];
     }];
-    
     
     UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0];
     [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"" closeButtonTitle:@"Cancel" duration:0.0f];
@@ -226,7 +233,7 @@
     return YES;
 }
 
-- (BOOL) tryCreateParty {
+- (BOOL) tryCreateParty :(myCompletionBlock)completionBlock {
     
     NSString *URLString = @"http://nreid26.xyz:3000/parties";
     NSDictionary *parameters = @{};
@@ -241,8 +248,10 @@
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
+            completionBlock(NO, nil);
         } else {
             NSLog(@"%@ %@", response, responseObject);
+            completionBlock(YES, nil);
         }
     }];
     [dataTask resume];

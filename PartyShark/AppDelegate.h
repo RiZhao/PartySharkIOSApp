@@ -29,12 +29,14 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 @property (strong, nonatomic) NSString *toSavePartyCode;
-
+typedef void (^myCompletionBlock)(BOOL success, NSError *error);
 - (void) setUpTutorialScreen;
 
-- (BOOL) tryCreateParty;
+- (BOOL) tryCreateParty :(myCompletionBlock)completionBlock;
 - (BOOL) tryJoinParty: (NSString *)partyCode;
 - (BOOL) userAlreadyInParty :(NSString*)partyCode :(NSString*)userID;
+
+
 
 @end
 
