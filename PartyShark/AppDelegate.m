@@ -117,7 +117,7 @@
 }
 
 - (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender {
-    // Setup left hand nav
+    // Setup right hand nav
     
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     alert.shouldDismissOnTapOutside = NO;
@@ -144,6 +144,7 @@
                 [self shakeAlert:alert];
             }
             else {
+                
                 self.toSavePartyCode = joinField.text;
                 self.window.rootViewController = self.sideMenuVC;
                 [self.navManager goToMainSection];
@@ -261,8 +262,10 @@
             
             NSDictionary *dictionary = [httpResponse allHeaderFields];
             
-            NSString *X_User_Code = [dictionary objectForKey:@"x-set-user-code"];
-            
+            [[NSUserDefaults standardUserDefaults] setObject:[dictionary objectForKey:@"x-set-user-code"] forKey:@"X_User_Code"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            // to use
+            //NSString *whatever =  [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"];
             NSLog(@"%@ %@", response, responseObject);
             success = YES;
             completionBlock(YES, nil);
@@ -295,11 +298,13 @@
 
             NSDictionary *dictionary = [httpResponse allHeaderFields];
 
-            NSString *X_User_Code = [dictionary objectForKey:@"x-set-user-code"];
+            [[NSUserDefaults standardUserDefaults] setObject:[dictionary objectForKey:@"x-set-user-code"] forKey:@"X_User_Code"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
             NSLog(@"%@ %@", response, responseObject);
             success = YES;
             completionBlock(YES, nil);
+            
         }
     }];
     [dataTask resume];
