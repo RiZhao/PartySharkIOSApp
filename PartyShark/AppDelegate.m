@@ -228,12 +228,8 @@
 
 - (BOOL) tryCreateParty {
     
-    STHTTPRequest *r = [STHTTPRequest requestWithURLString:@"http://nreid26.xyz:3000/parties"];
-    [r setHeaderWithName:@"Content Type" value:@"application/json"];
-    r.POSTDictionary = @{};
-    
-    NSError *error = nil;
-    NSString *body = [r startSynchronousWithError:&error];
+    //http://nreid26.xyz:3000/parties
+
     
     return YES;
 }
