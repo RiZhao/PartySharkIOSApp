@@ -93,7 +93,7 @@
 
     [alert addButton:@"Create Party" validationBlock:^BOOL{
 
-        return YES;
+        return [self tryCreateParty];
     } actionBlock:^{
         //[[[UIAlertView alloc] initWithTitle:@"Great Job!" message:@"Thanks for playing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         self.window.rootViewController = self.sideMenuVC;
@@ -222,6 +222,18 @@
 }
 
 - (BOOL) tryJoinParty:(NSString *)partyCode{
+    
+    return YES;
+}
+
+- (BOOL) tryCreateParty {
+    
+    STHTTPRequest *r = [STHTTPRequest requestWithURLString:@"http://nreid26.xyz:3000/parties"];
+    [r setHeaderWithName:@"Content Type" value:@"application/json"];
+    r.POSTDictionary = @{};
+    
+    NSError *error = nil;
+    NSString *body = [r startSynchronousWithError:&error];
     
     return YES;
 }
