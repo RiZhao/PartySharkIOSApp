@@ -251,7 +251,9 @@
             completionBlock(NO, nil);
         } else {
             NSLog(@"%@ %@", response, responseObject);
+            
             completionBlock(YES, nil);
+            
         }
     }];
     [dataTask resume];
