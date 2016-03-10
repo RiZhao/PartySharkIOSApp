@@ -137,11 +137,7 @@
             //here check the text entered is equal to a existing partycode
         }
         
-        return YES;
-        
-    } actionBlock:^{
-        
-        [self tryJoinParty: joinField.text: ^(BOOL success, NSError *error){
+        if ([self tryJoinParty: joinField.text: ^(BOOL success, NSError *error){
             
             if (!success) {
                 NSLog(@"%@", error);
@@ -152,7 +148,15 @@
                 self.window.rootViewController = self.sideMenuVC;
                 [self.navManager goToMainSection];
             }
-        }];
+        }])
+        
+        return YES;
+        
+        return NO;
+        
+    } actionBlock:^{
+        
+        
     }];
     
     
@@ -236,6 +240,8 @@
 
 - (BOOL) tryJoinParty:(NSString *)partyCode :(myCompletionBlock)completionBlock {
     
+    __block BOOL success = NO;
+    
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/users", partyCode];
     NSDictionary *parameters = @{};
     
@@ -244,11 +250,11 @@
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters error:nil];
     
-    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);
             completionBlock(NO, nil);
+            
         } else {
             
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
@@ -258,15 +264,18 @@
             NSString *X_User_Code = [dictionary objectForKey:@"x-set-user-code"];
             
             NSLog(@"%@ %@", response, responseObject);
+            success = YES;
             completionBlock(YES, nil);
         }
     }];
     [dataTask resume];
     
-    return YES;
+    return success;
 }
 
 - (BOOL) tryCreateParty :(myCompletionBlock)completionBlock {
+    
+    __block BOOL success = NO;
     
     NSString *URLString = @"http://nreid26.xyz:3000/parties";
     NSDictionary *parameters = @{};
@@ -275,7 +284,6 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters error:nil];
-
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
@@ -290,12 +298,13 @@
             NSString *X_User_Code = [dictionary objectForKey:@"x-set-user-code"];
             
             NSLog(@"%@ %@", response, responseObject);
+            success = YES;
             completionBlock(YES, nil);
         }
     }];
     [dataTask resume];
     
-    return YES;
+    return success;
 }
 
 - (void) shakeAlert:(SCLAlertView *)alertView{
