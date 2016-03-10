@@ -133,6 +133,47 @@
         return 80;
     
 }
+
+- (void) SBSearchBarSearchButtonClicked:(SBSearchBar *)searchBar {
+    
+    NSString *searchTerm = searchBar.text;
+    
+    [[[[[searchTerm stringByReplacingOccurrencesOfString: @"&" withString: @"&amp;"]
+        stringByReplacingOccurrencesOfString: @"\"" withString: @"&quot;"]
+       stringByReplacingOccurrencesOfString: @"'" withString: @"&#39;"]
+      stringByReplacingOccurrencesOfString: @">" withString: @"&gt;"]
+     stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
+    
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/songs?search=%@", searchTerm];
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: @"X-User-Code" forHTTPHeaderField:[[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"]];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+            // All info needed is in here ^
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+
+}
+
 /*
 #pragma mark - Navigation
 

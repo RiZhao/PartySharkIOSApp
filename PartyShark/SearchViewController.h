@@ -10,6 +10,7 @@
 #import "BaseViewController.h"
 #import "searchTableViewCell.h"
 #import "SBSearchBar.h"
+#import "AFNetworking.h"
 
 @interface SearchViewController : BaseViewController <SBSearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 

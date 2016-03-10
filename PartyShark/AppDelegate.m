@@ -264,8 +264,10 @@
             
             [[NSUserDefaults standardUserDefaults] setObject:[dictionary objectForKey:@"x-set-user-code"] forKey:@"X_User_Code"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            
             // to use
             //NSString *whatever =  [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"];
+            
             NSLog(@"%@ %@", response, responseObject);
             success = YES;
             completionBlock(YES, nil);
