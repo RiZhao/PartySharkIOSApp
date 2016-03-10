@@ -33,7 +33,7 @@ typedef void (^myCompletionBlock)(BOOL success, NSError *error);
 - (void) setUpTutorialScreen;
 
 - (BOOL) tryCreateParty :(myCompletionBlock)completionBlock;
-- (BOOL) tryJoinParty: (NSString *)partyCode;
+- (BOOL) tryJoinParty: (NSString *)partyCode :(myCompletionBlock)completionBlock;
 - (BOOL) userAlreadyInParty :(NSString*)partyCode :(NSString*)userID;
 
 
