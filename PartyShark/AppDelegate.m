@@ -148,6 +148,7 @@
                 [self shakeAlert:alert];
             }
             else {
+                
                 self.toSavePartyCode = joinField.text;
                 self.window.rootViewController = self.sideMenuVC;
                 [self.navManager goToMainSection];
