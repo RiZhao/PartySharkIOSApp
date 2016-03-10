@@ -40,8 +40,8 @@
     
     MainMenuViewController* menuVC = [[MainMenuViewController alloc] init];
     self.sideMenuVC         = [[RESideMenu alloc] initWithContentViewController:self.navManager
-                                                                leftMenuViewController:menuVC
-                                                               rightMenuViewController:nil];
+                                                         leftMenuViewController:menuVC
+                                                        rightMenuViewController:nil];
     // Customize menu
     self.sideMenuVC.panGestureEnabled        = NO;
     self.sideMenuVC.scaleBackgroundImageView = NO;
@@ -49,7 +49,131 @@
     self.sideMenuVC.contentViewShadowEnabled = YES;
     //sideMenuVC.backgroundImage          = [UIImage imageNamed:@"background"];
     
+    NSString *savedValue = [[NSUserDefaults standardUserDefaults]
+                            stringForKey:@"savedPartyCode"];
+    //set up for persistent login
+    if(savedValue){
+        self.window.rootViewController = self.sideMenuVC;
+        [self.navManager goToMainSection];
+    }else{
+        
+        [self setUpTutorialScreen];
+    }
     
+    //customize navbarcontroller
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:232.0/255.0 green:68.0/255.0 blue:0.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0]];
+    
+    NSDictionary *attributes = @{
+                                 NSUnderlineStyleAttributeName: @1,
+                                 NSForegroundColorAttributeName : [UIColor colorWithRed:32.0/255.0 green:105.0/255.0 blue:179.0/255.0 alpha:1.0],
+                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:17]
+                                 };
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    
+    
+    
+    return true;
+}
+
+#pragma mark - ICETutorialController delegate
+- (void)tutorialController:(ICETutorialController *)tutorialController scrollingFromPageIndex:(NSUInteger)fromIndex toPageIndex:(NSUInteger)toIndex {
+    //NSLog(@"Scrolling from page %lu to page %lu.", (unsigned long)fromIndex, (unsigned long)toIndex);
+}
+
+- (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController {
+    //NSLog(@"Tutorial reached the last page.");
+}
+
+- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnLeftButton:(UIButton *)sender {
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.shouldDismissOnTapOutside = NO;
+    alert.backgroundType = Blur;
+    
+
+    [alert addButton:@"Create Party" validationBlock:^BOOL{
+
+        return YES;
+    } actionBlock:^{
+        //[[[UIAlertView alloc] initWithTitle:@"Great Job!" message:@"Thanks for playing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        self.window.rootViewController = self.sideMenuVC;
+        //change to goToSettings
+        [self.navManager goToMainSection];
+    }];
+    
+    
+    UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0];
+    [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"" closeButtonTitle:@"Cancel" duration:0.0f];
+    
+    
+}
+
+- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender {
+    // Setup left hand nav
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    alert.shouldDismissOnTapOutside = NO;
+    alert.backgroundType = Blur;
+    
+    
+    SCLTextView *joinField = [alert addTextField:@"Party Code"];
+    joinField.keyboardType = UIKeyboardTypeNumberPad;
+    
+    [alert addButton:@"Join Party" validationBlock:^BOOL{
+        if (joinField.text.length == 0)
+        {
+            [self shakeAlert:alert];
+            [joinField becomeFirstResponder];
+            return NO;
+        //here check the text entered is equal to a existing partycode
+        }else if ([self tryJoinParty:joinField.text]){
+            
+            self.toSavePartyCode = joinField.text;
+            
+            return YES;
+        }
+        [self shakeAlert:alert];
+        return NO;
+    } actionBlock:^{
+        //[[[UIAlertView alloc] initWithTitle:@"Great Job!" message:@"Thanks for playing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        self.window.rootViewController = self.sideMenuVC;
+        [self.navManager goToMainSection];
+    }];
+    
+    
+    UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0];
+    [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"Enter Party Code to Join Party" closeButtonTitle:@"Cancel" duration:0.0f];
+    
+    
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    NSLog(@"closing app here");
+    [[NSUserDefaults standardUserDefaults] setObject:self.toSavePartyCode forKey:@"savedPartyCode"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    NSLog(@"closing app");
+    [[NSUserDefaults standardUserDefaults] setObject:self.toSavePartyCode forKey:@"savedPartyCode"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self saveContext];
+}
+
+- (void) setUpTutorialScreen{
     
     //Tutorial Screen setup
     
@@ -95,83 +219,52 @@
     //[self.viewController startScrolling];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-
-    
-    //customize navbarcontroller
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xFFFFFF)];
-    [[UINavigationBar appearance] setTintColor:UIColorFromRGB(0xFF5722)];
-    
-    NSDictionary *attributes = @{
-                                 NSUnderlineStyleAttributeName: @1,
-                                 NSForegroundColorAttributeName : UIColorFromRGB(0x000000),
-                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:17]
-                                 };
-    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    
-    
-    
-    return true;
 }
 
-#pragma mark - ICETutorialController delegate
-- (void)tutorialController:(ICETutorialController *)tutorialController scrollingFromPageIndex:(NSUInteger)fromIndex toPageIndex:(NSUInteger)toIndex {
-    //NSLog(@"Scrolling from page %lu to page %lu.", (unsigned long)fromIndex, (unsigned long)toIndex);
-}
-
-- (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController {
-    //NSLog(@"Tutorial reached the last page.");
-}
-
-- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnLeftButton:(UIButton *)sender {
-
-}
-
-- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender {
-    // Setup left hand nav
+- (BOOL) tryJoinParty:(NSString *)partyCode{
     
+    return YES;
+}
+
+- (void) shakeAlert:(SCLAlertView *)alertView{
     
-    //self.window.rootViewController = self.sideMenuVC;
-    //[self.navManager goToMainSection];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Joining Party" message:@"Please Input Party Code" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Join" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        self.window.rootViewController = self.sideMenuVC;
-        [self.navManager goToMainSection];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action){
-        [alert dismissViewControllerAnimated:YES completion:nil];
-    }]];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"Enter text:";
-        textField.secureTextEntry = NO;
-        textField.keyboardType = UIKeyboardTypeNumberPad;
+    [UIView animateWithDuration:0.1 animations:^{
+        // Translate left
+        CGRect frame = alertView.view.frame;
+        frame.origin.x -= alertView.view.frame.size.width - 100;
+        alertView.view.frame = frame;
+        
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            
+            CGRect frame = alertView.view.frame;
+            frame.origin.x += alertView.view.frame.size.width + alertView.view.frame.size.width - 100;
+            alertView.view.frame = frame;
+            
+        } completion:^(BOOL finished) {
+            
+            [UIView animateWithDuration:0.1 animations:^{
+                
+                // Translate left
+                CGRect frame = alertView.view.frame;
+                frame.origin.x -= (alertView.view.frame.size.width + alertView.view.frame.size.width)- 100;
+                alertView.view.frame = frame;
+                
+            } completion:^(BOOL finished) {
+                
+                [UIView animateWithDuration:0.1 animations:^{
+                    
+                    // Translate to origin
+                    CGRect frame = alertView.view.frame;
+                    frame.origin.x += alertView.view.frame.size.width- 100;
+                    alertView.view.frame = frame;
+                }];
+            }];
+            
+        }];
     }];
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-
-    
 }
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    
-
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    
-    [self saveContext];
-}
-
 
 #pragma mark - Core Data stack
 

@@ -68,6 +68,7 @@ CGFloat const kLeftNavHeight = 340.0f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NavigationManager* navManager = [NavigationManager singletonInstance];
+    leavePartyViewController *leave = [[leavePartyViewController alloc]init];
     
     switch (indexPath.row) {
         case kMainSection:
@@ -79,6 +80,8 @@ CGFloat const kLeftNavHeight = 340.0f;
         case kSettingsSection:
             [navManager goToSettings];
             break;
+        case kLeavePartySection:
+            [leave leavePartyClicked];
         default:
             break;
     }

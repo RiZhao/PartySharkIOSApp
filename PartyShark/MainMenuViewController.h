@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
 #import "NavigationStatics.h"
+#import "leavePartyViewController.h"
 
 @interface MainMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -1,0 +1,22 @@
+PODS:
+  - ICETutorial (1.1.1)
+  - MGSwipeTableCell (1.5.3)
+  - RESideMenu (4.0.7)
+  - SBSearchBar (0.0.6)
+  - SCLAlertView-Objective-C (1.0.1)
+
+DEPENDENCIES:
+  - ICETutorial (~> 1.1.1)
+  - MGSwipeTableCell
+  - RESideMenu (~> 4.0.7)
+  - SBSearchBar
+  - SCLAlertView-Objective-C
+
+SPEC CHECKSUMS:
+  ICETutorial: 6cb15e46066afc359357f048d1b5fca444d69c83
+  MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SBSearchBar: b969f34fbb984c4a3ddc50228872549553351e3b
+  SCLAlertView-Objective-C: f644355e5ca3701440341e8ee2018594a2d1c559
+
+COCOAPODS: 0.39.0

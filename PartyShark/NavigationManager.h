@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCLAlertView.h"
+//#include "leavePartyViewController.h"
 
 @interface NavigationManager : UINavigationController
 
@@ -21,5 +23,5 @@
 - (void) goToSearch;
 - (void) goToMainSectionWithAnimation:(BOOL)animated;
 
-- (void) joinPartyAlert;
+- (void) leaveParty;
 @end

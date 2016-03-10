@@ -11,6 +11,9 @@
 		EB5665DB1C8FA6950066F5BF /* searchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5665DA1C8FA6950066F5BF /* searchResultCell.xib */; };
 		EB5665DE1C8FA77A0066F5BF /* searchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665DD1C8FA77A0066F5BF /* searchTableViewCell.m */; };
 		EB5665E01C8FB32C0066F5BF /* ic_lens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665DF1C8FB32C0066F5BF /* ic_lens@2x.png */; };
+		EB5665E31C90BB440066F5BF /* leavePartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665E21C90BB440066F5BF /* leavePartyViewController.m */; };
+		EB5665E51C91256B0066F5BF /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665E41C91256B0066F5BF /* Icon-40.png */; };
+		EB5665E71C9127850066F5BF /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665E61C9127850066F5BF /* Icon-40@3x.png */; };
 		EB71E6CC1C88E88A0059D8AB /* tutorial_background_00@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */; };
 		EB71E6CD1C88E88A0059D8AB /* tutorial_background_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */; };
 		EB71E6CE1C88E88A0059D8AB /* tutorial_background_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */; };
@@ -64,6 +67,10 @@
 		EB5665DC1C8FA77A0066F5BF /* searchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchTableViewCell.h; sourceTree = "<group>"; };
 		EB5665DD1C8FA77A0066F5BF /* searchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchTableViewCell.m; sourceTree = "<group>"; };
 		EB5665DF1C8FB32C0066F5BF /* ic_lens@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_lens@2x.png"; sourceTree = "<group>"; };
+		EB5665E11C90BB440066F5BF /* leavePartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leavePartyViewController.h; sourceTree = "<group>"; };
+		EB5665E21C90BB440066F5BF /* leavePartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leavePartyViewController.m; sourceTree = "<group>"; };
+		EB5665E41C91256B0066F5BF /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Assets.xcassets/AppIcon-2.appiconset/Icon-40.png"; sourceTree = "<group>"; };
+		EB5665E61C9127850066F5BF /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40@3x.png"; path = "Assets.xcassets/AppIcon-2.appiconset/Icon-40@3x.png"; sourceTree = "<group>"; };
 		EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_00@2x.jpg"; sourceTree = "<group>"; };
 		EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_01@2x.jpg"; sourceTree = "<group>"; };
 		EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_02@2x.jpg"; sourceTree = "<group>"; };
@@ -173,6 +180,8 @@
 				EB71E6CA1C88E88A0059D8AB /* tutorial_background_03@2x.jpg */,
 				EB71E6CB1C88E88A0059D8AB /* tutorial_background_04@2x.jpg */,
 				EB5665DF1C8FB32C0066F5BF /* ic_lens@2x.png */,
+				EB5665E41C91256B0066F5BF /* Icon-40.png */,
+				EB5665E61C9127850066F5BF /* Icon-40@3x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -298,6 +307,8 @@
 			children = (
 				EBAFA22A1C5305F5007E59F9 /* NavigationManager.h */,
 				EBAFA22B1C5305F5007E59F9 /* NavigationManager.m */,
+				EB5665E11C90BB440066F5BF /* leavePartyViewController.h */,
+				EB5665E21C90BB440066F5BF /* leavePartyViewController.m */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -497,12 +508,14 @@
 				EBAFA24D1C585D06007E59F9 /* config.plist in Resources */,
 				EB71E6CE1C88E88A0059D8AB /* tutorial_background_02@2x.jpg in Resources */,
 				EB71E6D01C88E88A0059D8AB /* tutorial_background_04@2x.jpg in Resources */,
+				EB5665E71C9127850066F5BF /* Icon-40@3x.png in Resources */,
 				EBAFA2011C4EECBB007E59F9 /* LaunchScreen.storyboard in Resources */,
 				EB71E6CF1C88E88A0059D8AB /* tutorial_background_03@2x.jpg in Resources */,
 				EBC1D2FF1C890062009F4483 /* dockCurrentSongCell.xib in Resources */,
 				EBAFA1FE1C4EECBB007E59F9 /* Assets.xcassets in Resources */,
 				EB71E6CD1C88E88A0059D8AB /* tutorial_background_01@2x.jpg in Resources */,
 				EBAFA1FC1C4EECBB007E59F9 /* Main.storyboard in Resources */,
+				EB5665E51C91256B0066F5BF /* Icon-40.png in Resources */,
 				EBC1D3061C8A90B7009F4483 /* playlistSongCell.xib in Resources */,
 				EB5665DB1C8FA6950066F5BF /* searchResultCell.xib in Resources */,
 				EB71E6CC1C88E88A0059D8AB /* tutorial_background_00@2x.jpg in Resources */,
@@ -588,6 +601,7 @@
 				EBAFA22C1C5305F5007E59F9 /* NavigationManager.m in Sources */,
 				EBC1D3091C8A90F5009F4483 /* playlistTableViewCell.m in Sources */,
 				EBAFA1F31C4EECBB007E59F9 /* main.m in Sources */,
+				EB5665E31C90BB440066F5BF /* leavePartyViewController.m in Sources */,
 				EBAFA2481C584AD8007E59F9 /* WalkThroughViewController.m in Sources */,
 				EBAFA2331C530AC1007E59F9 /* SettingsViewController.m in Sources */,
 				EBAFA23E1C531136007E59F9 /* MainMenuViewController.m in Sources */,
@@ -732,7 +746,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 25390650428D711C19ED73B3 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				INFOPLIST_FILE = PartyShark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RiZhao.PartyShark;
@@ -744,7 +758,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3568ABD250035059969E3C90 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				INFOPLIST_FILE = PartyShark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RiZhao.PartyShark;

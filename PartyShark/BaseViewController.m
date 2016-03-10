@@ -33,7 +33,7 @@
                                                                                                    style:UIBarButtonItemStylePlain
                                                                                                   target:self
                                                                                                   action:@selector(presentLeftMenuViewController:)];
-    self.navigationItem.leftBarButtonItem.tintColor             = UIColorFromRGB(0xFF5722);
+    self.navigationItem.leftBarButtonItem.tintColor             = [UIColor colorWithRed:32.0/255.0 green:105.0/255.0 blue:179.0/255.0 alpha:1.0];
 }
 
 @end

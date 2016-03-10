@@ -12,6 +12,7 @@
 #import "ICETutorialController.h"
 #import "NavigationManager.h"
 #import <RESideMenu/RESideMenu.h>
+#import "SCLAlertView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, ICETutorialControllerDelegate>
 
@@ -26,6 +27,12 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+@property (strong, nonatomic) NSString *toSavePartyCode;
+
+- (void) setUpTutorialScreen;
+
+- (BOOL) tryJoinParty: (NSString *)partyCode;
+- (BOOL) userAlreadyInParty :(NSString*)partyCode :(NSString*)userID;
 
 @end
 
