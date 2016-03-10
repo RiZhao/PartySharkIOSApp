@@ -255,6 +255,8 @@
             
             NSDictionary *dictionary = [httpResponse allHeaderFields];
             
+            NSString *X_User_Code = [dictionary objectForKey:@"x-set-user-code"];
+            
             NSLog(@"%@ %@", response, responseObject);
             completionBlock(YES, nil);
         }
@@ -285,6 +287,8 @@
 
             NSDictionary *dictionary = [httpResponse allHeaderFields];
 
+            NSString *X_User_Code = [dictionary objectForKey:@"x-set-user-code"];
+            
             NSLog(@"%@ %@", response, responseObject);
             completionBlock(YES, nil);
         }
