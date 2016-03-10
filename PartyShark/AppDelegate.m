@@ -128,31 +128,36 @@
     joinField.keyboardType = UIKeyboardTypeNumberPad;
     
     [alert addButton:@"Join Party" validationBlock:^BOOL{
+        
         if (joinField.text.length == 0)
         {
             [self shakeAlert:alert];
             [joinField becomeFirstResponder];
             return NO;
-        //here check the text entered is equal to a existing partycode
-        }else if ([self tryJoinParty:joinField.text]){
-            
-            self.toSavePartyCode = joinField.text;
-            
-            return YES;
+            //here check the text entered is equal to a existing partycode
         }
-        [self shakeAlert:alert];
-        return NO;
+        
+        return YES;
+        
     } actionBlock:^{
-        //[[[UIAlertView alloc] initWithTitle:@"Great Job!" message:@"Thanks for playing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        self.window.rootViewController = self.sideMenuVC;
-        [self.navManager goToMainSection];
+        
+        [self tryJoinParty: joinField.text: ^(BOOL success, NSError *error){
+            
+            if (!success) {
+                NSLog(@"%@", error);
+                [self shakeAlert:alert];
+            }
+            else {
+                self.toSavePartyCode = joinField.text;
+                self.window.rootViewController = self.sideMenuVC;
+                [self.navManager goToMainSection];
+            }
+        }];
     }];
     
     
     UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0];
     [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"Enter Party Code to Join Party" closeButtonTitle:@"Cancel" duration:0.0f];
-    
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -229,7 +234,32 @@
     [self.window makeKeyAndVisible];
 }
 
-- (BOOL) tryJoinParty:(NSString *)partyCode{
+- (BOOL) tryJoinParty:(NSString *)partyCode :(myCompletionBlock)completionBlock {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/users", partyCode];
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters error:nil];
+    
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+            completionBlock(NO, nil);
+        } else {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+            NSDictionary *dictionary = [httpResponse allHeaderFields];
+            
+            NSLog(@"%@ %@", response, responseObject);
+            completionBlock(YES, nil);
+        }
+    }];
+    [dataTask resume];
     
     return YES;
 }
@@ -238,7 +268,6 @@
     
     NSString *URLString = @"http://nreid26.xyz:3000/parties";
     NSDictionary *parameters = @{};
-    
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
