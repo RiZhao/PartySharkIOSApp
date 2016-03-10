@@ -13,6 +13,7 @@
 #import "NavigationManager.h"
 #import <RESideMenu/RESideMenu.h>
 #import "SCLAlertView.h"
+#import "AFNetworking.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, ICETutorialControllerDelegate>
 
