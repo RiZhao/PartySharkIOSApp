@@ -100,6 +100,7 @@
         [self tryCreateParty:^(BOOL success, NSError *error){
             if(!success){
                 NSLog(@"%@", error);
+                [self shakeAlert:alert];
             }else{
                 
                 self.window.rootViewController = self.sideMenuVC;
@@ -250,6 +251,11 @@
             NSLog(@"Error: %@", error);
             completionBlock(NO, nil);
         } else {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+
+            NSDictionary *dictionary = [httpResponse allHeaderFields];
+
             NSLog(@"%@ %@", response, responseObject);
             
             completionBlock(YES, nil);
