@@ -49,6 +49,7 @@
 - (void) reloadData{
     
     [self getPlaylist];
+    [self isSongPlaying];
 
 }
 
