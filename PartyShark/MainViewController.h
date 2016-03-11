@@ -31,4 +31,7 @@
 - (void) downvoteSong: (NSNumber*) songCode;
 - (void) vetoSong: (NSNumber*) songCode;
 
+- (void) playSong;
+- (void) pauseSong;
+
 @end
