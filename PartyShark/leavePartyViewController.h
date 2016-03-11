@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "SCLAlertView.h"
 
 @interface leavePartyViewController : UIViewController
 

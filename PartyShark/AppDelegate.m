@@ -96,7 +96,7 @@
         return YES;
     
     } actionBlock:^{
-        //[[[UIAlertView alloc] initWithTitle:@"Great Job!" message:@"Thanks for playing." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+
         [self tryCreateParty:^(BOOL success, NSError *error){
             if(!success){
                 NSLog(@"%@", error);
