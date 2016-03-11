@@ -102,7 +102,7 @@
                 NSLog(@"%@", error);
                 [self shakeAlert:alert];
             }else{
-                
+
                 self.window.rootViewController = self.sideMenuVC;
                 //change to goToSettings
                 [self.navManager goToMainSection];
@@ -146,6 +146,8 @@
             else {
                 
                 self.toSavePartyCode = joinField.text;
+                [[NSUserDefaults standardUserDefaults] setObject:self.toSavePartyCode forKey:@"savedPartyCode"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 self.window.rootViewController = self.sideMenuVC;
                 [self.navManager goToMainSection];
             }
@@ -298,6 +300,9 @@
             
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"code"] forKey:@"savedPartyCode"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             NSDictionary *dictionary = [httpResponse allHeaderFields];
 
             [[NSUserDefaults standardUserDefaults] setObject:[dictionary objectForKey:@"x-set-user-code"] forKey:@"X_User_Code"];

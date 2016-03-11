@@ -100,6 +100,8 @@
     if (direction == MGSwipeDirectionRightToLeft) {
         MGSwipeButton * queueButton = [MGSwipeButton buttonWithTitle:@"Add to Dock" backgroundColor:[UIColor colorWithRed:33/255.0 green:175/255.0 blue:67/255.0 alpha:1.0] padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             
+            [self addSongToPlaylist: sender];
+            
             NSLog(@"Queue song");
             return YES;
         }];
@@ -134,6 +136,39 @@
     
 }
 
+
+- (void) addSongToPlaylist: (MGSwipeTableCell*) cell {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    //TODO: get the song code from the cell and send it to the server
+    NSDictionary *parameters = @{@"song_code": @112350072};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+    
+}
+
 - (void) SBSearchBarSearchButtonClicked:(SBSearchBar *)searchBar {
     
     NSString *searchTerm = searchBar.text;
@@ -142,8 +177,9 @@
         stringByReplacingOccurrencesOfString: @"\"" withString: @"&quot;"]
        stringByReplacingOccurrencesOfString: @"'" withString: @"&#39;"]
       stringByReplacingOccurrencesOfString: @">" withString: @"&gt;"]
-     stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
+      stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
     
+    searchTerm = [ searchTerm stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/songs?search=%@", searchTerm];
     NSDictionary *parameters = @{};
@@ -153,7 +189,7 @@
     
     NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
     
-    [request setValue: @"X-User-Code" forHTTPHeaderField:[[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"]];
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
@@ -171,7 +207,6 @@
         }
     }];
     [dataTask resume];
-
 }
 
 /*
