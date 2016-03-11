@@ -20,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.songsVotedUpon = [[NSMutableDictionary alloc] initWithObjectsAndKeys: nil];
-    
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
     
@@ -219,11 +217,7 @@
 
 //Need to add server stuff when it makes sense
 - (void) upvoteSong: (NSNumber*) songCode {
-    
-    NSNumber *didVote = [self.songsVotedUpon objectForKey: songCode];
-    
-    if ([didVote  isEqual: @1]) return;
-    
+
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
     NSDictionary *parameters = @{@"vote": @0};
@@ -242,9 +236,6 @@
             NSLog(@"Error: %@", error);
             
         } else {
-            
-            if ([didVote  isEqual: @-1]) [self.songsVotedUpon setValue: @0 forKey: songCode];
-            else [self.songsVotedUpon setValue: @1 forKey: songCode];
             
             NSLog(@"%@ %@", response, responseObject);
         }
@@ -256,11 +247,7 @@
 
 //Need to add server stuff when it makes sense
 - (void) downvoteSong: (NSNumber*) songCode {
-    
-    NSNumber *didVote = [self.songsVotedUpon objectForKey: songCode];
-    
-    if ([didVote  isEqual: @-1]) return;
-    
+
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
     NSDictionary *parameters = @{@"vote": @0};
@@ -279,9 +266,6 @@
             NSLog(@"Error: %@", error);
             
         } else {
-            
-            if ([didVote  isEqual: @1]) [self.songsVotedUpon setValue: @0 forKey: songCode];
-            else [self.songsVotedUpon setObject: @-1 forKey: songCode];
             
             NSLog(@"%@ %@", response, responseObject);
         }

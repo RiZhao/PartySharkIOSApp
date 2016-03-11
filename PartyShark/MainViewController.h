@@ -16,8 +16,6 @@
 
 @interface MainViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSMutableDictionary *songsVotedUpon;
-
 @property (strong, nonatomic) UITableView *currentSongView;
 @property (strong, nonatomic) UITableView *playlistView;
 
