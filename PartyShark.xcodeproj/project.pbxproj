@@ -14,6 +14,9 @@
 		EB5665E31C90BB440066F5BF /* leavePartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665E21C90BB440066F5BF /* leavePartyViewController.m */; };
 		EB5665E51C91256B0066F5BF /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665E41C91256B0066F5BF /* Icon-40.png */; };
 		EB5665E71C9127850066F5BF /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665E61C9127850066F5BF /* Icon-40@3x.png */; };
+		EB5665EB1C9286650066F5BF /* songFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665EA1C9286650066F5BF /* songFactory.m */; };
+		EB5665EE1C9286A90066F5BF /* songDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665ED1C9286A90066F5BF /* songDataModel.m */; };
+		EB5665F11C9346BA0066F5BF /* fetchData.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665F01C9346BA0066F5BF /* fetchData.m */; };
 		EB71E6CC1C88E88A0059D8AB /* tutorial_background_00@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */; };
 		EB71E6CD1C88E88A0059D8AB /* tutorial_background_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */; };
 		EB71E6CE1C88E88A0059D8AB /* tutorial_background_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */; };
@@ -71,6 +74,12 @@
 		EB5665E21C90BB440066F5BF /* leavePartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leavePartyViewController.m; sourceTree = "<group>"; };
 		EB5665E41C91256B0066F5BF /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "Assets.xcassets/AppIcon-2.appiconset/Icon-40.png"; sourceTree = "<group>"; };
 		EB5665E61C9127850066F5BF /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40@3x.png"; path = "Assets.xcassets/AppIcon-2.appiconset/Icon-40@3x.png"; sourceTree = "<group>"; };
+		EB5665E91C9286650066F5BF /* songFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = songFactory.h; sourceTree = "<group>"; };
+		EB5665EA1C9286650066F5BF /* songFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = songFactory.m; sourceTree = "<group>"; };
+		EB5665EC1C9286A90066F5BF /* songDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = songDataModel.h; sourceTree = "<group>"; };
+		EB5665ED1C9286A90066F5BF /* songDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = songDataModel.m; sourceTree = "<group>"; };
+		EB5665EF1C9346BA0066F5BF /* fetchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fetchData.h; sourceTree = "<group>"; };
+		EB5665F01C9346BA0066F5BF /* fetchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fetchData.m; sourceTree = "<group>"; };
 		EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_00@2x.jpg"; sourceTree = "<group>"; };
 		EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_01@2x.jpg"; sourceTree = "<group>"; };
 		EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_02@2x.jpg"; sourceTree = "<group>"; };
@@ -171,6 +180,17 @@
 			name = searchCell;
 			sourceTree = "<group>";
 		};
+		EB5665E81C9286240066F5BF /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				EB5665E91C9286650066F5BF /* songFactory.h */,
+				EB5665EA1C9286650066F5BF /* songFactory.m */,
+				EB5665EC1C9286A90066F5BF /* songDataModel.h */,
+				EB5665ED1C9286A90066F5BF /* songDataModel.m */,
+			);
+			name = Song;
+			sourceTree = "<group>";
+		};
 		EB71E6C61C88E83C0059D8AB /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +283,7 @@
 		EBAFA2251C52BCDD007E59F9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EB5665E81C9286240066F5BF /* Song */,
 				EBAFA23F1C532866007E59F9 /* Models */,
 			);
 			name = Data;
@@ -345,6 +366,8 @@
 			children = (
 				EBAFA2401C532893007E59F9 /* ConfigManager.h */,
 				EBAFA2411C532893007E59F9 /* ConfigManager.m */,
+				EB5665EF1C9346BA0066F5BF /* fetchData.h */,
+				EB5665F01C9346BA0066F5BF /* fetchData.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -596,9 +619,12 @@
 				EBAFA23B1C53109F007E59F9 /* MainViewController.m in Sources */,
 				EBAFA2371C530F12007E59F9 /* BaseViewController.m in Sources */,
 				EBAFA2421C532893007E59F9 /* ConfigManager.m in Sources */,
+				EB5665EE1C9286A90066F5BF /* songDataModel.m in Sources */,
 				EBC1D3031C890E44009F4483 /* CurrentSongTableViewCell.m in Sources */,
 				EBAFA24B1C584BA8007E59F9 /* SystemStatics.m in Sources */,
+				EB5665EB1C9286650066F5BF /* songFactory.m in Sources */,
 				EBAFA22C1C5305F5007E59F9 /* NavigationManager.m in Sources */,
+				EB5665F11C9346BA0066F5BF /* fetchData.m in Sources */,
 				EBC1D3091C8A90F5009F4483 /* playlistTableViewCell.m in Sources */,
 				EBAFA1F31C4EECBB007E59F9 /* main.m in Sources */,
 				EB5665E31C90BB440066F5BF /* leavePartyViewController.m in Sources */,

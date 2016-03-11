@@ -11,10 +11,14 @@
 #import "searchTableViewCell.h"
 #import "SBSearchBar.h"
 #import "AFNetworking.h"
+#import "songFactory.h"
+#import "songDataModel.h"
 
 @interface SearchViewController : BaseViewController <SBSearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
+
+@property (strong, nonatomic) NSMutableArray *searchResultArray;
 
 - (void)SBSearchBarSearchButtonClicked:(SBSearchBar *)searchBar;                     // called when keyboard search button pressed
 - (void)SBSearchBarCancelButtonClicked:(SBSearchBar *)searchBar;                     // called when cancel button is pressed

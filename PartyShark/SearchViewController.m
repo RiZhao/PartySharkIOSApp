@@ -53,6 +53,7 @@
 
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -72,11 +73,12 @@
     
     cell.delegate = self;
     
+    songDataModel *songModel = self.searchResultArray[indexPath.row];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.titleLabel.text = @"Spaceship";
-    cell.artistLabel.text = @"Kanye West";
-    cell.albumLabel.text = @"Graduation";
+    cell.titleLabel.text = songModel.songTitle;
+    cell.artistLabel.text = songModel.songArtist;
+    cell.albumLabel.text = @"sample";
     cell.imageView.image = nil;
     return cell;
 }
@@ -125,15 +127,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    if(self.searchResultArray){
+        return self.searchResultArray.count;
+    }else {
+        return 0;
+    }
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
         return 80;
-    
 }
 
 
@@ -170,53 +174,20 @@
 }
 
 - (void) SBSearchBarSearchButtonClicked:(SBSearchBar *)searchBar {
-    
-    NSString *searchTerm = searchBar.text;
-    
-    [[[[[searchTerm stringByReplacingOccurrencesOfString: @"&" withString: @"&amp;"]
-        stringByReplacingOccurrencesOfString: @"\"" withString: @"&quot;"]
-       stringByReplacingOccurrencesOfString: @"'" withString: @"&#39;"]
-      stringByReplacingOccurrencesOfString: @">" withString: @"&gt;"]
-      stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
-    
-    searchTerm = [ searchTerm stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/songs?search=%@", searchTerm];
-    NSDictionary *parameters = @{};
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
-    
-    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            
-            //Error
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            
-            // All info needed is in here ^
-            
-            NSLog(@"%@ %@", response, responseObject);
+    songFactory *factory = [[songFactory alloc]init];
+    NSString *temp = searchBar.text;
+    songFactory *fetch = [[songFactory alloc]init];
+    [fetch gatherData:temp :^(BOOL success, NSMutableArray *songs, NSError *error) {
+        if (!success){
+            NSLog(@"%@", error);
+        }else {
+            self.searchResultArray = songs;
+            [self.tableView reloadData];
+        
         }
     }];
-    [dataTask resume];
+    [searchBar resignFirstResponder];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
