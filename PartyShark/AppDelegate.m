@@ -264,6 +264,14 @@
             
             NSDictionary *dictionary = [httpResponse allHeaderFields];
             
+            // Saves that the user is NOT an admin
+            [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"is_admin"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Saves that the user is NOT an admin
+            [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"is_player"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             // Save username
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"username"] forKey:@"username"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -315,6 +323,10 @@
             
             // Save party_code
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"code"] forKey:@"savedPartyCode"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Person who creates the party is the player
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@YES] forKey:@"is_player"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             NSDictionary *dictionary = [httpResponse allHeaderFields];
