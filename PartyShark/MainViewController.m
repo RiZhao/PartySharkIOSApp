@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.songsVotedUpon = [NSDictionary alloc];
+    self.songsVotedUpon = [[NSMutableDictionary alloc] initWithObjectsAndKeys: nil];
     
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
@@ -130,7 +130,7 @@
             
             //remove functionality
             //get songcode from the sender
-            [self vetoSong: @11111];
+            [self vetoSong: @7];
             
             return YES;
         }]];
@@ -139,14 +139,14 @@
             
             //upvote functionality
             //get songcode from the sender
-            [self upvoteSong: @11111];
+            [self upvoteSong: @7];
             
             return YES;
         }], [MGSwipeButton buttonWithTitle:@"downvote" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //downvote functionality
             //Get songcode from the sender
-            [self downvoteSong: @11111];
+            [self downvoteSong: @7];
             
             return YES;
         }]];
@@ -218,48 +218,11 @@
 }
 
 //Need to add server stuff when it makes sense
-- (void) upvoteSong: (NSString*) songCode {
+- (void) upvoteSong: (NSNumber*) songCode {
     
-    NSInteger didVote = [self.songsVotedUpon objectForKey: songCode];
+    NSNumber *didVote = [self.songsVotedUpon objectForKey: songCode];
     
-    if (didVote == 1) return;
-    
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
-    
-    NSDictionary *parameters = @{@"vote": @1};
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
-    
-    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            
-            //Error
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            
-            if (didVote == -1) [self.songsVotedUpon setValue: @0 forKey: songCode];
-            else [self.songsVotedUpon setValue: @1 forKey: songCode];
-            
-            NSLog(@"%@ %@", response, responseObject);
-        }
-    }];
-    [dataTask resume];
-    
-    [self getPlaylist];
-}
-
-//Need to add server stuff when it makes sense
-- (void) downvoteSong: (NSString*) songCode {
-    
-    NSInteger didVote = [self.songsVotedUpon objectForKey: songCode];
-    
-    if (didVote == -1) return;
+    if ([didVote  isEqual: @1]) return;
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
@@ -280,8 +243,45 @@
             
         } else {
             
-            if (didVote == 1) [self.songsVotedUpon setValue: @0 forKey: songCode];
-            else [self.songsVotedUpon setValue: @-1 forKey: songCode];
+            if ([didVote  isEqual: @-1]) [self.songsVotedUpon setValue: @0 forKey: songCode];
+            else [self.songsVotedUpon setValue: @1 forKey: songCode];
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+    
+    [self getPlaylist];
+}
+
+//Need to add server stuff when it makes sense
+- (void) downvoteSong: (NSNumber*) songCode {
+    
+    NSNumber *didVote = [self.songsVotedUpon objectForKey: songCode];
+    
+    if ([didVote  isEqual: @-1]) return;
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
+    
+    NSDictionary *parameters = @{@"vote": @0};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            if ([didVote  isEqual: @1]) [self.songsVotedUpon setValue: @0 forKey: songCode];
+            else [self.songsVotedUpon setObject: @-1 forKey: songCode];
             
             NSLog(@"%@ %@", response, responseObject);
         }
