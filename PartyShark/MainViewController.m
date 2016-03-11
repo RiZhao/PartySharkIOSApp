@@ -97,16 +97,21 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"skip song" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
-            //skip functionality
-            NSLog(@"skipped");
-            return YES;
-        }], [MGSwipeButton buttonWithTitle:@"play/pause" backgroundColor:[UIColor blueColor]callback:^BOOL(MGSwipeTableCell *sender) {
-            //play/pause functionality
-            return YES;
-        }]];
-        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        //If user is admin, give augmented controls
+        NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
         
+        if ([isAdmin isEqualToString:@"1"]) {
+        
+            cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"skip song" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
+                //skip functionality
+                NSLog(@"skipped");
+                return YES;
+            }], [MGSwipeButton buttonWithTitle:@"play/pause" backgroundColor:[UIColor blueColor]callback:^BOOL(MGSwipeTableCell *sender) {
+                //play/pause functionality
+                return YES;
+            }]];
+            cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        }
         
         cell.titleLabel.text = @"Sorry";
         cell.artistLabel.text = @"Justin";
@@ -124,15 +129,23 @@
             cell2 = [nib objectAtIndex:0];
         }
         cell2.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell2.rightButtons = @[[MGSwipeButton buttonWithTitle:@"remove song" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
+        
+        //If user is admin, give augmented controls
+        NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
+        
+        if ([isAdmin isEqualToString:@"1"]) {
             
-            //remove functionality
-            //get songcode from the sender
-            [self vetoSong: @7];
+            cell2.rightButtons = @[[MGSwipeButton buttonWithTitle:@"remove song" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
-            return YES;
-        }]];
-        cell2.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+                //remove functionality
+                //get songcode from the sender
+                [self vetoSong: @7];
+            
+                return YES;
+            }]];
+            cell2.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        }
+        
         cell2.leftButtons = @[[MGSwipeButton buttonWithTitle:@"upvote" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //upvote functionality
