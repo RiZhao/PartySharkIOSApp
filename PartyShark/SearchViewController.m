@@ -78,9 +78,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = songModel.songTitle;
     cell.artistLabel.text = songModel.songArtist;
-    cell.albumLabel.text = @"sample";
+    cell.albumLabel.text = songModel.songCode;
     cell.imageView.image = nil;
     return cell;
+    
 }
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction;
@@ -89,8 +90,9 @@
 }
 
 -(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
-             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings
+             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings :(searchTableViewCell*) searchCell
 {
+    
     swipeSettings.transition = MGSwipeTransitionClipCenter;
     swipeSettings.keepButtonsSwiped = NO;
     expansionSettings.buttonIndex = 0;
@@ -102,7 +104,7 @@
     if (direction == MGSwipeDirectionRightToLeft) {
         MGSwipeButton * queueButton = [MGSwipeButton buttonWithTitle:@"Add to Dock" backgroundColor:[UIColor colorWithRed:33/255.0 green:175/255.0 blue:67/255.0 alpha:1.0] padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             
-            [self addSongToPlaylist: sender];
+            [self addSongToPlaylist: searchCell];
             
             NSLog(@"Queue song");
             return YES;
@@ -141,12 +143,12 @@
 }
 
 
-- (void) addSongToPlaylist: (MGSwipeTableCell*) cell {
+- (void) addSongToPlaylist: (searchTableViewCell*) cell {
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     //TODO: get the song code from the cell and send it to the server
-    NSDictionary *parameters = @{@"song_code": @112350072};
+    NSDictionary *parameters = @{@"code": cell.albumLabel.text};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];

@@ -28,6 +28,6 @@
 - (BOOL)SBSearchBarShouldEndEditing:(SBSearchBar *)searchBar;                        // return NO to not resign first responder
 - (void)SBSearchBarTextDidEndEditing:(SBSearchBar *)searchBar;
 
--(void) addSongToPlaylist: (MGSwipeTableCell*) cell;
+-(void) addSongToPlaylist: (searchTableViewCell*) cell :(NSIndexPath *)indexPath;
 
 @end
