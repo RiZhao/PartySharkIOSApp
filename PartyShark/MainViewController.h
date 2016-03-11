@@ -12,8 +12,11 @@
 #import "BaseViewController.h"
 #import "CurrentSongTableViewCell.h"    
 #import "playlistTableViewCell.h"
+#import "AFNetworking.h"
 
 @interface MainViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) NSDictionary *songsVotedUpon;
 
 @property (strong, nonatomic) UITableView *currentSongView;
 @property (strong, nonatomic) UITableView *playlistView;
@@ -24,5 +27,10 @@
 @property(strong, nonatomic) NSArray *titles;
 
 @property(strong, nonatomic) UIRefreshControl *refreshControl;
+
+- (void) getPlaylist;
+- (void) upvoteSong: (NSString*) songCode;
+- (void) downvoteSong: (NSString*) songCode;
+- (void) vetoSong: (NSString*) songCode;
 
 @end

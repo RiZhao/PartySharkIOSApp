@@ -15,9 +15,13 @@
 
 @implementation MainViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.songsVotedUpon = [NSDictionary alloc];
+    
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
     
@@ -36,18 +40,17 @@
     
     //refresh
     
-        self.refreshControl = [[UIRefreshControl alloc]init];
-        [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-        [self.playlistView addSubview:self.refreshControl];
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.playlistView addSubview:self.refreshControl];
     
-    
+    // Gets called twice for some reason
     [self reloadData];
-    
 }
 
 - (void) reloadData{
     
- 
+    [self getPlaylist];
 
 }
 
@@ -124,15 +127,27 @@
         }
         cell2.selectionStyle = UITableViewCellSelectionStyleNone;
         cell2.rightButtons = @[[MGSwipeButton buttonWithTitle:@"remove song" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
+            
             //remove functionality
+            //get songcode from the sender
+            [self vetoSong: @11111];
+            
             return YES;
         }]];
         cell2.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         cell2.leftButtons = @[[MGSwipeButton buttonWithTitle:@"upvote" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
+            
             //upvote functionality
+            //get songcode from the sender
+            [self upvoteSong: @11111];
+            
             return YES;
         }], [MGSwipeButton buttonWithTitle:@"downvote" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
+            
             //downvote functionality
+            //Get songcode from the sender
+            [self downvoteSong: @11111];
+            
             return YES;
         }]];
         cell2.leftSwipeSettings.transition = MGSwipeTransitionDrag;
@@ -169,6 +184,88 @@
     NSLog(@"data reloaded");
     [self reloadData];
     [self.refreshControl endRefreshing];
+}
+
+- (void) getPlaylist {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            
+            // Do stuff with the data you get here, like maybe get more song info
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+}
+
+//Need to add server stuff when it makes sense
+- (void) upvoteSong: (NSString*) songCode {
+    
+    NSInteger didVote = [self.songsVotedUpon objectForKey: songCode];
+    
+    if (didVote == 1) return;
+    
+    [self.songsVotedUpon setValue: @1 forKey: songCode];
+    
+}
+
+//Need to add server stuff when it makes sense
+- (void) downvoteSong: (NSString*) songCode {
+    
+    NSInteger didVote = [self.songsVotedUpon objectForKey: songCode];
+    
+    if (didVote == -1) return;
+    
+    [self.songsVotedUpon setValue: @-1 forKey: songCode];
+    
+}
+
+- (void) vetoSong: (NSString*) songCode {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
+    
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"DELETE" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+    
+    [self getPlaylist];
 }
 
 
