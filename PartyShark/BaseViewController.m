@@ -34,6 +34,8 @@
                                                                                                   target:self
                                                                                                   action:@selector(presentLeftMenuViewController:)];
     self.navigationItem.leftBarButtonItem.tintColor             = [UIColor colorWithRed:32.0/255.0 green:105.0/255.0 blue:179.0/255.0 alpha:1.0];
+    
+    self.title = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
 }
 
 @end

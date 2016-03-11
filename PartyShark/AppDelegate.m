@@ -264,6 +264,19 @@
             
             NSDictionary *dictionary = [httpResponse allHeaderFields];
             
+            // Saves that the user is NOT an admin
+            [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"is_admin"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Saves that the user is NOT a player
+            [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"is_player"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Save username
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"username"] forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Save the X-User-Code in device memory
             [[NSUserDefaults standardUserDefaults] setObject:[dictionary objectForKey:@"x-set-user-code"] forKey:@"X_User_Code"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
@@ -300,7 +313,20 @@
             
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
 
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Saves that the user is now an admin
+            [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"is_admin"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Save party_code
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"code"] forKey:@"savedPartyCode"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            // Person who creates the party is the player
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@YES] forKey:@"is_player"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             NSDictionary *dictionary = [httpResponse allHeaderFields];
@@ -310,8 +336,27 @@
             
             NSLog(@"%@ %@", response, responseObject);
             success = YES;
-            completionBlock(YES, nil);
             
+            NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/users/self",  [responseObject objectForKey:@"code"]];
+            
+            NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+            
+            [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+            
+            NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                if (error) {
+                    NSLog(@"Error: %@", error);
+                    completionBlock(NO, nil);
+                } else {
+                    
+                    // Save username
+                    [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"username"] forKey:@"username"];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    completionBlock(YES, nil);
+                    
+                }
+            }];
+            [dataTask resume];
         }
     }];
     [dataTask resume];

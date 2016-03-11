@@ -16,8 +16,6 @@
 
 @interface MainViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSDictionary *songsVotedUpon;
-
 @property (strong, nonatomic) UITableView *currentSongView;
 @property (strong, nonatomic) UITableView *playlistView;
 
@@ -29,8 +27,12 @@
 @property(strong, nonatomic) UIRefreshControl *refreshControl;
 
 - (void) getPlaylist;
-- (void) upvoteSong: (NSString*) songCode;
-- (void) downvoteSong: (NSString*) songCode;
-- (void) vetoSong: (NSString*) songCode;
+- (void) upvoteSong: (NSNumber*) songCode;
+- (void) downvoteSong: (NSNumber*) songCode;
+- (void) vetoSong: (NSNumber*) songCode;
+
+- (void) playSong;
+- (void) pauseSong;
+- (BOOL) isSongPlaying;
 
 @end

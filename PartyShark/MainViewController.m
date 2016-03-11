@@ -20,8 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.songsVotedUpon = [NSDictionary alloc];
-    
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
     
@@ -51,6 +49,7 @@
 - (void) reloadData{
     
     [self getPlaylist];
+    [self isSongPlaying];
 
 }
 
@@ -99,16 +98,32 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"skip song" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
-            //skip functionality
-            NSLog(@"skipped");
-            return YES;
-        }], [MGSwipeButton buttonWithTitle:@"play/pause" backgroundColor:[UIColor blueColor]callback:^BOOL(MGSwipeTableCell *sender) {
-            //play/pause functionality
-            return YES;
-        }]];
-        cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        //If user is admin, give augmented controls
+        NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
         
+        if ([isAdmin isEqualToString:@"1"]) {
+        
+            cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"skip song" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
+                //skip functionality
+                NSLog(@"skipped");
+                return YES;
+            }], [MGSwipeButton buttonWithTitle:@"play/pause" backgroundColor:[UIColor blueColor]callback:^BOOL(MGSwipeTableCell *sender) {
+                
+                //play/pause functionality
+                
+                NSString *isSongPlaying = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_playing"];
+                
+                if ([isSongPlaying isEqualToString:@"1"]) {
+                    [self pauseSong];
+                }
+                
+                [self playSong];
+                
+                return YES;
+            }]];
+            
+            cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        }
         
         cell.titleLabel.text = @"Sorry";
         cell.artistLabel.text = @"Justin";
@@ -126,27 +141,35 @@
             cell2 = [nib objectAtIndex:0];
         }
         cell2.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell2.rightButtons = @[[MGSwipeButton buttonWithTitle:@"remove song" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
+        
+        //If user is admin, give augmented controls
+        NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
+        
+        if ([isAdmin isEqualToString:@"1"]) {
             
-            //remove functionality
-            //get songcode from the sender
-            [self vetoSong: @11111];
+            cell2.rightButtons = @[[MGSwipeButton buttonWithTitle:@"remove song" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
-            return YES;
-        }]];
-        cell2.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+                //remove functionality
+                //get songcode from the sender
+                [self vetoSong: @7];
+            
+                return YES;
+            }]];
+            cell2.rightSwipeSettings.transition = MGSwipeTransitionDrag;
+        }
+        
         cell2.leftButtons = @[[MGSwipeButton buttonWithTitle:@"upvote" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //upvote functionality
             //get songcode from the sender
-            [self upvoteSong: @11111];
+            [self upvoteSong: @7];
             
             return YES;
         }], [MGSwipeButton buttonWithTitle:@"downvote" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //downvote functionality
             //Get songcode from the sender
-            [self downvoteSong: @11111];
+            [self downvoteSong: @7];
             
             return YES;
         }]];
@@ -218,49 +241,8 @@
 }
 
 //Need to add server stuff when it makes sense
-- (void) upvoteSong: (NSString*) songCode {
-    
-    NSInteger didVote = [self.songsVotedUpon objectForKey: songCode];
-    
-    if (didVote == 1) return;
-    
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
-    
-    NSDictionary *parameters = @{@"vote": @1};
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
-    
-    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            
-            //Error
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            
-            if (didVote == -1) [self.songsVotedUpon setValue: @0 forKey: songCode];
-            else [self.songsVotedUpon setValue: @1 forKey: songCode];
-            
-            NSLog(@"%@ %@", response, responseObject);
-        }
-    }];
-    [dataTask resume];
-    
-    [self getPlaylist];
-}
+- (void) upvoteSong: (NSNumber*) songCode {
 
-//Need to add server stuff when it makes sense
-- (void) downvoteSong: (NSString*) songCode {
-    
-    NSInteger didVote = [self.songsVotedUpon objectForKey: songCode];
-    
-    if (didVote == -1) return;
-    
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
     NSDictionary *parameters = @{@"vote": @0};
@@ -280,8 +262,35 @@
             
         } else {
             
-            if (didVote == 1) [self.songsVotedUpon setValue: @0 forKey: songCode];
-            else [self.songsVotedUpon setValue: @-1 forKey: songCode];
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+    
+    [self getPlaylist];
+}
+
+//Need to add server stuff when it makes sense
+- (void) downvoteSong: (NSNumber*) songCode {
+
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
+    
+    NSDictionary *parameters = @{@"vote": @0};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
             
             NSLog(@"%@ %@", response, responseObject);
         }
@@ -318,6 +327,104 @@
     [dataTask resume];
     
     [self getPlaylist];
+}
+
+- (void) playSong {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSDictionary *parameters = @{@"is_playing": @1};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            NSLog(@"%@ %@", response, responseObject);
+            
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void) pauseSong {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSDictionary *parameters = @{@"is_playing": @0};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+}
+
+// Can use this function when updating the playlist every 5 or so seconds to keep everything up-to-date
+- (BOOL) isSongPlaying {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+    
+    return [[[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"] isEqualToString:@"1"];
 }
 
 
