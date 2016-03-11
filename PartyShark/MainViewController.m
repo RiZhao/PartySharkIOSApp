@@ -112,7 +112,7 @@
                 
                 NSString *isSongPlaying = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_playing"];
                 
-                if ([isAdmin isEqualToString:@"1"]) {
+                if ([isSongPlaying isEqualToString:@"1"]) {
                     [self pauseSong];
                 }
                 
