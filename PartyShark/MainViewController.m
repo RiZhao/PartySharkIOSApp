@@ -391,5 +391,40 @@
     [dataTask resume];
 }
 
+// Can use this function when updating the playlist every 5 or so seconds to keep everything up-to-date
+- (BOOL) isSongPlaying {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+    
+    return [[[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"] isEqualToString:@"1"];
+}
+
 
 @end

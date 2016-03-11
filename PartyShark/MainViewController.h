@@ -33,5 +33,6 @@
 
 - (void) playSong;
 - (void) pauseSong;
+- (BOOL) isSongPlaying;
 
 @end
