@@ -268,7 +268,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"is_admin"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
-            // Saves that the user is NOT an admin
+            // Saves that the user is NOT a player
             [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"is_player"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             

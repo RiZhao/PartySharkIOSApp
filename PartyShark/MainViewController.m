@@ -350,6 +350,10 @@
         } else {
             
             NSLog(@"%@ %@", response, responseObject);
+            
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }];
     [dataTask resume];
@@ -376,9 +380,14 @@
             
         } else {
             
+            // Saves if the player is currently playing
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             NSLog(@"%@ %@", response, responseObject);
         }
     }];
+    
     [dataTask resume];
 }
 
