@@ -78,8 +78,8 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = songModel.songTitle;
     cell.artistLabel.text = songModel.songArtist;
-    cell.albumLabel.text = songModel.songCode;
-    cell.imageView.image = nil;
+    cell.albumLabel.text = songModel.songAlbum;
+    cell.imageView.image = songModel.albumArt;
     return cell;
     
 }

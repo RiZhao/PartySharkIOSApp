@@ -15,7 +15,7 @@
 @interface songFactory : NSObject
 
 @property (nonatomic, strong) NSMutableArray* songResultArray;
-@property (nonatomic, strong) NSMutableArray* songs;
+@property (nonatomic, strong) NSDictionary* songs;
 
 typedef void (^newCompletionBlock)(BOOL success, NSMutableArray *songs, NSError *error);
 

@@ -30,10 +30,19 @@
                 songDataModel *songModel = [[songDataModel alloc]init];
                 
                 self.songs = [data objectAtIndex:i];
-                songModel.songCode =        [self.songs objectAtIndex:0];
-                songModel.songDuration =    [self.songs objectAtIndex:2];
-                songModel.songTitle =       [self.songs objectAtIndex:3];
-                songModel.songArtist =      [self.songs objectAtIndex:4];
+                //song id
+                //NSDictionary *songCode = [self.songs objectAtIndex:0];
+                songModel.songCode =        [self.songs objectForKey:@"id"];
+                //album title and album picture
+                NSDictionary *album = [self.songs objectForKey:@"album"];
+                NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [album objectForKey:@"cover_medium"]]];
+                songModel.songAlbum =    [album objectForKey:@"title"];
+                songModel.albumArt = [UIImage imageWithData: imageData];
+                //song title
+                songModel.songTitle =       [self.songs objectForKey:@"title"];
+                //artist
+                NSDictionary *artistName = [self.songs objectForKey:@"artist"];
+                songModel.songArtist =      [artistName objectForKey:@"name"];
                
                 [self.songResultArray addObject:songModel];
                 

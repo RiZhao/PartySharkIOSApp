@@ -45,7 +45,7 @@
     
     searchTerm = [ searchTerm stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/songs?search=%@", searchTerm];
+    NSString *URLString = [NSString stringWithFormat:@"http://api.deezer.com/search?q=%@", searchTerm];
     
     NSDictionary *parameters = @{};
     
@@ -67,13 +67,20 @@
             
             //NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             //NSHTTPURLResponse *httpResponse = (id)responseObject;
-            NSDictionary *res = (id)responseObject;
+            //NSDictionary *res = (id)responseObject;
             
             // extract specific value...
-            NSMutableArray *results = [res objectForKey:@"values"];
+            //NSMutableArray *results = [res objectForKey:@"data"];
             //NSLog(@"%@", results);
+            
+            NSDictionary *res = (id)responseObject;
+            
+            NSMutableArray *results = [res objectForKey:@"data"];
+           
+            
             if (results){
                 completionBlock(YES, results, nil);
+                
             }
             
             // NSLog(@"%@ %@", response, responseObject);
