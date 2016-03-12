@@ -13,10 +13,12 @@
 #import "AFNetworking.h"
 #import "songFactory.h"
 #import "songDataModel.h"
+#import "MNMBottomPullToRefreshManager.h"
 
-@interface SearchViewController : BaseViewController <SBSearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SearchViewController : BaseViewController <SBSearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, MNMBottomPullToRefreshManagerClient>
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) MNMBottomPullToRefreshManager *refreshControl;
 
 @property (strong, nonatomic) NSMutableArray *searchResultArray;
 
@@ -29,5 +31,6 @@
 - (void)SBSearchBarTextDidEndEditing:(SBSearchBar *)searchBar;
 
 -(void) addSongToPlaylist: (searchTableViewCell*) cell :(NSIndexPath *)indexPath;
+- (void) loadRefreshScroll;
 
 @end

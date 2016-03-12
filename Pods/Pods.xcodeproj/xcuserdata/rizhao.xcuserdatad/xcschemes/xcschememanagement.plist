@@ -9,12 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CCBottomRefreshControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ICETutorial.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,12 +52,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3645BB70889D479167605E3D71C8EE90</key>
+		<key>268AF22CF1ADE6AF88BDE9F49C77156D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3FC27EB5B4EFD2AA7BA120D2661686D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5842E0902FFFFF0033B3004FF9561CC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5FA71655FDFDCF95DAEAFCB777F1F9F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>602D0FFA5EAE497A27B7AB2E67E06687</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7188E84B0BBAFC714AF69FF7C12873B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,17 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BAD965B80EE96061CB62B460BE95E52F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BDC9890357D781F2991BF50E23BD89FF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DEAF3D30D35607A7EA98C55F3563FFC4</key>
+		<key>A15289AD9A5C39E9D4F5284B3DD9728F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -20,5 +20,5 @@
 typedef void (^newCompletionBlock)(BOOL success, NSMutableArray *songs, NSError *error);
 
 - (void) gatherData : (NSString*) textbarText : (newCompletionBlock)completionBlock;
-
+- (void) gatherNextData : (newCompletionBlock)completionBlock;
 @end

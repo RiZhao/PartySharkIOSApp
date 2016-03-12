@@ -14,6 +14,8 @@
 typedef void (^fetchCompletionBlock)(BOOL success, NSMutableArray *data, NSError *error);
 +(fetchData*)singletonInstance;
 
-- (void) fetchsearchResults : (NSString*) searchText : (fetchCompletionBlock)completionBlock;
+@property (strong, nonatomic) NSString *nextString;
 
+- (void) fetchsearchResults : (NSString*) searchText : (fetchCompletionBlock)completionBlock;
+- (void) fetchMoreSearchResults : (fetchCompletionBlock)completionBlock;
 @end

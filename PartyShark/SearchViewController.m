@@ -43,13 +43,18 @@
     
     [self.view addSubview:searchBarCustom];
     
+    //set up bottom refresh control
+
+    //
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 113, self.view.frame.size.width, self.view.frame.size.height - 113 ) style:UITableViewStylePlain];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-
-
+    
+   
+    //if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height))
 
 }
 
@@ -59,7 +64,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) loadRefreshScroll{
+    self.refreshControl = [[MNMBottomPullToRefreshManager alloc] initWithPullToRefreshViewHeight:60.0f tableView:self.tableView withClient:self];
+    [self.refreshControl tableViewReleased];
+    [self.refreshControl relocatePullToRefreshView];
+}
 
+- (void) loadTable{
+    songFactory *factory = [[songFactory alloc]init];
+    songFactory *fetch = [[songFactory alloc]init];
+    [fetch gatherNextData :^(BOOL success, NSMutableArray *songs, NSError *error) {
+        if (!success){
+            NSLog(@"%@", error);
+        }else {
+            self.searchResultArray = [self.searchResultArray arrayByAddingObjectsFromArray:songs];
+            [self.tableView reloadData];
+            [self.refreshControl tableViewReleased];
+            [self.refreshControl relocatePullToRefreshView];
+         
+        }
+    }];
+    [self.refreshControl tableViewReloadFinished];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    [self.refreshControl relocatePullToRefreshView];
+}
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,6 +108,7 @@
     
     songDataModel *songModel = self.searchResultArray[indexPath.row];
     
+    cell.songCellCode = songModel.songCode;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = songModel.songTitle;
     cell.artistLabel.text = songModel.songArtist;
@@ -84,13 +118,13 @@
     
 }
 
--(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction;
+-(BOOL) swipeTableCell:(searchTableViewCell*) cell canSwipe:(MGSwipeDirection) direction;
 {
     return YES;
 }
 
--(NSArray*) swipeTableCell:(MGSwipeTableCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
-             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings :(searchTableViewCell*) searchCell
+-(NSArray*) swipeTableCell:(searchTableViewCell*) cell swipeButtonsForDirection:(MGSwipeDirection)direction
+             swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings
 {
     
     swipeSettings.transition = MGSwipeTransitionClipCenter;
@@ -104,7 +138,7 @@
     if (direction == MGSwipeDirectionRightToLeft) {
         MGSwipeButton * queueButton = [MGSwipeButton buttonWithTitle:@"Add to Dock" backgroundColor:[UIColor colorWithRed:33/255.0 green:175/255.0 blue:67/255.0 alpha:1.0] padding:15 callback:^BOOL(MGSwipeTableCell *sender) {
             
-            [self addSongToPlaylist: searchCell];
+            [self addSongToPlaylist: cell];
             
             NSLog(@"Queue song");
             return YES;
@@ -115,7 +149,7 @@
     return nil;
 }
 
--(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
+-(void) swipeTableCell:(searchTableViewCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
 {
     NSString * str;
     switch (state) {
@@ -148,7 +182,9 @@
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     //TODO: get the song code from the cell and send it to the server
-    NSDictionary *parameters = @{@"code": cell.albumLabel.text};
+    NSLog(@"this is the song code");
+    NSLog(@"%@", cell.songCellCode);
+    NSDictionary *parameters = @{@"code": cell.songCellCode};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -185,11 +221,26 @@
         }else {
             self.searchResultArray = songs;
             [self.tableView reloadData];
-        
+            [self loadRefreshScroll];
         }
     }];
     [searchBar resignFirstResponder];
 }
+#pragma pull to refresh
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.refreshControl tableViewScrolled];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self.refreshControl tableViewReleased];
+}
+
+- (void)bottomPullToRefreshTriggered:(MNMBottomPullToRefreshManager *)manager {
+    
+    [self performSelector:@selector(loadTable) withObject:nil afterDelay:1.0f];
+}
+
 
 
 @end

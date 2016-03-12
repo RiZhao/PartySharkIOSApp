@@ -65,18 +65,55 @@
             
         } else {
             
-            //NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            //NSHTTPURLResponse *httpResponse = (id)responseObject;
-            //NSDictionary *res = (id)responseObject;
-            
-            // extract specific value...
-            //NSMutableArray *results = [res objectForKey:@"data"];
-            //NSLog(@"%@", results);
-            
+
             NSDictionary *res = (id)responseObject;
             
             NSMutableArray *results = [res objectForKey:@"data"];
-           
+            self.nextString = [res objectForKey:@"next"];
+            [[NSUserDefaults standardUserDefaults] setObject:self.nextString forKey:@"next_URL"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            if (results){
+                completionBlock(YES, results, nil);
+                
+            }
+            
+            // NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    [dataTask resume];
+}
+
+- (void) fetchMoreSearchResults : (fetchCompletionBlock)completionBlock{
+    NSString *URLString = [[NSUserDefaults standardUserDefaults]
+                           stringForKey:@"next_URL"];
+    
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            completionBlock(NO, nil, error);
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            
+            NSDictionary *res = (id)responseObject;
+            self.nextString = [res objectForKey:@"next"];
+            [[NSUserDefaults standardUserDefaults] setObject:self.nextString forKey:@"next_URL"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            NSMutableArray *results = [res objectForKey:@"data"];
+            
+            self.nextString = [res objectForKey:@"next"];
             
             if (results){
                 completionBlock(YES, results, nil);

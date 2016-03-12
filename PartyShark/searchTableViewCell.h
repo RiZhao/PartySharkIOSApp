@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *albumImage;
+@property (strong, nonatomic) NSString* songCellCode;
 
 @end

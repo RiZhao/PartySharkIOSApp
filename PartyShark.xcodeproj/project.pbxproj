@@ -17,6 +17,9 @@
 		EB5665EB1C9286650066F5BF /* songFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665EA1C9286650066F5BF /* songFactory.m */; };
 		EB5665EE1C9286A90066F5BF /* songDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665ED1C9286A90066F5BF /* songDataModel.m */; };
 		EB5665F11C9346BA0066F5BF /* fetchData.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665F01C9346BA0066F5BF /* fetchData.m */; };
+		EB5666001C94CB4E0066F5BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5665FF1C94CB4E0066F5BF /* UIKit.framework */; };
+		EB5666021C94CB590066F5BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5666011C94CB590066F5BF /* Foundation.framework */; };
+		EB5666041C94CB670066F5BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5666031C94CB670066F5BF /* CoreGraphics.framework */; };
 		EB71E6CC1C88E88A0059D8AB /* tutorial_background_00@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */; };
 		EB71E6CD1C88E88A0059D8AB /* tutorial_background_01@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */; };
 		EB71E6CE1C88E88A0059D8AB /* tutorial_background_02@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */; };
@@ -43,6 +46,11 @@
 		EBC1D3061C8A90B7009F4483 /* playlistSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC1D3051C8A90B7009F4483 /* playlistSongCell.xib */; };
 		EBC1D3091C8A90F5009F4483 /* playlistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC1D3081C8A90F5009F4483 /* playlistTableViewCell.m */; };
 		EBC1D30D1C8F9933009F4483 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC1D30C1C8F9933009F4483 /* SearchViewController.m */; };
+		EBEC666B1C94D00400072624 /* MNMBottomPullToRefresh.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBEC66641C94D00400072624 /* MNMBottomPullToRefresh.strings */; };
+		EBEC666C1C94D00400072624 /* MNMBottomPullToRefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEC66651C94D00400072624 /* MNMBottomPullToRefreshArrow.png */; };
+		EBEC666D1C94D00400072624 /* MNMBottomPullToRefreshArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBEC66661C94D00400072624 /* MNMBottomPullToRefreshArrow@2x.png */; };
+		EBEC666E1C94D00400072624 /* MNMBottomPullToRefreshManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEC66681C94D00400072624 /* MNMBottomPullToRefreshManager.m */; };
+		EBEC666F1C94D00400072624 /* MNMBottomPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEC666A1C94D00400072624 /* MNMBottomPullToRefreshView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +88,9 @@
 		EB5665ED1C9286A90066F5BF /* songDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = songDataModel.m; sourceTree = "<group>"; };
 		EB5665EF1C9346BA0066F5BF /* fetchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fetchData.h; sourceTree = "<group>"; };
 		EB5665F01C9346BA0066F5BF /* fetchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fetchData.m; sourceTree = "<group>"; };
+		EB5665FF1C94CB4E0066F5BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EB5666011C94CB590066F5BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EB5666031C94CB670066F5BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_00@2x.jpg"; sourceTree = "<group>"; };
 		EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_01@2x.jpg"; sourceTree = "<group>"; };
 		EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tutorial_background_02@2x.jpg"; sourceTree = "<group>"; };
@@ -125,6 +136,13 @@
 		EBC1D3081C8A90F5009F4483 /* playlistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playlistTableViewCell.m; sourceTree = "<group>"; };
 		EBC1D30B1C8F9933009F4483 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		EBC1D30C1C8F9933009F4483 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		EBEC66641C94D00400072624 /* MNMBottomPullToRefresh.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MNMBottomPullToRefresh.strings; sourceTree = "<group>"; };
+		EBEC66651C94D00400072624 /* MNMBottomPullToRefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MNMBottomPullToRefreshArrow.png; sourceTree = "<group>"; };
+		EBEC66661C94D00400072624 /* MNMBottomPullToRefreshArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MNMBottomPullToRefreshArrow@2x.png"; sourceTree = "<group>"; };
+		EBEC66671C94D00400072624 /* MNMBottomPullToRefreshManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNMBottomPullToRefreshManager.h; sourceTree = "<group>"; };
+		EBEC66681C94D00400072624 /* MNMBottomPullToRefreshManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNMBottomPullToRefreshManager.m; sourceTree = "<group>"; };
+		EBEC66691C94D00400072624 /* MNMBottomPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNMBottomPullToRefreshView.h; sourceTree = "<group>"; };
+		EBEC666A1C94D00400072624 /* MNMBottomPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNMBottomPullToRefreshView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +150,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5666041C94CB670066F5BF /* CoreGraphics.framework in Frameworks */,
+				EB5666021C94CB590066F5BF /* Foundation.framework in Frameworks */,
+				EB5666001C94CB4E0066F5BF /* UIKit.framework in Frameworks */,
 				7FFA0C5F6D8ED6E94590F0AD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +186,9 @@
 		E8870D84661B1FD9537C4681 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB5666031C94CB670066F5BF /* CoreGraphics.framework */,
+				EB5666011C94CB590066F5BF /* Foundation.framework */,
+				EB5665FF1C94CB4E0066F5BF /* UIKit.framework */,
 				E47DB16860D8EC79F86AB5DC /* libPods.a */,
 			);
 			name = Frameworks;
@@ -375,6 +399,7 @@
 		EBAFA2431C532B82007E59F9 /* Statics */ = {
 			isa = PBXGroup;
 			children = (
+				EBEC66631C94D00400072624 /* MNMBottomPullToRefresh */,
 				EBAFA2441C532BA3007E59F9 /* NavigationStatics.h */,
 				EBAFA2491C584B95007E59F9 /* SystemStatics.h */,
 				EBAFA24A1C584BA8007E59F9 /* SystemStatics.m */,
@@ -419,6 +444,20 @@
 				EBC1D30C1C8F9933009F4483 /* SearchViewController.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		EBEC66631C94D00400072624 /* MNMBottomPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				EBEC66641C94D00400072624 /* MNMBottomPullToRefresh.strings */,
+				EBEC66651C94D00400072624 /* MNMBottomPullToRefreshArrow.png */,
+				EBEC66661C94D00400072624 /* MNMBottomPullToRefreshArrow@2x.png */,
+				EBEC66671C94D00400072624 /* MNMBottomPullToRefreshManager.h */,
+				EBEC66681C94D00400072624 /* MNMBottomPullToRefreshManager.m */,
+				EBEC66691C94D00400072624 /* MNMBottomPullToRefreshView.h */,
+				EBEC666A1C94D00400072624 /* MNMBottomPullToRefreshView.m */,
+			);
+			path = MNMBottomPullToRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,6 +568,7 @@
 			files = (
 				EB5665E01C8FB32C0066F5BF /* ic_lens@2x.png in Resources */,
 				EBAFA24D1C585D06007E59F9 /* config.plist in Resources */,
+				EBEC666B1C94D00400072624 /* MNMBottomPullToRefresh.strings in Resources */,
 				EB71E6CE1C88E88A0059D8AB /* tutorial_background_02@2x.jpg in Resources */,
 				EB71E6D01C88E88A0059D8AB /* tutorial_background_04@2x.jpg in Resources */,
 				EB5665E71C9127850066F5BF /* Icon-40@3x.png in Resources */,
@@ -537,6 +577,8 @@
 				EBC1D2FF1C890062009F4483 /* dockCurrentSongCell.xib in Resources */,
 				EBAFA1FE1C4EECBB007E59F9 /* Assets.xcassets in Resources */,
 				EB71E6CD1C88E88A0059D8AB /* tutorial_background_01@2x.jpg in Resources */,
+				EBEC666C1C94D00400072624 /* MNMBottomPullToRefreshArrow.png in Resources */,
+				EBEC666D1C94D00400072624 /* MNMBottomPullToRefreshArrow@2x.png in Resources */,
 				EBAFA1FC1C4EECBB007E59F9 /* Main.storyboard in Resources */,
 				EB5665E51C91256B0066F5BF /* Icon-40.png in Resources */,
 				EBC1D3061C8A90B7009F4483 /* playlistSongCell.xib in Resources */,
@@ -617,6 +659,7 @@
 				EBAFA1F61C4EECBB007E59F9 /* AppDelegate.m in Sources */,
 				EBC1D30D1C8F9933009F4483 /* SearchViewController.m in Sources */,
 				EBAFA23B1C53109F007E59F9 /* MainViewController.m in Sources */,
+				EBEC666E1C94D00400072624 /* MNMBottomPullToRefreshManager.m in Sources */,
 				EBAFA2371C530F12007E59F9 /* BaseViewController.m in Sources */,
 				EBAFA2421C532893007E59F9 /* ConfigManager.m in Sources */,
 				EB5665EE1C9286A90066F5BF /* songDataModel.m in Sources */,
@@ -627,6 +670,7 @@
 				EB5665F11C9346BA0066F5BF /* fetchData.m in Sources */,
 				EBC1D3091C8A90F5009F4483 /* playlistTableViewCell.m in Sources */,
 				EBAFA1F31C4EECBB007E59F9 /* main.m in Sources */,
+				EBEC666F1C94D00400072624 /* MNMBottomPullToRefreshView.m in Sources */,
 				EB5665E31C90BB440066F5BF /* leavePartyViewController.m in Sources */,
 				EBAFA2481C584AD8007E59F9 /* WalkThroughViewController.m in Sources */,
 				EBAFA2331C530AC1007E59F9 /* SettingsViewController.m in Sources */,

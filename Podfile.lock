@@ -14,7 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - CCBottomRefreshControl (0.5.1):
+    - Masonry (~> 0.6.2)
   - ICETutorial (1.1.1)
+  - Masonry (0.6.4)
   - MGSwipeTableCell (1.5.3)
   - RESideMenu (4.0.7)
   - SBSearchBar (0.0.6)
@@ -22,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - CCBottomRefreshControl
   - ICETutorial (~> 1.1.1)
   - MGSwipeTableCell
   - RESideMenu (~> 4.0.7)
@@ -30,7 +34,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  CCBottomRefreshControl: 57a596348855260f627ffc2b311328ed15b94877
   ICETutorial: 6cb15e46066afc359357f048d1b5fca444d69c83
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SBSearchBar: b969f34fbb984c4a3ddc50228872549553351e3b
