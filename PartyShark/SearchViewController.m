@@ -196,7 +196,7 @@
     //TODO: get the song code from the cell and send it to the server
     NSLog(@"this is the song code");
     NSLog(@"%@", cell.songCellCode);
-    NSDictionary *parameters = @{@"code": cell.songCellCode};
+    NSDictionary *parameters = @{@"song_code": cell.songCellCode};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -214,7 +214,6 @@
         } else {
             
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            
             
             NSLog(@"%@ %@", response, responseObject);
         }
