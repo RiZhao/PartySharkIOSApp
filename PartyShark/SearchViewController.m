@@ -76,12 +76,14 @@
 - (void) loadTable{
     songFactory *factory = [[songFactory alloc]init];
     songFactory *fetch = [[songFactory alloc]init];
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
+    dispatch_async(concurrentQueue, ^{
     [fetch gatherNextData :^(BOOL success, NSMutableArray *songs, NSError *error) {
         if (!success){
             NSLog(@"%@", error);
         }else {
-           // dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
-           // dispatch_async(concurrentQueue, ^{
+//            dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
+//            dispatch_async(concurrentQueue, ^{
                 self.searchResultArray = [self.searchResultArray arrayByAddingObjectsFromArray:songs];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -93,6 +95,7 @@
          
         }
     }];
+    });
     [self.refreshControl tableViewReloadFinished];
 }
 
