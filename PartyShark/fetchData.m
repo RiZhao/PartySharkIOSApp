@@ -87,7 +87,7 @@
 - (void) fetchMoreSearchResults : (fetchCompletionBlock)completionBlock{
     NSString *URLString = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"next_URL"];
-    
+    if (URLString){
     NSDictionary *parameters = @{};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -123,7 +123,11 @@
             // NSLog(@"%@ %@", response, responseObject);
         }
     }];
+    
     [dataTask resume];
+    }else{
+        completionBlock(NO, nil, nil);
+    }
 }
 
 @end

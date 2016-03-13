@@ -53,6 +53,9 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
+    self.refreshControl = [[MNMBottomPullToRefreshManager alloc] initWithPullToRefreshViewHeight:60.0f tableView:self.tableView withClient:self];
+    [self.refreshControl tableViewReleased];
+    [self.refreshControl relocatePullToRefreshView];
    
     //if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height))
 
@@ -65,7 +68,7 @@
 }
 
 - (void) loadRefreshScroll{
-    self.refreshControl = [[MNMBottomPullToRefreshManager alloc] initWithPullToRefreshViewHeight:60.0f tableView:self.tableView withClient:self];
+   
     [self.refreshControl tableViewReleased];
     [self.refreshControl relocatePullToRefreshView];
 }
@@ -77,10 +80,16 @@
         if (!success){
             NSLog(@"%@", error);
         }else {
-            self.searchResultArray = [self.searchResultArray arrayByAddingObjectsFromArray:songs];
-            [self.tableView reloadData];
-            [self.refreshControl tableViewReleased];
-            [self.refreshControl relocatePullToRefreshView];
+           // dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
+           // dispatch_async(concurrentQueue, ^{
+                self.searchResultArray = [self.searchResultArray arrayByAddingObjectsFromArray:songs];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView reloadData];
+                    [self loadRefreshScroll];
+                });
+           // });
          
         }
     }];
@@ -215,15 +224,24 @@
     songFactory *factory = [[songFactory alloc]init];
     NSString *temp = searchBar.text;
     songFactory *fetch = [[songFactory alloc]init];
+    
     [fetch gatherData:temp :^(BOOL success, NSMutableArray *songs, NSError *error) {
         if (!success){
             NSLog(@"%@", error);
         }else {
-            self.searchResultArray = songs;
-            [self.tableView reloadData];
-            [self loadRefreshScroll];
+            dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
+            dispatch_async(concurrentQueue, ^{
+                self.searchResultArray = songs;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView reloadData];
+                    [self loadRefreshScroll];
+                });
+            });
         }
     }];
+    
     [searchBar resignFirstResponder];
 }
 #pragma pull to refresh
