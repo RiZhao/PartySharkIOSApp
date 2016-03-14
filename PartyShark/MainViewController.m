@@ -75,9 +75,14 @@
 {
     //ROWS
     if (tableView == self.currentSongView) {
+        
+        if (self.playlistContentsArray.count == 0) return 0;
+        
         return 1;
     }else {
-        return 10;
+        if (self.playlistContentsArray.count == 0) return 0;
+        
+        return self.playlistContentsArray.count - 1;
     }
     
 }
@@ -105,8 +110,14 @@
         
             cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"skip song" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
                 //skip functionality
+
+                NSNumber *songCode = cell.songCellCode;
+                
+                [self vetoSong: songCode];
                 NSLog(@"skipped");
+                
                 return YES;
+                
             }], [MGSwipeButton buttonWithTitle:@"play/pause" backgroundColor:[UIColor blueColor]callback:^BOOL(MGSwipeTableCell *sender) {
                 
                 //play/pause functionality
@@ -117,7 +128,9 @@
                     [self pauseSong];
                 }
                 
-                [self playSong];
+                else {
+                    [self playSong];
+                }
                 
                 return YES;
             }]];
@@ -125,10 +138,15 @@
             cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         }
         
-        cell.titleLabel.text = @"Sorry";
-        cell.artistLabel.text = @"Justin";
-        cell.albumLabel.text = @"Purpose";
-        cell.albumView.image = myImage;
+        playlistSongDataModel *songModel = self.playlistContentsArray[indexPath.row];
+
+        cell.songCellCode = songModel.playthroughCode;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CurrentSongTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+            if (updateCell)
+                [self getMoreSongInfoCurrentSong:updateCell :songModel];
+        });
         
         return cell;
     }else {
@@ -151,7 +169,7 @@
             
                 //remove functionality
                 //get songcode from the sender
-                [self vetoSong: @7];
+                [self vetoSong: cell2.songCellCode];
             
                 return YES;
             }]];
@@ -162,25 +180,51 @@
             
             //upvote functionality
             //get songcode from the sender
-            [self upvoteSong: @7];
+            NSNumber *songCode = cell2.songCellCode;
+            
+            [self upvoteSong: songCode];
             
             return YES;
         }], [MGSwipeButton buttonWithTitle:@"downvote" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //downvote functionality
             //Get songcode from the sender
-            [self downvoteSong: @7];
+            NSNumber *songCode = cell2.songCellCode;
+            
+            [self downvoteSong: songCode];
             
             return YES;
         }]];
         cell2.leftSwipeSettings.transition = MGSwipeTransitionDrag;
         
-        cell2.titleLabel.text = @"Poetic Justice";
-        cell2.artistLabel.text = @"Kendrick Lamar";
-        cell2.suggestorLabel.text = @"Bill";
-        cell2.voteLabel.text = @"12";
-        cell2.voteLabel.textColor = [UIColor greenColor];
-        cell2.artworkImage.image = myImage;
+        if (indexPath.row + 1 >= self.playlistContentsArray.count) return nil;
+        
+        playlistSongDataModel *songModel = self.playlistContentsArray[indexPath.row + 1];
+        
+        cell2.suggestorLabel.text = songModel.songSuggester;
+        cell2.voteLabel.text = [NSString stringWithFormat:@"%@", songModel.netVotes];
+        
+        if ([songModel.netVotes doubleValue] > [@0 doubleValue])
+            cell2.voteLabel.textColor = [UIColor greenColor];
+        else if ([songModel.netVotes doubleValue] < [@0 doubleValue])
+            cell2.voteLabel.textColor = [UIColor redColor];
+        
+        cell2.songCellCode = songModel.playthroughCode;
+        
+        if (songModel.songTitle == nil) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            playlistTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+            if (updateCell)
+                [self getMoreSongInfoPlaylist:updateCell :songModel];
+        });
+        }
+        
+        else {
+            cell2.titleLabel.text = songModel.songTitle;
+            cell2.artistLabel.text = songModel.songArtist;
+            cell2.artworkImage.image = songModel.albumArt;
+        }
         
         return cell2;
     }
@@ -211,33 +255,77 @@
 
 - (void) getPlaylist {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    playlistSongFactory *fetch = [[playlistSongFactory alloc]init];
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
+    dispatch_async(concurrentQueue, ^{
+        [fetch gatherData :^(BOOL success, NSMutableArray *songs, NSError *error) {
+            if (!success){
+                NSLog(@"%@", error);
+            }else {
+                self.playlistContentsArray = songs;
+                
+                for (int i = 0; i < self.playlistContentsArray.count; i++) {
+                
+                    dispatch_async(concurrentQueue, ^ {
+                        
+                    });
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.currentSongView reloadData];
+                    [self.playlistView reloadData];
+                });
+            }
+        }
+        ];
+    });
+}
+
+- (void) getMoreSongInfoPlaylist: (playlistTableViewCell*) updateCell :(playlistSongDataModel*) currentSong {
     
-    NSDictionary *parameters = @{};
+    playlistSongFactory *fetch = [[playlistSongFactory alloc]init];
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
-    
-    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
+    [fetch fetchExtraSongData: currentSong:^(BOOL success, playlistSongDataModel* song, NSError *error) {
+        
+        if (!success) {
+            NSLog(@"%@", error);
+        }
+        else {
+            updateCell.titleLabel.text = song.songTitle;
+            updateCell.artistLabel.text = song.songArtist;
+            updateCell.artworkImage.image = song.albumArt;
             
-            //Error
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            
-            // Do stuff with the data you get here, like maybe get more song info
-            
-            NSLog(@"%@ %@", response, responseObject);
+            currentSong.songTitle = song.songTitle;
+            currentSong.songArtist = song.songArtist;
+            currentSong.albumArt = song.albumArt;
         }
     }];
-    [dataTask resume];
+    
+}
+
+- (void) getMoreSongInfoCurrentSong: (CurrentSongTableViewCell*) updateCell :(playlistSongDataModel*) currentSong {
+    
+    playlistSongFactory *fetch = [[playlistSongFactory alloc]init];
+    
+    [fetch fetchExtraSongData: currentSong:^(BOOL success, playlistSongDataModel* song, NSError *error) {
+        
+        if (!success) {
+            NSLog(@"%@", error);
+        }
+        else {
+            updateCell.titleLabel.text = song.songTitle;
+            updateCell.artistLabel.text = song.songArtist;
+            updateCell.albumLabel.text = song.songAlbum;
+            updateCell.albumView.image = song.albumArt;
+            
+            currentSong.songTitle = song.songTitle;
+            currentSong.songArtist = song.songArtist;
+            currentSong.albumArt = song.albumArt;
+            currentSong.songAlbum = song.songAlbum;
+        }
+    }];
+    
 }
 
 //Need to add server stuff when it makes sense
@@ -266,6 +354,7 @@
         }
     }];
     [dataTask resume];
+
     
     [self getPlaylist];
 }
@@ -275,7 +364,7 @@
 
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
-    NSDictionary *parameters = @{@"vote": @0};
+    NSDictionary *parameters = @{@"vote": @1};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];

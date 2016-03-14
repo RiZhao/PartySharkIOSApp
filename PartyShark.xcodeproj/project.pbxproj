@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7FFA0C5F6D8ED6E94590F0AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E47DB16860D8EC79F86AB5DC /* libPods.a */; };
+		941EB5021C9636B0006B208D /* playlistSongFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 941EB5011C9636B0006B208D /* playlistSongFactory.m */; };
+		941EB5061C96391E006B208D /* playlistSongDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 941EB5051C96391E006B208D /* playlistSongDataModel.m */; };
 		EB5665DB1C8FA6950066F5BF /* searchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5665DA1C8FA6950066F5BF /* searchResultCell.xib */; };
 		EB5665DE1C8FA77A0066F5BF /* searchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665DD1C8FA77A0066F5BF /* searchTableViewCell.m */; };
 		EB5665E01C8FB32C0066F5BF /* ic_lens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665DF1C8FB32C0066F5BF /* ic_lens@2x.png */; };
@@ -73,6 +75,10 @@
 /* Begin PBXFileReference section */
 		25390650428D711C19ED73B3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3568ABD250035059969E3C90 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		941EB5011C9636B0006B208D /* playlistSongFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playlistSongFactory.m; sourceTree = "<group>"; };
+		941EB5031C9636D0006B208D /* playlistSongFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playlistSongFactory.h; sourceTree = "<group>"; };
+		941EB5041C963907006B208D /* playlistSongDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playlistSongDataModel.h; sourceTree = "<group>"; };
+		941EB5051C96391E006B208D /* playlistSongDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playlistSongDataModel.m; sourceTree = "<group>"; };
 		E47DB16860D8EC79F86AB5DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5665DA1C8FA6950066F5BF /* searchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchResultCell.xib; sourceTree = "<group>"; };
 		EB5665DC1C8FA77A0066F5BF /* searchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchTableViewCell.h; sourceTree = "<group>"; };
@@ -207,6 +213,10 @@
 		EB5665E81C9286240066F5BF /* Song */ = {
 			isa = PBXGroup;
 			children = (
+				941EB5031C9636D0006B208D /* playlistSongFactory.h */,
+				941EB5011C9636B0006B208D /* playlistSongFactory.m */,
+				941EB5041C963907006B208D /* playlistSongDataModel.h */,
+				941EB5051C96391E006B208D /* playlistSongDataModel.m */,
 				EB5665E91C9286650066F5BF /* songFactory.h */,
 				EB5665EA1C9286650066F5BF /* songFactory.m */,
 				EB5665EC1C9286A90066F5BF /* songDataModel.h */,
@@ -650,6 +660,7 @@
 			files = (
 				EBAFA1F61C4EECBB007E59F9 /* AppDelegate.m in Sources */,
 				EBC1D30D1C8F9933009F4483 /* SearchViewController.m in Sources */,
+				941EB5021C9636B0006B208D /* playlistSongFactory.m in Sources */,
 				EBAFA23B1C53109F007E59F9 /* MainViewController.m in Sources */,
 				EBEC66861C9631A600072624 /* MNMBottomPullToRefreshManager.m in Sources */,
 				EBAFA2371C530F12007E59F9 /* BaseViewController.m in Sources */,
@@ -663,6 +674,7 @@
 				EBC1D3091C8A90F5009F4483 /* playlistTableViewCell.m in Sources */,
 				EBAFA1F31C4EECBB007E59F9 /* main.m in Sources */,
 				EBEC66871C9631A600072624 /* MNMBottomPullToRefreshView.m in Sources */,
+				941EB5061C96391E006B208D /* playlistSongDataModel.m in Sources */,
 				EB5665E31C90BB440066F5BF /* leavePartyViewController.m in Sources */,
 				EBAFA2481C584AD8007E59F9 /* WalkThroughViewController.m in Sources */,
 				EBAFA2331C530AC1007E59F9 /* SettingsViewController.m in Sources */,

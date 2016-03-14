@@ -52,6 +52,21 @@
     NSString *savedValue = [[NSUserDefaults standardUserDefaults]
                             stringForKey:@"savedPartyCode"];
     //set up for persistent login
+
+    /*
+     [self tryCreateParty: ^(BOOL success, NSError *error) {
+     
+     if (!success) {
+     self.window.rootViewController = self.sideMenuVC;
+     [self.navManager goToMainSection];
+     }
+     else {
+     [self setUpTutorialScreen];
+     }
+     
+     }];
+     */
+    
     if(savedValue){
         self.window.rootViewController = self.sideMenuVC;
         [self.navManager goToMainSection];

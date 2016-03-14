@@ -13,6 +13,8 @@
 #import "CurrentSongTableViewCell.h"    
 #import "playlistTableViewCell.h"
 #import "AFNetworking.h"
+#import "playlistSongFactory.h"
+#import "playlistSongDataModel.h"
 
 @interface MainViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +23,8 @@
 
 @property (strong, nonatomic)   NSArray *indexArray;
 @property (nonatomic)           int             rowCount;
+
+@property (strong, nonatomic) NSMutableArray *playlistContentsArray;
 
 @property(strong, nonatomic) NSArray *titles;
 

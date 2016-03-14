@@ -17,4 +17,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *suggestorLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImage;
 
+@property (strong, nonatomic) NSNumber* songCellCode;
+
 @end
