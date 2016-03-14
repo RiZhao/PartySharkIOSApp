@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = [NSString stringWithFormat:@"%@", @"Search Songs"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
     SBSearchBar *searchBarCustom = [[SBSearchBar alloc] initWithFrame:CGRectMake(0, 63, 200, 50)]; //set your searchBar frame
