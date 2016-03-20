@@ -49,7 +49,10 @@
 - (void) reloadData{
     
     [self getPlaylist];
-    [self isSongPlaying];
+    [self.currentSongView reloadData];
+    [self.playlistView reloadData];
+    
+    // [self isSongPlaying];
 
 }
 
@@ -102,6 +105,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        cell.artistLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        cell.albumLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         
         //If user is admin, give augmented controls
         NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
@@ -176,7 +183,14 @@
             cell2.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         }
         
-        cell2.leftButtons = @[[MGSwipeButton buttonWithTitle:@"upvote" backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
+        if (indexPath.row + 1 >= self.playlistContentsArray.count) return nil;
+        
+        playlistSongDataModel *songModel = self.playlistContentsArray[indexPath.row + 1];
+        
+        NSString* upvoteText = [NSString stringWithFormat:@"upvote\n\n%@", songModel.upVotes];
+        NSString* downvoteText = [NSString stringWithFormat:@"downvote\n\n%@", songModel.downVotes];
+        
+        cell2.leftButtons = @[[MGSwipeButton buttonWithTitle:upvoteText backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //upvote functionality
             //get songcode from the sender
@@ -185,7 +199,7 @@
             [self upvoteSong: songCode];
             
             return YES;
-        }], [MGSwipeButton buttonWithTitle:@"downvote" backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
+        }], [MGSwipeButton buttonWithTitle:downvoteText backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
             
             //downvote functionality
             //Get songcode from the sender
@@ -197,17 +211,17 @@
         }]];
         cell2.leftSwipeSettings.transition = MGSwipeTransitionDrag;
         
-        if (indexPath.row + 1 >= self.playlistContentsArray.count) return nil;
+        NSString* displayName = [[songModel.songSuggester stringByReplacingOccurrencesOfString:@"_" withString:@" "] capitalizedString];
         
-        playlistSongDataModel *songModel = self.playlistContentsArray[indexPath.row + 1];
-        
-        cell2.suggestorLabel.text = songModel.songSuggester;
+        cell2.suggestorLabel.text = displayName;
         cell2.voteLabel.text = [NSString stringWithFormat:@"%@", songModel.netVotes];
         
         if ([songModel.netVotes doubleValue] > [@0 doubleValue])
             cell2.voteLabel.textColor = [UIColor greenColor];
         else if ([songModel.netVotes doubleValue] < [@0 doubleValue])
             cell2.voteLabel.textColor = [UIColor redColor];
+        else
+            cell2.voteLabel.textColor = [UIColor blueColor];
         
         cell2.songCellCode = songModel.playthroughCode;
         
@@ -250,6 +264,10 @@
     // do your refresh here...
     NSLog(@"data reloaded");
     [self reloadData];
+    
+    [self.currentSongView reloadData];
+    [self.playlistView reloadData];
+    
     [self.refreshControl endRefreshing];
 }
 

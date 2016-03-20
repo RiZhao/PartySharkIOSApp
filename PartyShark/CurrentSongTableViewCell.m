@@ -27,6 +27,7 @@
         // configure control(s)
         
     }
+    
     return self;
 }
 

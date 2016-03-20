@@ -52,20 +52,7 @@
     NSString *savedValue = [[NSUserDefaults standardUserDefaults]
                             stringForKey:@"savedPartyCode"];
     //set up for persistent login
-
-    /*
-     [self tryCreateParty: ^(BOOL success, NSError *error) {
-     
-     if (!success) {
-     self.window.rootViewController = self.sideMenuVC;
-     [self.navManager goToMainSection];
-     }
-     else {
-     [self setUpTutorialScreen];
-     }
-     
-     }];
-     */
+        
     
     if(savedValue){
         self.window.rootViewController = self.sideMenuVC;
@@ -86,7 +73,18 @@
                                  };
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     
-    
+    /*
+    [self tryJoinParty: savedValue: ^(BOOL success, NSError *error){
+        
+        if (!success) {
+            NSLog(@"%@", error);
+        }
+        else {
+            self.window.rootViewController = self.sideMenuVC;
+            [self.navManager goToMainSection];
+        }
+    }];
+    */
     
     return true;
 }
