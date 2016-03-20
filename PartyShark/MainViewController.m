@@ -54,6 +54,7 @@
     [self.currentSongView reloadData];
     [self.playlistView reloadData];
     
+    [self updateSettings];
     // [self isSongPlaying];
 
 }
@@ -442,7 +443,7 @@
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
-    NSDictionary *parameters = @{@"is_playing": @1};
+    NSDictionary *parameters = @{@"is_playing": @true};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -473,7 +474,7 @@
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
-    NSDictionary *parameters = @{@"is_playing": @0};
+    NSDictionary *parameters = @{@"is_playing": @false};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -534,6 +535,74 @@
     [dataTask resume];
     
     return [[[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"] isEqualToString:@"1"];
+}
+
+- (void) getSettings {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSDictionary *parameters = @{};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+    
+}
+
+- (void) updateSettings {
+    
+    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    //Set these to the set values
+    
+    NSNumber *maxPartySize = @20;
+    NSNumber *maxPlaylistSize = @10;
+    NSNumber *virtualDJ = @1;
+    NSString *defaultGenre;
+    NSNumber *vetoRatio = @0.2;
+    
+    NSDictionary *parameters = @{@"veto_ratio": vetoRatio,
+                                 @"user_cap": maxPartySize,
+                                 @"playthrough_cap": maxPlaylistSize};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+    
 }
 
 
