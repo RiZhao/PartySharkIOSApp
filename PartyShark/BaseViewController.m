@@ -37,6 +37,8 @@
     
     NSString* displayName = [[[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] stringByReplacingOccurrencesOfString:@"_" withString:@" "] capitalizedString];
     
+    displayName = [NSString stringWithFormat:@"%@%@", displayName, @"'s Dock"];
+    
     self.title = displayName;
 }
 
