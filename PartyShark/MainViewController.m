@@ -27,7 +27,6 @@
     self.playlistView = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height - 200) style:UITableViewStylePlain];
     self.playlistView.alwaysBounceVertical = YES;
     
-    
     [self.view addSubview:self.currentSongView];
     [self.view addSubview:self.playlistView];
     
@@ -151,6 +150,29 @@
         
         playlistSongDataModel *songModel = self.playlistContentsArray[indexPath.row];
 
+        NSString* upvoteText = [NSString stringWithFormat:@"upvote\n\n%@", songModel.upVotes];
+        NSString* downvoteText = [NSString stringWithFormat:@"downvote\n\n%@", songModel.downVotes];
+        
+        cell.leftButtons = @[[MGSwipeButton buttonWithTitle:upvoteText backgroundColor:[UIColor greenColor]callback:^BOOL(MGSwipeTableCell *sender) {
+            
+            //upvote functionality
+            //get songcode from the sender
+            NSNumber *songCode = cell.songCellCode;
+            
+            [self upvoteSong: songCode];
+            
+            return YES;
+        }], [MGSwipeButton buttonWithTitle:downvoteText backgroundColor:[UIColor redColor]callback:^BOOL(MGSwipeTableCell *sender) {
+            
+            //downvote functionality
+            //Get songcode from the sender
+            NSNumber *songCode = cell.songCellCode;
+            
+            [self downvoteSong: songCode];
+            
+            return YES;
+        }]];
+        
         cell.songCellCode = songModel.playthroughCode;
         
         dispatch_async(dispatch_get_main_queue(), ^{
