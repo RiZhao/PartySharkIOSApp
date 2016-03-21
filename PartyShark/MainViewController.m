@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Still need to pause this when screens change
     NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
@@ -313,6 +314,7 @@
         [self.currentSongView reloadData];
         [self.playlistView reloadData];
     }
+    
     [self.refreshControl endRefreshing];
 }
 
@@ -660,7 +662,6 @@
     }];
     
     [dataTask resume];
-    
 }
 
 
