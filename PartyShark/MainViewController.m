@@ -54,7 +54,8 @@
     [self.currentSongView reloadData];
     [self.playlistView reloadData];
     
-    [self updateSettings];
+    // [self getSettings];
+    // [self updateSettings];
     // [self isSongPlaying];
 
 }
@@ -372,12 +373,13 @@
         } else {
             
             NSLog(@"%@ %@", response, responseObject);
+            [self getPlaylist];
         }
     }];
     [dataTask resume];
 
     
-    [self getPlaylist];
+    
 }
 
 //Need to add server stuff when it makes sense
@@ -403,11 +405,11 @@
         } else {
             
             NSLog(@"%@ %@", response, responseObject);
+            [self getPlaylist];
         }
     }];
     [dataTask resume];
     
-    [self getPlaylist];
 }
 
 - (void) vetoSong: (NSString*) songCode {
@@ -432,18 +434,19 @@
         } else {
 
             NSLog(@"%@ %@", response, responseObject);
+            
+            [self getPlaylist];
         }
     }];
     [dataTask resume];
     
-    [self getPlaylist];
 }
 
 - (void) playSong {
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
-    NSDictionary *parameters = @{@"is_playing": @true};
+    NSDictionary *parameters = @{@"is_playing": @YES};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -474,7 +477,7 @@
     
     NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
-    NSDictionary *parameters = @{@"is_playing": @false};
+    NSDictionary *parameters = @{@"is_playing": @NO};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -572,14 +575,13 @@
     
     //Set these to the set values
     
-    NSNumber *maxPartySize = @20;
-    NSNumber *maxPlaylistSize = @10;
-    NSNumber *virtualDJ = @1;
-    NSString *defaultGenre;
-    NSNumber *vetoRatio = @0.2;
+    NSNumber *maxPartySize = @25;
+    NSNumber *maxPlaylistSize = @15;
+    // NSNumber *virtualDJ = @1;
+    // NSString *defaultGenre;
+    // NSNumber *vetoRatio = @0.30;
     
-    NSDictionary *parameters = @{@"veto_ratio": vetoRatio,
-                                 @"user_cap": maxPartySize,
+    NSDictionary *parameters = @{@"user_cap": maxPartySize,
                                  @"playthrough_cap": maxPlaylistSize};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

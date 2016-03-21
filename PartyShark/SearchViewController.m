@@ -232,8 +232,6 @@
             
         } else {
             
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            
             NSLog(@"%@ %@", response, responseObject);
         }
     }];
