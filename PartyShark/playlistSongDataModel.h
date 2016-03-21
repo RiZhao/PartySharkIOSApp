@@ -22,6 +22,8 @@
 @property (nonatomic) NSNumber *upVotes;
 @property (nonatomic) NSNumber *downVotes;
 @property (nonatomic) NSNumber *netVotes;
+@property (nonatomic) NSNumber *songDuration;
+@property (nonatomic) NSNumber *completedRatio;
 @property (strong, nonatomic) UIImage  *albumArt;
 
 - (NSComparisonResult)compare:(playlistSongDataModel *)otherObject;

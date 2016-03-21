@@ -175,6 +175,8 @@
         
         cell.songCellCode = songModel.playthroughCode;
         
+        cell.completedDuration.text = @"0";
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             CurrentSongTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
             if (updateCell)
@@ -363,10 +365,18 @@
             updateCell.albumLabel.text = song.songAlbum;
             updateCell.albumView.image = song.albumArt;
             
+            int minutes = ceil(([song.songDuration floatValue]/60));
+            int seconds = (int)[song.songDuration floatValue] % 60;
+            
+            updateCell.totalDuration.text = [NSString stringWithFormat:@"%d:%d", minutes, seconds];
+            updateCell.completedDuration.text = [NSString stringWithFormat:@"%d", song.completedRatio];
+            
             currentSong.songTitle = song.songTitle;
             currentSong.songArtist = song.songArtist;
             currentSong.albumArt = song.albumArt;
             currentSong.songAlbum = song.songAlbum;
+            currentSong.songDuration = song.songDuration;
+            currentSong.completedRatio = song.completedRatio;
         }
     }];
     
@@ -375,7 +385,7 @@
 //Need to add server stuff when it makes sense
 - (void) upvoteSong: (NSNumber*) songCode {
 
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
     NSDictionary *parameters = @{@"vote": @0};
     
@@ -407,7 +417,7 @@
 //Need to add server stuff when it makes sense
 - (void) downvoteSong: (NSNumber*) songCode {
 
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
     NSDictionary *parameters = @{@"vote": @1};
     
@@ -436,7 +446,7 @@
 
 - (void) vetoSong: (NSString*) songCode {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/playlist/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"], songCode];
     
     NSDictionary *parameters = @{};
     
@@ -466,7 +476,7 @@
 
 - (void) playSong {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     NSDictionary *parameters = @{@"is_playing": @YES};
     
@@ -497,7 +507,7 @@
 
 - (void) pauseSong {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     NSDictionary *parameters = @{@"is_playing": @NO};
     
@@ -530,7 +540,7 @@
 // Can use this function when updating the playlist every 5 or so seconds to keep everything up-to-date
 - (BOOL) isSongPlaying {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     NSDictionary *parameters = @{};
     
@@ -564,7 +574,7 @@
 
 - (void) getSettings {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     NSDictionary *parameters = @{};
     
@@ -593,7 +603,7 @@
 
 - (void) updateSettings {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     //Set these to the set values
     

@@ -258,7 +258,7 @@
     
     __block BOOL success = NO;
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/users", partyCode];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/users", partyCode];
     NSDictionary *parameters = @{};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -310,7 +310,7 @@
     
     __block BOOL success = NO;
     
-    NSString *URLString = @"http://nreid26.xyz:3000/parties";
+    NSString *URLString = @"https://api.partyshark.tk/parties";
     NSDictionary *parameters = @{};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -350,7 +350,7 @@
             NSLog(@"%@ %@", response, responseObject);
             success = YES;
             
-            NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/users/self",  [responseObject objectForKey:@"code"]];
+            NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/users/self",  [responseObject objectForKey:@"code"]];
             
             NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
             

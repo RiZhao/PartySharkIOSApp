@@ -38,7 +38,7 @@
 
 - (void) fetchPlaythroughs : (fetchCompletionBlock)completionBlock {
     
-   NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+   NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     NSDictionary *parameters = @{};
     
@@ -70,6 +70,7 @@
             NSInteger upvotesIndex = [properties indexOfObject:@"upvotes"];
             NSInteger downvotesIndex = [properties indexOfObject:@"downvotes"];
             NSInteger suggesterIndex = [properties indexOfObject:@"suggester"];
+            NSInteger completedRatioIndex = [properties indexOfObject:@"completed_ratio"];
             
             
             self.songResultArray = [[NSMutableArray alloc]init];
@@ -84,6 +85,7 @@
                 songModel.downVotes = [values[i] objectAtIndex:downvotesIndex];
                 songModel.songSuggester = [values[i] objectAtIndex:suggesterIndex];
                 songModel.netVotes = [NSNumber numberWithFloat:([songModel.upVotes floatValue] - [songModel.downVotes floatValue])];
+                songModel.completedRatio = [values[i] objectAtIndex:completedRatioIndex];
                 
                 [self.songResultArray addObject:songModel];
             }
@@ -135,6 +137,8 @@
             //artist
             NSDictionary *artistName = [res objectForKey:@"artist"];
             currentSong.songArtist =      [artistName objectForKey:@"name"];
+            
+            currentSong.songDuration = [res objectForKey:@"duration"];
             
             [self.songResultArray addObject:currentSong];
             

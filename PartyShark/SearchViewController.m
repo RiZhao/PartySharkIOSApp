@@ -210,7 +210,7 @@
 
 - (void) addSongToPlaylist: (searchTableViewCell*) cell {
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/playlist", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     
     //TODO: get the song code from the cell and send it to the server
     NSLog(@"this is the song code");

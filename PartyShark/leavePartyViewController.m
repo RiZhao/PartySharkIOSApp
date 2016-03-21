@@ -27,7 +27,7 @@
 - (void)leavePartyClicked{
 
     
-    NSString *URLString = [NSString stringWithFormat:@"http://nreid26.xyz:3000/parties/%@/users/self", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/users/self", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
     NSDictionary *parameters = @{};
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
