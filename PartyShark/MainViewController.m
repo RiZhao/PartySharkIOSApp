@@ -21,9 +21,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Still need to pause this when screens change
+    // Still need to pause this when screens change and be disabled when button swipe is active
     NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    //NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
+    //[[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSRunLoopCommonModes];
     
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
@@ -310,12 +313,26 @@
     
     if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"is_playing"] isEqualToString:@"1"]) {
     
-        [self reloadData];
+        // [self reloadData];
         [self.currentSongView reloadData];
-        [self.playlistView reloadData];
+        // [self.playlistView reloadData];
     }
+}
+
+-(void)handleInterpolation: (id)sender {
     
-    [self.refreshControl endRefreshing];
+    if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"is_playing"] isEqualToString:@"1"] && self.playlistContentsArray.count > 0) {
+        playlistSongDataModel *song = self.playlistContentsArray[0];
+        double newCompletedRatio = ((([song.songDuration floatValue]*[song.completedRatio floatValue])+1)/[song.songDuration floatValue]);
+        
+        song.completedRatio = @(newCompletedRatio);
+        
+        if (newCompletedRatio >= 1) {
+            [self.playlistView reloadData];
+        }
+    
+        [self.currentSongView reloadData];
+    }
 }
 
 - (void) getPlaylist {
@@ -384,7 +401,7 @@
             updateCell.albumLabel.text = song.songAlbum;
             updateCell.albumView.image = song.albumArt;
             
-            int minutes = ceil(([song.songDuration floatValue]/60));
+            int minutes = floor(([song.songDuration floatValue]/60));
             int seconds = (int)[song.songDuration floatValue] % 60;
             
             if (seconds > 9)
