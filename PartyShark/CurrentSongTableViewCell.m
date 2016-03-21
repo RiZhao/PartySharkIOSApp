@@ -25,7 +25,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // configure control(s)
-        
     }
     
     return self;

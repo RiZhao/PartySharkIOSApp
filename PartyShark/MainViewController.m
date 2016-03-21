@@ -387,7 +387,10 @@
             int minutes = ceil(([song.songDuration floatValue]/60));
             int seconds = (int)[song.songDuration floatValue] % 60;
             
-            updateCell.totalDuration.text = [NSString stringWithFormat:@"%d:%d", minutes, seconds];
+            if (seconds > 9)
+                updateCell.totalDuration.text = [NSString stringWithFormat:@"%d:%d", minutes, seconds];
+            else
+                updateCell.totalDuration.text = [NSString stringWithFormat:@"%d:0%d", minutes, seconds];
             
             minutes = floor((([song.songDuration floatValue]*[song.completedRatio floatValue])/60));
             seconds = (int)([song.completedRatio floatValue]*[song.songDuration floatValue]) % 60;
