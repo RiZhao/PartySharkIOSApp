@@ -21,6 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
     
@@ -175,8 +178,6 @@
         
         cell.songCellCode = songModel.playthroughCode;
         
-        cell.completedDuration.text = @"0";
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             CurrentSongTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
             if (updateCell)
@@ -288,7 +289,6 @@
 
 - (void)handleRefresh:(id)sender
 {
- 
     // do your refresh here...
     NSLog(@"data reloaded");
     [self reloadData];
@@ -296,6 +296,23 @@
     [self.currentSongView reloadData];
     [self.playlistView reloadData];
     
+    [self.refreshControl endRefreshing];
+}
+
+- (void)handlePeriodicRefresh:(id)sender
+{
+    
+    // do your refresh here...
+    NSLog(@"data reloaded every 5 seconds");
+    
+    [self isSongPlaying];
+    
+    if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"is_playing"] isEqualToString:@"1"]) {
+    
+        [self reloadData];
+        [self.currentSongView reloadData];
+        [self.playlistView reloadData];
+    }
     [self.refreshControl endRefreshing];
 }
 
@@ -369,7 +386,14 @@
             int seconds = (int)[song.songDuration floatValue] % 60;
             
             updateCell.totalDuration.text = [NSString stringWithFormat:@"%d:%d", minutes, seconds];
-            updateCell.completedDuration.text = [NSString stringWithFormat:@"%d", song.completedRatio];
+            
+            minutes = floor((([song.songDuration floatValue]*[song.completedRatio floatValue])/60));
+            seconds = (int)([song.completedRatio floatValue]*[song.songDuration floatValue]) % 60;
+            
+            if (seconds > 9)
+                updateCell.completedDuration.text = [NSString stringWithFormat:@"%d:%d", minutes, seconds];
+            else
+                updateCell.completedDuration.text = [NSString stringWithFormat:@"%d:0%d", minutes, seconds];
             
             currentSong.songTitle = song.songTitle;
             currentSong.songArtist = song.songArtist;
