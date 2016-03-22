@@ -168,7 +168,7 @@
         }
         
         playlistSongDataModel *songModel = self.playlistContentsArray[indexPath.row];
-
+        
         NSString* upvoteText = [NSString stringWithFormat:@"upvote\n\n%@", songModel.upVotes];
         NSString* downvoteText = [NSString stringWithFormat:@"downvote\n\n%@", songModel.downVotes];
         
