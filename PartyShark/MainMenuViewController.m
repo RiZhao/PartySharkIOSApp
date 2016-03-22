@@ -111,8 +111,7 @@ CGFloat const kLeftNavHeight = 340.0f;
         cell                                = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor                = [UIColor clearColor];
         cell.textLabel.font                 = [UIFont fontWithName:@"SourceSansPro-ExtraLight" size:21];
-        cell.textLabel.textColor            = UIColorFromRGB(0xFF5722);
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
+        cell.textLabel.textColor            = UIColorFromRGB(0xfa6900);
         cell.selectedBackgroundView         = [[UIView alloc] init];
     }
     

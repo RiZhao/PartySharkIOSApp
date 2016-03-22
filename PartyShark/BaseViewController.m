@@ -33,7 +33,7 @@
                                                                                                    style:UIBarButtonItemStylePlain
                                                                                                   target:self
                                                                                                   action:@selector(presentLeftMenuViewController:)];
-    self.navigationItem.leftBarButtonItem.tintColor             = [UIColor colorWithRed:32.0/255.0 green:105.0/255.0 blue:179.0/255.0 alpha:1.0];
+    self.navigationItem.leftBarButtonItem.tintColor             = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
     
     NSString* displayName = [[[[NSUserDefaults standardUserDefaults] stringForKey:@"username"] stringByReplacingOccurrencesOfString:@"_" withString:@" "] capitalizedString];
     

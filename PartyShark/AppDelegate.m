@@ -63,12 +63,12 @@
     }
     
     //customize navbarcontroller
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:232.0/255.0 green:68.0/255.0 blue:0.0/255.0 alpha:1.0]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:250.0/255.0 green:105.0/255.0 blue:0.0/255.0 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:250.0/255.0 green:105.0/255.0 blue:0.0/255.0 alpha:1.0]];
     
     NSDictionary *attributes = @{
                                  NSUnderlineStyleAttributeName: @1,
-                                 NSForegroundColorAttributeName : [UIColor colorWithRed:32.0/255.0 green:105.0/255.0 blue:179.0/255.0 alpha:1.0],
+                                 NSForegroundColorAttributeName : [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
                                  NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:17]
                                  };
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
@@ -122,8 +122,8 @@
             }
         }];
     }];
-    
-    UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0];
+
+    UIColor *color = [UIColor colorWithRed:250.0/255.0 green:105.0/255.0 blue:0.0/255.0 alpha:1.0];
     [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"" closeButtonTitle:@"Cancel" duration:0.0f];
     
     
@@ -176,7 +176,7 @@
     }];
     
     
-    UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:7.0/255.0 alpha:1.0];
+    UIColor *color = [UIColor colorWithRed:250.0/255.0 green:105.0/255.0 blue:0.0/255.0 alpha:1.0];
     [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"Enter Party Code to Join Party" closeButtonTitle:@"Cancel" duration:0.0f];
 }
 
