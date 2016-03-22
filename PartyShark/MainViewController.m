@@ -16,7 +16,6 @@
 @implementation MainViewController
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -111,6 +110,9 @@
 {
     
     UIImage *myImage = [UIImage imageNamed:@"tutorial_background_00@2x.jpg"];
+    UIImage *upIcon = [UIImage imageNamed:@"up.jpg"];
+    UIImage *downIcon = [UIImage imageNamed:@"down.jpg"];
+    
     if (tableView == self.currentSongView) {
         //UIImage *myImage = [UIImage imageNamed:@"tutorial_background_00@2x.jpg"];
         
@@ -366,8 +368,9 @@
             
             [self.timer invalidate];
             [self.interpolationTimer invalidate];
-             
+            
             break;
+            
         case MGSwipeStateSwippingRightToLeft: str = @"SwippingRightToLeft"; break;
         case MGSwipeStateExpandingLeftToRight: str = @"ExpandingLeftToRight"; break;
         case MGSwipeStateExpandingRightToLeft: str = @"ExpandingRightToLeft"; break;
@@ -697,7 +700,7 @@
     NSNumber *maxPartySize = @25;
     NSNumber *maxPlaylistSize = @15;
     // NSNumber *virtualDJ = @1;
-    // NSString *defaultGenre;
+    // NSNumber *defaultGenre;
     // NSNumber *vetoRatio = @0.30;
     
     NSDictionary *parameters = @{@"user_cap": maxPartySize,

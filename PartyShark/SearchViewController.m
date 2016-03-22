@@ -15,6 +15,7 @@
 @implementation SearchViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.title = [NSString stringWithFormat:@"%@", @"Search Songs"];
     [self.view setBackgroundColor:[UIColor whiteColor]];
