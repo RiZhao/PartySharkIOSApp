@@ -39,7 +39,9 @@
 }
 
 - (void) goToSettings {
-    SettingsViewController* settingsVC = [[SettingsViewController alloc] init];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //UIViewController *optionStory = [mainStoryboard instantiateViewControllerWithIdentifier:@"optionsView"];
+    SettingsViewController* settingsVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"optionsView"];
     [self setViewControllers:@[settingsVC] animated:YES];
 }
 

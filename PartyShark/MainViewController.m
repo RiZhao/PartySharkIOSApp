@@ -22,11 +22,11 @@
     // Do any additional setup after loading the view.
     
     // Still need to pause this when screens change and be disabled when button swipe is active
-    // NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
-    // [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+     NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
+     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
-    //NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
-    //[[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSRunLoopCommonModes];
+    NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSRunLoopCommonModes];
     
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
@@ -49,6 +49,7 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.playlistView addSubview:self.refreshControl];
     
+    self.playlistView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // Gets called twice for some reason
     [self reloadData];
 }
@@ -328,6 +329,7 @@
         song.completedRatio = @(newCompletedRatio);
         
         if (newCompletedRatio >= 1) {
+            [self reloadData];
             [self.playlistView reloadData];
         }
     
