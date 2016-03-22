@@ -22,8 +22,8 @@
     // Do any additional setup after loading the view.
     
     // Still need to pause this when screens change and be disabled when button swipe is active
-    NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    // NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
+    // [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     //NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
     //[[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSRunLoopCommonModes];
