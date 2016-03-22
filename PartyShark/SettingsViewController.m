@@ -18,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString* partyCode = [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"];
+    partyCode = [NSString stringWithFormat:@"Party Code: %@", partyCode];
+    self.title = partyCode;
 
     [self getSettings];
 }

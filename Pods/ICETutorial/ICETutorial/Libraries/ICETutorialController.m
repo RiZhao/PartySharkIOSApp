@@ -11,7 +11,7 @@
 @interface ICETutorialController ()
 @property (nonatomic, strong, readonly) UIImageView *frontLayerView;
 @property (nonatomic, strong, readonly) UIImageView *backLayerView;
-@property (nonatomic, strong, readonly) UIImageView *gradientView;
+//@property (nonatomic, strong, readonly) UIImageView *gradientView;
 @property (nonatomic, strong, readonly) UIScrollView *scrollView;
 @property (nonatomic, strong, readonly) UILabel *overlayTitle;
 @property (nonatomic, strong, readonly) UIPageControl *pageControl;
@@ -35,7 +35,7 @@
         
         _frontLayerView = [[UIImageView alloc] init];
         _backLayerView = [[UIImageView alloc] init];
-        _gradientView = [[UIImageView alloc] init];
+        //_gradientView = [[UIImageView alloc] init];
         _scrollView = [[UIScrollView alloc] init];
         
         _overlayTitle = [[UILabel alloc] init];
@@ -74,7 +74,7 @@
     [self.backLayerView setFrame:self.view.bounds];
     
     // Decoration.
-    [self.gradientView setImage:[UIImage imageNamed:@"background-gradient.png"]];
+    //[self.gradientView setImage:[UIImage imageNamed:@"background-gradient.png"]];
     
     // ScrollView configuration.
     [self.scrollView setFrame:self.view.bounds];
@@ -109,7 +109,7 @@
 
     [self.view addSubview:self.frontLayerView];
     [self.view addSubview:self.backLayerView];
-    [self.view addSubview:self.gradientView];
+    //[self.view addSubview:self.gradientView];
     [self.view addSubview:self.scrollView];
     [self.view addSubview:self.overlayTitle];
     [self.view addSubview:self.pageControl];
@@ -124,7 +124,7 @@
     [self.frontLayerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 	[self.backLayerView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(_overlayTitle, _leftButton, _rightButton, _pageControl, _gradientView);
+    NSDictionary *views = NSDictionaryOfVariableBindings(_overlayTitle, _leftButton, _rightButton, _pageControl);
     NSMutableArray *constraints = [NSMutableArray array];
     
     // Overlay title.
@@ -144,12 +144,14 @@
     [constraints addObject:@"V:[_pageControl(==32)]-60-|"];
     [constraints addObject:@"H:|-180-[_pageControl(==40)]"];
 
+    /*
     // GradientView.
     [self.gradientView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [constraints addObject:@"V:[_gradientView(==200)]-0-|"];
     [constraints addObject:@"H:|-0-[_gradientView(==320)]-0-|"];
    // NSLayoutConstraint *leadingConstraint= [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.gradientView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
     //[self.view addConstraint: @[leadingConstraint]];
+     */
     // Set constraints.
     
     for (NSString *string in constraints) {
@@ -270,7 +272,6 @@
 // Setup the Title Label.
 - (void)setOverlayTitle {
     // ...or change by an UIImageView if you need it.
-    [self.overlayTitle setText:@"Welcome"];
 }
 
 // Setup the Title/Subtitle style/text.

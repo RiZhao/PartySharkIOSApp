@@ -210,27 +210,24 @@
     
     //Tutorial Screen setup
     
-    ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithTitle:@"Picture 1"
-                                                            subTitle:@"1"
-                                                         pictureName:@"tutorial_background_00@2x.jpg"
+    ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithTitle:@""
+                                                            subTitle:@""
+                                                         pictureName:@"1.png"
                                                             duration:3.0];
-    ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithTitle:@"Picture 2"
-                                                            subTitle:@"2"
-                                                         pictureName:@"tutorial_background_01@2x.jpg"
+    ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithTitle:@""
+                                                            subTitle:@""
+                                                         pictureName:@"2.png"
                                                             duration:3.0];
-    ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithTitle:@"Picture 3"
-                                                            subTitle:@"3"
-                                                         pictureName:@"tutorial_background_02@2x.jpg"
+    ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithTitle:@""
+                                                            subTitle:@""
+                                                         pictureName:@"3.png"
                                                             duration:3.0];
-    ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithTitle:@"Picture 4"
-                                                            subTitle:@"4"
-                                                         pictureName:@"tutorial_background_03@2x.jpg"
+    ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithTitle:@""
+                                                            subTitle:@""
+                                                         pictureName:@"4.png"
                                                             duration:3.0];
-    ICETutorialPage *layer5 = [[ICETutorialPage alloc] initWithTitle:@"Picture 5"
-                                                            subTitle:@"5"
-                                                         pictureName:@"tutorial_background_04@2x.jpg"
-                                                            duration:3.0];
-    NSArray *tutorialLayers = @[layer1,layer2,layer3,layer4,layer5];
+    
+    NSArray *tutorialLayers = @[layer1,layer2,layer3,layer4];
     
     
     ICETutorialLabelStyle *titleStyle = [[ICETutorialLabelStyle alloc] init];
