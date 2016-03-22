@@ -195,11 +195,15 @@
             
         } else {
             
-            // Saves that the user is now an admin
-            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_admin"] forKey:@"is_admin"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            if ([[responseObject objectForKey:@"is_admin"]  isEqual: @1]) {
+                
+                [[NSUserDefaults standardUserDefaults] setObject:self.adminCodeTextField.text forKey:@"admin_code"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+            }
             
-            [[NSUserDefaults standardUserDefaults] setObject:self.adminCodeTextField.text forKey:@"admin_code"];
+            // Saves if the user is now an admin
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_admin"] forKey:@"is_admin"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self setSettingsValues : self.settings];
