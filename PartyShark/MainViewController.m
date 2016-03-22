@@ -20,14 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.timer = [NSTimer timerWithTimeInterval:5.1f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
-    // Still need to pause this when screens change and be disabled when button swipe is active
-    // NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
-    // [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.interpolationTimer forMode:NSRunLoopCommonModes];
     
-    //NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
-    //[[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSRunLoopCommonModes];
-    
+     
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
     self.currentSongView.scrollEnabled = NO;
     
@@ -51,6 +51,13 @@
     
     // Gets called twice for some reason
     [self reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [self.timer invalidate];
+    [self.interpolationTimer invalidate];
+    
 }
 
 - (void) reloadData{
@@ -114,6 +121,9 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"dockCurrentSongCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
+        
+        cell.delegate = self;
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         cell.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -198,6 +208,9 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"playlistSongCell" owner:self options:nil];
             cell2 = [nib objectAtIndex:0];
         }
+        
+        cell2.delegate = self;
+        
         cell2.selectionStyle = UITableViewCellSelectionStyleNone;
         
         //If user is admin, give augmented controls
@@ -313,9 +326,9 @@
     
     if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"is_playing"] isEqualToString:@"1"]) {
     
-        // [self reloadData];
+        [self reloadData];
         [self.currentSongView reloadData];
-        // [self.playlistView reloadData];
+        [self.playlistView reloadData];
     }
 }
 
@@ -328,11 +341,39 @@
         song.completedRatio = @(newCompletedRatio);
         
         if (newCompletedRatio >= 1) {
-            [self.playlistView reloadData];
+            [self reloadData];
         }
     
         [self.currentSongView reloadData];
     }
+}
+
+-(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
+{
+    NSString * str;
+    switch (state) {
+        case MGSwipeStateNone:
+            str = @"None";
+            
+            self.timer = [NSTimer timerWithTimeInterval:5.1f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
+            [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+            self.interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
+            [[NSRunLoop mainRunLoop] addTimer:self.interpolationTimer forMode:NSRunLoopCommonModes];
+            
+            break;
+        case MGSwipeStateSwippingLeftToRight:
+            str = @"SwippingLeftToRight";
+            
+            [self.timer invalidate];
+            [self.interpolationTimer invalidate];
+             
+            break;
+        case MGSwipeStateSwippingRightToLeft: str = @"SwippingRightToLeft"; break;
+        case MGSwipeStateExpandingLeftToRight: str = @"ExpandingLeftToRight"; break;
+        case MGSwipeStateExpandingRightToLeft: str = @"ExpandingRightToLeft"; break;
+    }
+    
+    NSLog(@"Swipe state: %@ ::: Gesture: %@", str, gestureIsActive ? @"Active" : @"Ended");
 }
 
 - (void) getPlaylist {
@@ -683,6 +724,5 @@
     
     [dataTask resume];
 }
-
 
 @end

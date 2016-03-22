@@ -30,6 +30,9 @@
 
 @property(strong, nonatomic) UIRefreshControl *refreshControl;
 
+@property(strong, nonatomic) NSTimer *interpolationTimer;
+@property(strong, nonatomic) NSTimer *timer;
+
 - (void) getPlaylist;
 - (void) upvoteSong: (NSNumber*) songCode;
 - (void) downvoteSong: (NSNumber*) songCode;
