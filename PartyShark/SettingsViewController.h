@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "settingsFactory.h"
 #import "settingsDataModel.h"
+#import "ActionSheetStringPicker.h"
 
 @interface SettingsViewController : BaseViewController
 

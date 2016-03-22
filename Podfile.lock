@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.0.5)
   - AFNetworking (3.0.4):
     - AFNetworking/NSURLSession (= 3.0.4)
     - AFNetworking/Reachability (= 3.0.4)
@@ -24,6 +25,7 @@ PODS:
   - SCLAlertView-Objective-C (1.0.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - AFNetworking (~> 3.0)
   - CCBottomRefreshControl
   - ICETutorial (~> 1.1.1)
@@ -33,6 +35,7 @@ DEPENDENCIES:
   - SCLAlertView-Objective-C
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 8312778b6815578e6a86d630fbcf31dc94c534e7
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   CCBottomRefreshControl: 57a596348855260f627ffc2b311328ed15b94877
   ICETutorial: 6cb15e46066afc359357f048d1b5fca444d69c83
