@@ -330,6 +330,10 @@
             [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_playing"] forKey:@"is_playing"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
+            // Saves the admin code
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"admin_code"] forKey:@"admin_code"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             // Saves that the user is now an admin
             [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"is_admin"];
             [[NSUserDefaults standardUserDefaults] synchronize];

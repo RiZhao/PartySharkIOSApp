@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "AFNetworking.h"
+#import "settingsFactory.h"
+#import "settingsDataModel.h"
 
 @interface SettingsViewController : BaseViewController
+
+@property (strong, nonatomic) settingsDataModel *settings;
+
 @property (weak, nonatomic) IBOutlet UILabel *maxParticipantsLabel;
 @property (weak, nonatomic) IBOutlet UITextField *maxParticipantsTextField;
 

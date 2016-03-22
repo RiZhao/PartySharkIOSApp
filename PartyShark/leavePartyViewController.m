@@ -54,6 +54,9 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"savedPartyCode"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"admin_code"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [((AppDelegate*) [[UIApplication sharedApplication] delegate]) setUpTutorialScreen];
 }
 

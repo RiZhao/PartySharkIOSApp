@@ -21,14 +21,10 @@
     // Do any additional setup after loading the view.
 
     self.timer = [NSTimer timerWithTimeInterval:5.1f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
     
-    // Still need to pause this when screens change and be disabled when button swipe is active
-     NSTimer* timer = [NSTimer timerWithTimeInterval:5.0f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
-     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    
-    NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSRunLoopCommonModes];
+    //NSTimer* interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
+    //[[NSRunLoop mainRunLoop] addTimer:interpolationTimer forMode:NSDefaultRunLoopMode];
     
      
     self.currentSongView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, self.view.frame.size.width, 200 ) style:UITableViewStylePlain];
@@ -364,20 +360,27 @@
             str = @"None";
             
             self.timer = [NSTimer timerWithTimeInterval:5.1f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
-            [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-            self.interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
-            [[NSRunLoop mainRunLoop] addTimer:self.interpolationTimer forMode:NSRunLoopCommonModes];
+            //self.interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
             
             break;
         case MGSwipeStateSwippingLeftToRight:
             str = @"SwippingLeftToRight";
             
+            //[self.interpolationTimer invalidate];
             [self.timer invalidate];
-            [self.interpolationTimer invalidate];
+            self.timer = nil;
             
             break;
             
-        case MGSwipeStateSwippingRightToLeft: str = @"SwippingRightToLeft"; break;
+        case MGSwipeStateSwippingRightToLeft:
+            str = @"SwippingRightToLeft";
+            
+            
+            //[self.interpolationTimer invalidate];
+            [self.timer invalidate];
+            self.timer = nil;
+            
+            break;
         case MGSwipeStateExpandingLeftToRight: str = @"ExpandingLeftToRight"; break;
         case MGSwipeStateExpandingRightToLeft: str = @"ExpandingRightToLeft"; break;
     }
@@ -666,72 +669,6 @@
     [dataTask resume];
     
     return [[[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"] isEqualToString:@"1"];
-}
-
-- (void) getSettings {
-    
-    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
-    
-    NSDictionary *parameters = @{};
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
-    
-    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            
-            //Error
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            
-            NSLog(@"%@ %@", response, responseObject);
-        }
-    }];
-    
-    [dataTask resume];
-    
-}
-
-- (void) updateSettings {
-    
-    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
-    
-    //Set these to the set values
-    
-    NSNumber *maxPartySize = @25;
-    NSNumber *maxPlaylistSize = @15;
-    // NSNumber *virtualDJ = @1;
-    // NSNumber *defaultGenre;
-    // NSNumber *vetoRatio = @0.30;
-    
-    NSDictionary *parameters = @{@"user_cap": maxPartySize,
-                                 @"playthrough_cap": maxPlaylistSize};
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
-    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
-    
-    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
-    
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            
-            //Error
-            NSLog(@"Error: %@", error);
-            
-        } else {
-            
-            NSLog(@"%@ %@", response, responseObject);
-        }
-    }];
-    
-    [dataTask resume];
 }
 
 @end

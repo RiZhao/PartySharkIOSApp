@@ -19,6 +19,73 @@
     [super viewDidLoad];
     
 
+    [self getSettings];
+}
+
+- (void) getSettings {
+    
+    settingsFactory *fetch = [[settingsFactory alloc]init];
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("MyQueue", NULL);
+    dispatch_async(concurrentQueue, ^{
+        [fetch gatherData :^(BOOL success, settingsDataModel *set, NSError *error) {
+            if (!success){
+                NSLog(@"%@", error);
+            }else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    self.settings = set;
+                    [self setSettingsValues: set];
+                    
+                });
+            }
+        }
+         ];
+    });
+    
+}
+
+- (void) setSettingsValues : (settingsDataModel*) settings {
+    
+    if ([self.settings.maxParticipants isKindOfClass:[NSNull class]])
+        self.maxParticipantsTextField.placeholder = @"Unlimited";
+    else
+        self.maxParticipantsTextField.placeholder = [NSString stringWithFormat:@"%@", settings.maxParticipants];
+    
+    if ([self.settings.maxPlaylistSize isKindOfClass:[NSNull class]])
+        self.maxPlaylistSizeTextField.placeholder = @"Unlimited";
+    else
+        self.maxPlaylistSizeTextField.placeholder = [NSString stringWithFormat:@"%@", settings.maxPlaylistSize];
+    
+    [self.virtualDJSwitchButton setOn:settings.virtualDJ];
+    
+    self.adminCodeTextField.placeholder = [[NSUserDefaults standardUserDefaults] stringForKey:@"admin_code"];
+    
+    NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
+    
+    [self.defaultRadioButton setTitle:@"Stuff" forState:UIControlStateNormal];
+    
+    if ([isAdmin isEqual:@"0"]) {
+        
+        [self.defaultRadioButton setEnabled:NO];
+        [self.maxParticipantsTextField setEnabled:NO];
+        [self.maxPlaylistSizeTextField setEnabled:NO];
+        [self.virtualDJSwitchButton setEnabled:NO];
+        [self.updateOptionsButton setEnabled:NO];
+        
+    }
+    else {
+        
+        [self.adminCodeTextField setEnabled:NO];
+        [self.adminCodeButton setEnabled:NO];
+        [self.adminCodeButton setHidden:YES];
+        
+        [self.defaultRadioButton setEnabled:YES];
+        [self.maxParticipantsTextField setEnabled:YES];
+        [self.maxPlaylistSizeTextField setEnabled:YES];
+        [self.virtualDJSwitchButton setEnabled:YES];
+        [self.updateOptionsButton setEnabled:YES];
+        
+    }
     
 }
 
@@ -42,9 +109,114 @@
 - (IBAction)defaultRadioGenreButton:(id)sender {
 }
 - (IBAction)updateOptionsButtonPressed:(id)sender {
+    
+    [self updateSettings];
+    
 }
 - (IBAction)adminCodeTextFieldEdit:(id)sender {
 }
 - (IBAction)adminCodeButtonPressed:(id)sender {
+    
+    [self promoteToAdmin];
+    
 }
+
+
+- (void) promoteToAdmin {
+    
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/users/self", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *value = [f numberFromString:self.adminCodeTextField.text];
+    
+    NSDictionary *parameters = @{@"admin_code": value};
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            // Saves that the user is now an admin
+            [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"is_admin"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:self.adminCodeTextField.text forKey:@"admin_code"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [self setSettingsValues : self.settings];
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+}
+
+- (void) updateSettings {
+    
+    NSString *URLString = [NSString stringWithFormat:@"https://api.partyshark.tk/parties/%@/settings", [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"]];
+    
+    //Set these to the set values
+    
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    
+    NSNumber *virtualDJ = [NSNumber numberWithBool:self.virtualDJSwitchButton.isOn];
+    NSNumber *defaultGenre = @0;
+    // NSNumber *vetoRatio = @0.30;
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    
+    [parameters setObject:virtualDJ forKey:@"virtual_dj"];
+    [parameters setObject:defaultGenre forKey:@"default_genre"];
+    
+    if (![self.maxPlaylistSizeTextField.text isEqualToString:@""]) {
+        [parameters setObject:[f numberFromString:self.maxPlaylistSizeTextField.text] forKey:@"playthrough_cap"];
+    }
+    
+    if (![self.maxParticipantsTextField.text isEqualToString:@""]) {
+        [parameters setObject:[f numberFromString:self.maxParticipantsTextField.text] forKey:@"user_cap"];
+    }
+    
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:URLString parameters:parameters error:nil];
+    
+    [request setValue: [[NSUserDefaults standardUserDefaults] stringForKey:@"X_User_Code"] forHTTPHeaderField:@"X-User-Code"];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            //Error
+            NSLog(@"Error: %@", error);
+            
+        } else {
+            
+            self.settings.maxPlaylistSize = [responseObject objectForKey:@"playthrough_cap"];
+            self.settings.maxParticipants = [responseObject objectForKey:@"user_cap"];
+            self.settings.virtualDJ = [[responseObject objectForKey:@"virtual_dj"] boolValue];
+            self.settings.defaultGenre = [responseObject objectForKey:@"default_genre"];
+            
+            [self setSettingsValues : self.settings];
+            
+            NSLog(@"%@ %@", response, responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+}
+
 @end
