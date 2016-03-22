@@ -196,7 +196,7 @@
         } else {
             
             // Saves that the user is now an admin
-            [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"is_admin"];
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_admin"] forKey:@"is_admin"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [[NSUserDefaults standardUserDefaults] setObject:self.adminCodeTextField.text forKey:@"admin_code"];
