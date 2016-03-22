@@ -28,7 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *defaultRadioLabel;
 @property (weak, nonatomic) IBOutlet UIButton *defaultRadioButton;
-- (IBAction)defaultRadioGenreButton:(id)sender;
+- (IBAction)defaultRadioButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *updateOptionsButton;
 - (IBAction)updateOptionsButtonPressed:(id)sender;
@@ -38,6 +38,8 @@
 - (IBAction)adminCodeTextFieldEdit:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *adminCodeButton;
 - (IBAction)adminCodeButtonPressed:(id)sender;
+
+@property (strong, nonatomic) NSDictionary *defaultGenres;
 
 
 

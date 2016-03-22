@@ -18,9 +18,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.defaultGenres = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Classic Rock", @0,
+                          @"Metal", @1,
+                          @"Jazz", @2,
+                          @"Country", @3,
+                          @"Top Hits", @4,
+                          @"Classical", @5,
+                          @"Folk", @6,
+                          @"Electronic", @7, nil];
+    
     NSString* partyCode = [[NSUserDefaults standardUserDefaults] stringForKey:@"savedPartyCode"];
     partyCode = [NSString stringWithFormat:@"Party Code: %@", partyCode];
     self.title = partyCode;
+    
+    self.maxParticipantsTextField.delegate = self;
+    self.maxPlaylistSizeTextField.delegate = self;
+    self.adminCodeTextField.delegate = self;
 
     [self getSettings];
 }
@@ -65,7 +79,16 @@
     
     NSString *isAdmin = [[NSUserDefaults standardUserDefaults] stringForKey:@"is_admin"];
     
-    [self.defaultRadioButton setTitle:@"Stuff" forState:UIControlStateNormal];
+    if ([settings.defaultGenre isKindOfClass:[NSNull class]] || [settings.defaultGenre floatValue] == -1) {
+        
+        [self.defaultRadioButton setTitle:@"None" forState:UIControlStateNormal];
+        
+    }
+    else {
+        
+        [self.defaultRadioButton setTitle:[self.defaultGenres objectForKey:settings.defaultGenre] forState:UIControlStateNormal];
+        
+    }
     
     if ([isAdmin isEqual:@"0"]) {
         
@@ -120,8 +143,30 @@
 }
 - (IBAction)adminCodeButtonPressed:(id)sender {
     
-    [self promoteToAdmin];
+    if (![self.adminCodeTextField.text isEqualToString:@""]) {
+        [self promoteToAdmin];
+    }
     
+}
+
+- (IBAction)defaultRadioButtonPressed:(id)sender {
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    // allow backspace
+    if (!string.length)
+    {
+        return YES;
+    }
+    
+    if ([string rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location != NSNotFound)
+    {
+        // BasicAlert(@"", @"This field accepts only numeric entries.");
+        return NO;
+    }
+    
+    return YES;
 }
 
 
@@ -176,13 +221,11 @@
     f.numberStyle = NSNumberFormatterDecimalStyle;
     
     NSNumber *virtualDJ = [NSNumber numberWithBool:self.virtualDJSwitchButton.isOn];
-    NSNumber *defaultGenre = @0;
     // NSNumber *vetoRatio = @0.30;
     
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     
     [parameters setObject:virtualDJ forKey:@"virtual_dj"];
-    [parameters setObject:defaultGenre forKey:@"default_genre"];
     
     if (![self.maxPlaylistSizeTextField.text isEqualToString:@""]) {
         [parameters setObject:[f numberFromString:self.maxPlaylistSizeTextField.text] forKey:@"playthrough_cap"];
@@ -191,6 +234,9 @@
     if (![self.maxParticipantsTextField.text isEqualToString:@""]) {
         [parameters setObject:[f numberFromString:self.maxParticipantsTextField.text] forKey:@"user_cap"];
     }
+    
+    [parameters setObject:self.settings.defaultGenre forKey:@"default_genre"];
+
     
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

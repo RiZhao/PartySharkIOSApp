@@ -212,19 +212,19 @@
     
     ICETutorialPage *layer1 = [[ICETutorialPage alloc] initWithTitle:@""
                                                             subTitle:@""
-                                                         pictureName:@"1.png"
+                                                         pictureName:@"11.png"
                                                             duration:3.0];
     ICETutorialPage *layer2 = [[ICETutorialPage alloc] initWithTitle:@""
                                                             subTitle:@""
-                                                         pictureName:@"2.png"
+                                                         pictureName:@"22.png"
                                                             duration:3.0];
     ICETutorialPage *layer3 = [[ICETutorialPage alloc] initWithTitle:@""
                                                             subTitle:@""
-                                                         pictureName:@"3.png"
+                                                         pictureName:@"33.png"
                                                             duration:3.0];
     ICETutorialPage *layer4 = [[ICETutorialPage alloc] initWithTitle:@""
                                                             subTitle:@""
-                                                         pictureName:@"4.png"
+                                                         pictureName:@"44.png"
                                                             duration:3.0];
     
     NSArray *tutorialLayers = @[layer1,layer2,layer3,layer4];

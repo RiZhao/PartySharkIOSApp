@@ -14,10 +14,11 @@
 		941EB50C1CA0EE71006B208D /* up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 941EB50B1CA0EE71006B208D /* up.jpg */; };
 		941EB5101CA0F928006B208D /* settingsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 941EB50F1CA0F928006B208D /* settingsDataModel.m */; };
 		941EB5121CA0F971006B208D /* settingsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 941EB5111CA0F971006B208D /* settingsFactory.m */; };
-		94E038741CA1CE7800EB6EA4 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E038701CA1CE7800EB6EA4 /* 1.png */; };
-		94E038751CA1CE7800EB6EA4 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E038711CA1CE7800EB6EA4 /* 2.png */; };
-		94E038761CA1CE7800EB6EA4 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E038721CA1CE7800EB6EA4 /* 3.png */; };
-		94E038771CA1CE7800EB6EA4 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E038731CA1CE7800EB6EA4 /* 4.png */; };
+		94E0387F1CA1D7A000EB6EA4 /* 22.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E0387B1CA1D7A000EB6EA4 /* 22.png */; };
+		94E038801CA1D7A000EB6EA4 /* 33.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E0387C1CA1D7A000EB6EA4 /* 33.png */; };
+		94E038811CA1D7A000EB6EA4 /* 44.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E0387D1CA1D7A000EB6EA4 /* 44.png */; };
+		94E038831CA1DB9400EB6EA4 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E038821CA1DB9400EB6EA4 /* 11.png */; };
+		94E038851CA1DCF900EB6EA4 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 94E038841CA1DCF900EB6EA4 /* line.png */; };
 		EB5665DB1C8FA6950066F5BF /* searchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5665DA1C8FA6950066F5BF /* searchResultCell.xib */; };
 		EB5665DE1C8FA77A0066F5BF /* searchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5665DD1C8FA77A0066F5BF /* searchTableViewCell.m */; };
 		EB5665E01C8FB32C0066F5BF /* ic_lens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5665DF1C8FB32C0066F5BF /* ic_lens@2x.png */; };
@@ -93,10 +94,11 @@
 		941EB50F1CA0F928006B208D /* settingsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsDataModel.m; sourceTree = "<group>"; };
 		941EB5111CA0F971006B208D /* settingsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsFactory.m; sourceTree = "<group>"; };
 		941EB5131CA0F989006B208D /* settingsFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = settingsFactory.h; sourceTree = "<group>"; };
-		94E038701CA1CE7800EB6EA4 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		94E038711CA1CE7800EB6EA4 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		94E038721CA1CE7800EB6EA4 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		94E038731CA1CE7800EB6EA4 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		94E0387B1CA1D7A000EB6EA4 /* 22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 22.png; sourceTree = "<group>"; };
+		94E0387C1CA1D7A000EB6EA4 /* 33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 33.png; sourceTree = "<group>"; };
+		94E0387D1CA1D7A000EB6EA4 /* 44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 44.png; sourceTree = "<group>"; };
+		94E038821CA1DB9400EB6EA4 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		94E038841CA1DCF900EB6EA4 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		E47DB16860D8EC79F86AB5DC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5665DA1C8FA6950066F5BF /* searchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchResultCell.xib; sourceTree = "<group>"; };
 		EB5665DC1C8FA77A0066F5BF /* searchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchTableViewCell.h; sourceTree = "<group>"; };
@@ -257,10 +259,11 @@
 		EB71E6C61C88E83C0059D8AB /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				94E038701CA1CE7800EB6EA4 /* 1.png */,
-				94E038711CA1CE7800EB6EA4 /* 2.png */,
-				94E038721CA1CE7800EB6EA4 /* 3.png */,
-				94E038731CA1CE7800EB6EA4 /* 4.png */,
+				94E038821CA1DB9400EB6EA4 /* 11.png */,
+				94E0387B1CA1D7A000EB6EA4 /* 22.png */,
+				94E0387C1CA1D7A000EB6EA4 /* 33.png */,
+				94E0387D1CA1D7A000EB6EA4 /* 44.png */,
+				94E038841CA1DCF900EB6EA4 /* line.png */,
 				EB71E6C71C88E88A0059D8AB /* tutorial_background_00@2x.jpg */,
 				EB71E6C81C88E88A0059D8AB /* tutorial_background_01@2x.jpg */,
 				EB71E6C91C88E88A0059D8AB /* tutorial_background_02@2x.jpg */,
@@ -604,26 +607,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E038751CA1CE7800EB6EA4 /* 2.png in Resources */,
 				EB5665E01C8FB32C0066F5BF /* ic_lens@2x.png in Resources */,
+				94E038811CA1D7A000EB6EA4 /* 44.png in Resources */,
 				EBAFA24D1C585D06007E59F9 /* config.plist in Resources */,
 				EBEC66831C9631A600072624 /* MNMBottomPullToRefresh.strings in Resources */,
+				94E038801CA1D7A000EB6EA4 /* 33.png in Resources */,
 				EB71E6CE1C88E88A0059D8AB /* tutorial_background_02@2x.jpg in Resources */,
 				EB71E6D01C88E88A0059D8AB /* tutorial_background_04@2x.jpg in Resources */,
 				EB5665E71C9127850066F5BF /* Icon-40@3x.png in Resources */,
-				94E038741CA1CE7800EB6EA4 /* 1.png in Resources */,
 				EBAFA2011C4EECBB007E59F9 /* LaunchScreen.storyboard in Resources */,
+				94E0387F1CA1D7A000EB6EA4 /* 22.png in Resources */,
 				941EB50A1CA0EE69006B208D /* down.jpg in Resources */,
 				EB71E6CF1C88E88A0059D8AB /* tutorial_background_03@2x.jpg in Resources */,
-				94E038761CA1CE7800EB6EA4 /* 3.png in Resources */,
-				94E038771CA1CE7800EB6EA4 /* 4.png in Resources */,
 				EBC1D2FF1C890062009F4483 /* dockCurrentSongCell.xib in Resources */,
 				941EB50C1CA0EE71006B208D /* up.jpg in Resources */,
 				EBAFA1FE1C4EECBB007E59F9 /* Assets.xcassets in Resources */,
 				EB71E6CD1C88E88A0059D8AB /* tutorial_background_01@2x.jpg in Resources */,
+				94E038851CA1DCF900EB6EA4 /* line.png in Resources */,
 				EBEC66841C9631A600072624 /* MNMBottomPullToRefreshArrow.png in Resources */,
 				EBEC66851C9631A600072624 /* MNMBottomPullToRefreshArrow@2x.png in Resources */,
 				EBAFA1FC1C4EECBB007E59F9 /* Main.storyboard in Resources */,
+				94E038831CA1DB9400EB6EA4 /* 11.png in Resources */,
 				EB5665E51C91256B0066F5BF /* Icon-40.png in Resources */,
 				EBC1D3061C8A90B7009F4483 /* playlistSongCell.xib in Resources */,
 				EB5665DB1C8FA6950066F5BF /* searchResultCell.xib in Resources */,
