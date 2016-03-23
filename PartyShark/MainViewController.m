@@ -60,6 +60,8 @@
     
 }
 
+
+
 - (void) reloadData{
     
     [self getPlaylist];
@@ -508,7 +510,7 @@
         }
     }];
     [dataTask resume];
-
+    
     
     
 }
