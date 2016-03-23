@@ -36,6 +36,12 @@
     self.maxPlaylistSizeTextField.delegate = self;
     self.adminCodeTextField.delegate = self;
 
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
     [self getSettings];
 }
 
@@ -59,6 +65,12 @@
          ];
     });
     
+}
+
+-(void)dismissKeyboard {
+    [self.maxParticipantsTextField resignFirstResponder];
+    [self.maxPlaylistSizeTextField resignFirstResponder];
+    [self.adminCodeTextField resignFirstResponder];
 }
 
 - (void) setSettingsValues : (settingsDataModel*) settings {
@@ -139,6 +151,9 @@
     
 }
 - (IBAction)adminCodeTextFieldEdit:(id)sender {
+    
+    
+    
 }
 - (IBAction)adminCodeButtonPressed:(id)sender {
     

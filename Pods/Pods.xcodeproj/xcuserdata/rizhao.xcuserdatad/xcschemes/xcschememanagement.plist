@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CCBottomRefreshControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,12 +57,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>268AF22CF1ADE6AF88BDE9F49C77156D</key>
+		<key>1D2081CCD9B39ADF6B15DCD7368163CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3FC27EB5B4EFD2AA7BA120D2661686D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>414957DE08EDCE00BC3C51760FE4590E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C36B1F5D992ACDFD781AFC537E2D4B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>602D0FFA5EAE497A27B7AB2E67E06687</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7188E84B0BBAFC714AF69FF7C12873B1</key>
+		<key>6CB31D11C6914E13686FFD8261A4CA78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A15289AD9A5C39E9D4F5284B3DD9728F</key>
+		<key>BDE21A5D42CF5A7F259BD0193ABFC399</key>
 		<dict>
 			<key>primary</key>
 			<true/>
