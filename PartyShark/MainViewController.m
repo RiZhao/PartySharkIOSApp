@@ -362,6 +362,7 @@
             str = @"None";
             
             self.timer = [NSTimer timerWithTimeInterval:5.1f target:self selector:@selector(handlePeriodicRefresh:) userInfo:nil repeats:YES];
+            [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
             //self.interpolationTimer = [NSTimer timerWithTimeInterval:1.0f target:self selector:@selector(handleInterpolation:) userInfo:nil repeats:YES];
             
             break;

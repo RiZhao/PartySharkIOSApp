@@ -123,7 +123,7 @@
         }];
     }];
 
-    UIColor *color = [UIColor colorWithRed:250.0/255.0 green:105.0/255.0 blue:0.0/255.0 alpha:1.0];
+    UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:8.0/255.0 alpha:1.0];
     [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"" closeButtonTitle:@"Cancel" duration:0.0f];
     
     
@@ -176,7 +176,7 @@
     }];
     
     
-    UIColor *color = [UIColor colorWithRed:250.0/255.0 green:105.0/255.0 blue:0.0/255.0 alpha:1.0];
+    UIColor *color = [UIColor colorWithRed:246.0/255.0 green:82.0/255.0 blue:8.0/255.0 alpha:1.0];
     [alert showCustom:self.window.rootViewController image:[UIImage imageNamed:@"Icon-40@3x.png"] color:color title:@"PartyShark" subTitle:@"Enter Party Code to Join Party" closeButtonTitle:@"Cancel" duration:0.0f];
 }
 

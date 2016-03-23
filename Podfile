@@ -12,3 +12,4 @@ pod 'SBSearchBar'
 pod 'SCLAlertView-Objective-C'
 pod 'AFNetworking', '~> 3.0'
 pod 'CCBottomRefreshControl'
+pod ‘ActionSheetPicker-3.0’

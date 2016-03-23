@@ -132,8 +132,7 @@
 
 - (IBAction)virtualDJSwitch:(id)sender {
 }
-- (IBAction)defaultRadioGenreButton:(id)sender {
-}
+
 - (IBAction)updateOptionsButtonPressed:(id)sender {
     
     [self updateSettings];
@@ -150,6 +149,33 @@
 }
 
 - (IBAction)defaultRadioButtonPressed:(id)sender {
+    
+    NSMutableArray *genres = self.defaultGenres.allValues;
+    NSString *none = @"None";
+    NSMutableArray *empty = [[NSMutableArray alloc]init];
+    NSMutableArray *newArray = [[empty arrayByAddingObjectsFromArray:genres] mutableCopy];
+    [newArray insertObject:none atIndex:0];
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"Choose Default Genre" rows: newArray initialSelection:0
+                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue){
+                                           
+                                           [self.defaultRadioButton setTitle:selectedValue forState:UIControlStateNormal];
+                                           
+                                           NSNumber *num = [NSNumber numberWithInteger:(selectedIndex-1)];
+                                           
+                                           if([selectedValue isEqualToString:@"None"]) {
+                                               self.settings.defaultGenre = @-1;
+                                           }
+                                           else {
+                                               self.settings.defaultGenre = [self.defaultGenres allKeysForObject:selectedValue][0];
+                                           }
+                                           
+                                           
+                                           
+                                       }cancelBlock:^(ActionSheetStringPicker *picker) {
+                                           
+                                       } origin:sender];
+    
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -195,11 +221,15 @@
             
         } else {
             
-            // Saves that the user is now an admin
-            [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"is_admin"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+            if ([[responseObject objectForKey:@"is_admin"]  isEqual: @1]) {
+                
+                [[NSUserDefaults standardUserDefaults] setObject:self.adminCodeTextField.text forKey:@"admin_code"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+            }
             
-            [[NSUserDefaults standardUserDefaults] setObject:self.adminCodeTextField.text forKey:@"admin_code"];
+            // Saves if the user is now an admin
+            [[NSUserDefaults standardUserDefaults] setObject:[responseObject objectForKey:@"is_admin"] forKey:@"is_admin"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [self setSettingsValues : self.settings];
