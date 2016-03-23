@@ -49,6 +49,8 @@
     [self.playlistView addSubview:self.refreshControl];
     
     self.playlistView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.currentSongView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     // Gets called twice for some reason
     [self reloadData];
 }
